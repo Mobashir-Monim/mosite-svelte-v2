@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { UIFileType, UIFolderType } from '$lib/types';
-	import FileComponent from './FileComponent.svelte';
+	import DocumentComponent from './DocumentComponent.svelte';
 	import FolderComponent from './FolderComponent.svelte';
 
 	export let contents: (UIFileType | UIFolderType)[];
@@ -38,10 +38,14 @@
 			</slot>
 		{:else}
 			<slot name="file">
-				<FileComponent
+				<DocumentComponent
 					file={content}
 					size={contentSize}
 					containerClasses={contentContainerClasses}
+					isSelected={isSelected(content.name)}
+					{onSelect}
+					isOpen={isOpen(content.name)}
+					{onOpen}
 					tabindex={id}
 				/>
 			</slot>

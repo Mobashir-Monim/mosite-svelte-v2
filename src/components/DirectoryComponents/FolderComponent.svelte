@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { UIFolderType } from '$lib/types';
-	import FolderIcon from '../assets/icons/FolderIcon.svelte';
-	import OpenFolderIcon from '../assets/icons/OpenFolderIcon.svelte';
+	import FolderIcon from '../../assets/icons/FolderIcon.svelte';
+	import OpenFolderIcon from '../../assets/icons/OpenFolderIcon.svelte';
 
 	export let folder: UIFolderType;
 	export let containerClasses: string = '';
@@ -30,7 +30,7 @@
 	</div>
 
 	<div
-		class="line-clamp-2 text-center {isSelected ? 'bg-white/20' : ''} select-none"
+		class="line-clamp-2 text-center p-1 {isSelected ? 'bg-white/20' : ''} select-none"
 		style="width: {size}px; overflow-wrap: break-word;"
 	>
 		{folder.name}
