@@ -1,8 +1,7 @@
 <script lang="ts">
 	import type { UIFolderType } from '$lib/types';
 	import Logo from '../assets/icons/Logo.svelte';
-	import DirectorySystemComponent from '../components/DirectorySystemComponent.svelte';
-	import Folder from '../components/FolderComponent.svelte';
+	import DirectorySystemComponent from '../components/DirectoryComponents/DirectorySystemComponent.svelte';
 
 	const folders: UIFolderType[] = [
 		{
