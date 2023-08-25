@@ -31,7 +31,6 @@
 					containerClasses={contentContainerClasses}
 					isSelected={isSelected(content.name)}
 					{onSelect}
-					isOpen={isOpen(content.name)}
 					{onOpen}
 					tabindex={id}
 				/>
@@ -44,7 +43,6 @@
 					containerClasses={contentContainerClasses}
 					isSelected={isSelected(content.name)}
 					{onSelect}
-					isOpen={isOpen(content.name)}
 					{onOpen}
 					tabindex={id}
 				/>

@@ -8,7 +8,6 @@
 	export let size: number = 100;
 	export let isSelected: boolean = false;
 	export let onSelect: (name: string) => void;
-	export let isOpen: boolean = false;
 	export let onOpen: (name: string) => void;
 	export let tabindex: number;
 </script>
@@ -22,7 +21,7 @@
 	{tabindex}
 >
 	<div class={isSelected ? 'bg-white/20' : ''}>
-		{#if !isOpen}
+		{#if !folder.isOpen}
 			<FolderIcon {size} />
 		{:else}
 			<OpenFolderIcon {size} />
