@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+	font-family: 'Montserrat';
+	src: url('./assets/fonts/Montserrat-VariableFont_wght.ttf');
+}
+
+@font-face {
+	font-family: 'Monofett';
+	src: url('./assets/fonts/Monofett-Regular.ttf');
+}
+
+body {
+	color: white;
+	font-family: 'Montserrat';
+	@apply tracking-widest font-light;
+}
+
+.transit {
+	@apply transition-all duration-300 ease-linear;
+}
+
+.nsb::-webkit-scrollbar {
+	display: none !important;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.nsb {
+	-ms-overflow-style: none !important; /* IE and Edge */
+	scrollbar-width: none !important; /* Firefox */
+}
