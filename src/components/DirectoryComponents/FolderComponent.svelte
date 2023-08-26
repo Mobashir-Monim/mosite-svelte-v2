@@ -2,6 +2,7 @@
 	import type { UIFolderType } from '$lib/types';
 	import FolderIcon from '../../assets/icons/FolderIcon.svelte';
 	import OpenFolderIcon from '../../assets/icons/OpenFolderIcon.svelte';
+	import DirectoryContentComponent from './DirectoryContentComponent.svelte';
 
 	export let folder: UIFolderType;
 	export let containerClasses: string = '';
@@ -12,26 +13,18 @@
 	export let tabindex: number;
 </script>
 
-<div
-	class="flex flex-col cursor-pointer gap-2 {containerClasses}"
-	on:click={() => onSelect(folder.name)}
-	on:keydown={() => onSelect(folder.name)}
-	on:dblclick={() => onOpen(folder.name)}
-	role="button"
+<DirectoryContentComponent
+	{containerClasses}
+	{size}
+	name={folder.name}
+	{isSelected}
+	{onSelect}
+	{onOpen}
 	{tabindex}
 >
-	<div class={isSelected ? 'bg-white/20' : ''}>
-		{#if !folder.isOpen}
-			<FolderIcon {size} />
-		{:else}
-			<OpenFolderIcon {size} />
-		{/if}
-	</div>
-
-	<div
-		class="line-clamp-2 text-center p-1 {isSelected ? 'bg-white/20' : ''} select-none"
-		style="width: {size}px; overflow-wrap: break-word;"
-	>
-		{folder.name}
-	</div>
-</div>
+	{#if !folder.isOpen}
+		<FolderIcon {size} />
+	{:else}
+		<OpenFolderIcon {size} />
+	{/if}
+</DirectoryContentComponent>

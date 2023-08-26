@@ -12,6 +12,7 @@
 	$: isSelected = (name: string) => selectedContent === name;
 
 	const onOpen = (folder: string) => {
+		console.log('called');
 		openedFolder = folder;
 		selectedContent = '';
 	};

@@ -2,6 +2,7 @@
 	import type { UIFileType } from '$lib/types';
 	import DocumentIcon from '../../assets/icons/DocumentIcon.svelte';
 	import OpenDocumentIcon from '../../assets/icons/OpenDocumentIcon.svelte';
+	import DirectoryContentComponent from './DirectoryContentComponent.svelte';
 
 	export let file: UIFileType;
 	export let size: number = 100;
@@ -12,25 +13,18 @@
 	export let tabindex: number;
 </script>
 
-<div
-	class="flex flex-col cursor-pointer gap-2 {containerClasses}"
-	on:click={() => onSelect(file.name)}
-	on:keydown={() => onSelect(file.name)}
-	on:dblclick={() => onOpen(file.name)}
-	role="button"
+<DirectoryContentComponent
+	{containerClasses}
+	{size}
+	name={file.name}
+	{isSelected}
+	{onSelect}
+	{onOpen}
 	{tabindex}
 >
-	<div class={isSelected ? 'bg-white/20' : ''}>
-		{#if !file.isOpen}
-			<DocumentIcon {size} />
-		{:else}
-			<OpenDocumentIcon {size} />
-		{/if}
-	</div>
-	<div
-		class="line-clamp-2 text-center p-1 {isSelected ? 'bg-white/20' : ''} select-none"
-		style="width: {size}px; overflow-wrap: break-word;"
-	>
-		{file.name}
-	</div>
-</div>
+	{#if !file.isOpen}
+		<DocumentIcon {size} />
+	{:else}
+		<OpenDocumentIcon {size} />
+	{/if}
+</DirectoryContentComponent>
