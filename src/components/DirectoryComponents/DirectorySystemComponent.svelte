@@ -1,18 +1,22 @@
 <script lang="ts">
-	import type { UIFileType, UIFolderType } from '$lib/types';
+	import { globalDirectorySystemStore } from '$lib/store';
+	import type { DirectoryStateType } from '$lib/types';
 	import DocumentComponent from './DocumentComponent.svelte';
 	import FolderComponent from './FolderComponent.svelte';
 
-	export let contents: (UIFileType | UIFolderType)[];
-	export let contentSize: number = 100;
+	export let directoryName: string;
+	let directoryState: DirectoryStateType;
 	export let contentContainerClasses: string = '';
 	let openedFolder: string = '';
 	let selectedContent: string = '';
-	$: isOpen = (name: string) => openedFolder === name;
 	$: isSelected = (name: string) => selectedContent === name;
 
+	globalDirectorySystemStore.subscribe((value) => {
+		const state = value.find((dir) => dir.name === directoryName);
+		if (state) directoryState = state;
+	});
+
 	const onOpen = (folder: string) => {
-		console.log('called');
 		openedFolder = folder;
 		selectedContent = '';
 	};
@@ -23,31 +27,33 @@
 </script>
 
 <div class="flex flex-row flex-wrap justify-between w-full">
-	{#each contents as content, id}
-		{#if content.type === 'folder'}
-			<slot name="folder">
-				<FolderComponent
-					folder={content}
-					size={contentSize}
-					containerClasses={contentContainerClasses}
-					isSelected={isSelected(content.name)}
-					{onSelect}
-					{onOpen}
-					tabindex={id}
-				/>
-			</slot>
-		{:else}
-			<slot name="file">
-				<DocumentComponent
-					file={content}
-					size={contentSize}
-					containerClasses={contentContainerClasses}
-					isSelected={isSelected(content.name)}
-					{onSelect}
-					{onOpen}
-					tabindex={id}
-				/>
-			</slot>
-		{/if}
-	{/each}
+	{#if directoryState}
+		{#each directoryState?.contents as content, id}
+			{#if content.type === 'folder'}
+				<slot name="folder">
+					<FolderComponent
+						folder={content}
+						size={directoryState?.size}
+						containerClasses={contentContainerClasses}
+						isSelected={isSelected(content.name)}
+						{onSelect}
+						{onOpen}
+						tabindex={id}
+					/>
+				</slot>
+			{:else}
+				<slot name="file">
+					<DocumentComponent
+						file={content}
+						size={directoryState?.size}
+						containerClasses={contentContainerClasses}
+						isSelected={isSelected(content.name)}
+						{onSelect}
+						{onOpen}
+						tabindex={id}
+					/>
+				</slot>
+			{/if}
+		{/each}
+	{/if}
 </div>

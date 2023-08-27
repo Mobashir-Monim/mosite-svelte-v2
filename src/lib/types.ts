@@ -11,3 +11,11 @@ export interface UIFolderType {
 	contents: (UIFileType | UIFolderType)[];
 	isOpen?: boolean;
 }
+
+export interface DirectoryStateType {
+	name: string;
+	contents: (UIFileType | UIFolderType)[];
+    size: number;
+	left: number;
+	top: number;
+}

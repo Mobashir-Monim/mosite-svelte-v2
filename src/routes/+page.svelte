@@ -1,8 +1,11 @@
 <script lang="ts">
 	import type { UIFolderType } from '$lib/types';
+	import { onMount } from 'svelte';
 	import Logo from '../assets/icons/Logo.svelte';
 	import DirectorySystemComponent from '../components/DirectoryComponents/DirectorySystemComponent.svelte';
+	import { openDirectory } from '$lib/store/global-directory-system-store-control';
 
+	const directoryName: string = 'root';
 	const folders: UIFolderType[] = [
 		{
 			type: 'folder',
@@ -25,6 +28,10 @@
 			contents: []
 		}
 	];
+
+	onMount(() => {
+		openDirectory('root', folders, 150);
+	});
 </script>
 
 <div class="max-w-[1300px] h-full mx-auto flex flex-col justify-center">
@@ -44,7 +51,7 @@
 			</div>
 		</div>
 		<div class="md:w-3/5 flex flex-col justify-center gap-20 px-5 md:pl-0 md:pr-10">
-			<DirectorySystemComponent contents={folders} contentSize={150} />
+			<DirectorySystemComponent {directoryName} />
 		</div>
 	</div>
 </div>
