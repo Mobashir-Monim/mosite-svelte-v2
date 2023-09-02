@@ -1,7 +1,6 @@
 <script lang="ts">
 	import type { UIFolderType } from '$lib/types';
 	import FolderIcon from '../../assets/icons/FolderIcon.svelte';
-	import OpenFolderIcon from '../../assets/icons/OpenFolderIcon.svelte';
 	import DirectoryContentComponent from './DirectoryContentComponent.svelte';
 
 	export let folder: UIFolderType;
@@ -22,9 +21,5 @@
 	{onOpen}
 	{tabindex}
 >
-	{#if !folder.isOpen}
-		<FolderIcon {size} />
-	{:else}
-		<OpenFolderIcon {size} />
-	{/if}
+	<FolderIcon {size} />
 </DirectoryContentComponent>

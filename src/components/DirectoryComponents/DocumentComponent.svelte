@@ -1,7 +1,6 @@
 <script lang="ts">
 	import type { UIFileType } from '$lib/types';
 	import DocumentIcon from '../../assets/icons/DocumentIcon.svelte';
-	import OpenDocumentIcon from '../../assets/icons/OpenDocumentIcon.svelte';
 	import DirectoryContentComponent from './DirectoryContentComponent.svelte';
 
 	export let file: UIFileType;
@@ -22,9 +21,5 @@
 	{onOpen}
 	{tabindex}
 >
-	{#if !file.isOpen}
-		<DocumentIcon {size} />
-	{:else}
-		<OpenDocumentIcon {size} />
-	{/if}
+	<DocumentIcon {size} />
 </DirectoryContentComponent>
