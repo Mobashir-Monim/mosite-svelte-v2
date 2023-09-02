@@ -11,12 +11,12 @@
 </script>
 
 <DirectoryContentContainerComponent {containerClasses} {name} {onSelect} {onOpen} {tabindex}>
-	<div class={isSelected ? 'bg-white/20' : ''}>
+	<div class="{isSelected ? 'bg-white/20' : ''} rounded-2xl">
 		<slot />
 	</div>
 
 	<div
-		class="line-clamp-2 text-center p-1 {isSelected ? 'bg-white/20' : ''} select-none"
+		class="line-clamp-2 text-center p-1 {isSelected ? 'bg-white/20' : ''} select-none rounded-xl"
 		style="width: {size}px; overflow-wrap: break-word;"
 	>
 		{name}
