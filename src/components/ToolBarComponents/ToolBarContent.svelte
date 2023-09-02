@@ -5,6 +5,8 @@
 	export let props: IconPropsType;
 </script>
 
-<span class="p-2 transit cursor-pointer hover:bg-white/20 rounded-2xl">
+<span
+	class="p-1.5 transit cursor-pointer variant-glass-secondary dark:variant-soft-secondary hover:bg-blue-400/50 dark:hover:bg-blue-500/50 rounded-xl"
+>
 	<svelte:component this={icon} {...props} />
 </span>

@@ -9,8 +9,8 @@
 	import ToolBar from '../components/ToolBarComponents/ToolBar.svelte';
 
 	onMount(() => {
-	    setModeCurrent(false);
-	})
+		setModeCurrent(false);
+	});
 
 	const toolBarIconSize: number = 35;
 </script>

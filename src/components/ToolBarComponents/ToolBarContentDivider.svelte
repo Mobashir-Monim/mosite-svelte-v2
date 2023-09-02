@@ -3,6 +3,6 @@
 </script>
 
 <div
-	class="my-auto border-[0.5px] border-surface-500 mx-2 rounded-full"
+	class="my-auto border-[0.5px] border-surface-500 dark:border-white/70 rounded-full"
 	style="height: {toolBarIconSize}px;"
 />
