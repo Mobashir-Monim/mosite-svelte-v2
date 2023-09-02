@@ -15,7 +15,12 @@ export interface UIFolderType {
 export interface DirectoryStateType {
 	name: string;
 	contents: (UIFileType | UIFolderType)[];
-    size: number;
+	size: number;
 	left: number;
 	top: number;
+}
+
+export interface IconPropsType {
+	size?: number;
+	classes?: string;
 }
