@@ -41,8 +41,8 @@
 				size={200}
 				svgBoxClasses="mx-auto fill-none"
 				containerShape="none"
-				solidShapeClasses="stroke-white fill-white stroke-2"
-				outlineShapeClasses="stroke-white fill-violet-500"
+				solidShapeClasses="stroke-gray-600 fill-gray-600 dark:stroke-white dark:fill-white stroke-2"
+				outlineShapeClasses="stroke-gray-600 dark:stroke-white fill-violet-400 dark:fill-violet-500"
 			/>
 			<div
 				class="bg-clip-text text-transparent bg-gradient-to-r from-cyan-500 to-violet-400 text-center w-full"

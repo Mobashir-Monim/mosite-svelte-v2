@@ -7,7 +7,7 @@
 </main>
 
 <style lang="postcss">
-    main {
-        @apply bg-gray-700 h-screen w-screen;
-    }
+	main {
+		@apply relative h-screen w-screen;
+	}
 </style>

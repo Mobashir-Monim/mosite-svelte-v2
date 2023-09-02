@@ -1,7 +1,11 @@
 import type { DirectoryStateType, UIFileType, UIFolderType } from '$lib/types';
 import { globalDirectorySystemStore } from '.';
 
-export const openDirectory = (name: string, contents: (UIFileType | UIFolderType)[], size: number) => {
+export const openDirectory = (
+	name: string,
+	contents: (UIFileType | UIFolderType)[],
+	size: number = 100
+) => {
 	let currentStore: DirectoryStateType[] = [];
 	globalDirectorySystemStore.subscribe((value) => {
 		currentStore = value;
@@ -10,7 +14,7 @@ export const openDirectory = (name: string, contents: (UIFileType | UIFolderType
 	currentStore.push({
 		name,
 		contents,
-        size,
+		size,
 		top: 50,
 		left: 50
 	});
@@ -80,5 +84,22 @@ export const moveDirectory = (name: string, top: number, left: number) => {
 		target.left += left;
 		globalDirectorySystemStore.set(currentStore);
 		// }
+	}
+};
+
+export const openContent = (name: string, contentName: string) => {
+	let currentStore: DirectoryStateType[] = [];
+	let targetDirectory: DirectoryStateType | undefined;
+	globalDirectorySystemStore.subscribe((value) => {
+		currentStore = value;
+		targetDirectory = currentStore.find((dir) => dir.name === name);
+	});
+
+	if (targetDirectory) {
+		const targetContent = targetDirectory.contents.find((content) => content.name === contentName);
+
+        if (targetContent) {
+            
+        }
 	}
 };
