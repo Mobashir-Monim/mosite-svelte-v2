@@ -11,15 +11,19 @@ export const openDirectory = (
 		currentStore = value;
 	});
 
-	currentStore.push({
-		name,
-		contents,
-		size,
-		top: 50,
-		left: 50
-	});
+	if (currentStore.find((dir) => dir.name === name) === undefined) {
+		currentStore.push({
+			name,
+			contents,
+			size,
+			top: 50,
+			left: 50
+		});
 
-	globalDirectorySystemStore.set(currentStore);
+		globalDirectorySystemStore.set(currentStore);
+	} else {
+        focusDirectory(name);
+    }
 };
 
 export const closeDirectory = (name: string) => {
@@ -98,8 +102,7 @@ export const openContent = (name: string, contentName: string) => {
 	if (targetDirectory) {
 		const targetContent = targetDirectory.contents.find((content) => content.name === contentName);
 
-        if (targetContent) {
-            
-        }
+		if (targetContent) {
+		}
 	}
 };
