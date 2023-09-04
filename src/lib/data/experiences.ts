@@ -17,7 +17,8 @@ import {
 	eveneerBlober,
 	eveneerLightSaml,
 	bracUUserValidator,
-	bracULMSUsageReportGenerator
+	bracULMSUsageReportGenerator,
+	eveneerBusso
 } from './projects';
 
 export interface ExperienceType extends UIFolderType {
@@ -89,5 +90,5 @@ export const eveneerExp = new Experience(
 	},
 	eveneer,
 	'In the capacity of Eveneer, I have assumed the pivotal role of a technology consultant. This role entailed providing nuanced expertise to the Managing Director of a prominent conglomerate situated in Bangladesh. Simultaneously, my repertoire extends to encompass diverse software development undertakings for a varied spectrum of entities, spanning non-profit organizations, research institutions, and universities. Among the prominent projects are a School Management System, a Faculty Evaluation Collection, Analysis, and Distribution System, a Course Management System, Single Sign-On, a SQL Assessment Platform, an Organizational Voting System, and a Content Management System (CMS), among others. This dynamic and diversified portfolio underscores my steadfast commitment to channeling my expertise for substantial contributions across a range of sectors.',
-	[eveneerBout, eveneerBoutV2, eveneerBlober, eveneerLightSaml]
+	[eveneerBout, eveneerBoutV2, eveneerBlober, eveneerLightSaml, eveneerBusso]
 );

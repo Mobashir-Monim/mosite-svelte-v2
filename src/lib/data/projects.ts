@@ -133,7 +133,7 @@ export const eveneerBoutV2: ProjectType = new Project(
 	eveneer
 );
 
-export const evennerBusso: ProjectType = new Project(
+export const eveneerBusso: ProjectType = new Project(
 	'BuSSO',
 	'Busso stands as a Single Sign-On (SSO) solution that adeptly supports versatile authentication methods, including generic SAML (Security Assertion Markup Language) and OIDC (OpenID Connect) based protocols. This comprehensive SSO system provides a secure and efficient means of authentication, catering to the diverse needs of organizations, ensuring seamless access control, and enhancing user experience across various applications and platforms.',
 	[
