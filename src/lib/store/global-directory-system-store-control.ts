@@ -1,11 +1,7 @@
-import type { DirectoryStateType, UIFileType, UIFolderType } from '$lib/types';
+import type { DirectoryStateType, UIFileOrFolderType, UIFileType, UIFolderType } from '$lib/types';
 import { globalDirectorySystemStore } from '.';
 
-export const openDirectory = (
-	name: string,
-	contents: (UIFileType | UIFolderType)[],
-	size: number = 100
-) => {
+export const openDirectory = (name: string, contents: UIFileOrFolderType[], size: number = 100) => {
 	let currentStore: DirectoryStateType[] = [];
 	globalDirectorySystemStore.subscribe((value) => {
 		currentStore = value;
@@ -22,8 +18,8 @@ export const openDirectory = (
 
 		globalDirectorySystemStore.set(currentStore);
 	} else {
-        focusDirectory(name);
-    }
+		focusDirectory(name);
+	}
 };
 
 export const closeDirectory = (name: string) => {
