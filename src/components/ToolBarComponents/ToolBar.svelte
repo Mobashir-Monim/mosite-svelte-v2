@@ -10,9 +10,7 @@
 </script>
 
 <div class="absolute bottom-0 w-full flex flex-row justify-center">
-	<div
-		class="flex flex-row gap-2 py-2 px-3 variant-ghost-tertiary dark:variant-ghost-secondary rounded-2xl"
-	>
+	<div class="flex flex-row gap-2 py-2 px-3 bg-gray-400/30 dark:bg-gray-500/30 rounded-2xl">
 		<ToolBarContent icon={AppsIcon} props={{ size: toolBarIconSize }} />
 		<ToolBarContent icon={SettingsIcon} props={{ size: toolBarIconSize }} />
 		<ToolBarContentDivider {toolBarIconSize} />
