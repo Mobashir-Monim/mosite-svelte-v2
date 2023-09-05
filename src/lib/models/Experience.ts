@@ -12,6 +12,7 @@ class Experience implements ExperienceType {
 	company: CompanyType;
 	description: string | string[];
 	works: ProjectType[];
+	specialization_type: 'experience-type';
 
 	constructor(
 		name: string,
@@ -27,6 +28,7 @@ class Experience implements ExperienceType {
 		this.description = description;
 		this.works = works;
 		this.type = 'folder';
+		this.specialization_type = 'experience-type';
 		this.contents = [
 			{
 				type: 'file',

@@ -8,6 +8,7 @@ import type { UIFileType } from '$lib/types';
 export interface CompanyType extends UIFileType {
 	description: string | string[];
 	logo: string;
+    specialization_type: 'company-type'
 }
 
 export const gymRevenue: CompanyType = new Company(

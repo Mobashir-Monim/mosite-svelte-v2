@@ -1,6 +1,7 @@
 export interface UIFileType {
 	type: 'file';
 	name: string;
+    specialization_type?: string;
 }
 
 export interface UIFolderType {

@@ -23,29 +23,6 @@ import {
 	bracUAutomatedCourseManagementScripts
 } from './projects';
 
-export const root: UIFileOrFolderType[] = [
-	{
-		type: 'folder',
-		name: 'About Me',
-		contents: []
-	},
-	{
-		type: 'folder',
-		name: 'Experiences',
-		contents: []
-	},
-	{
-		type: 'folder',
-		name: 'Projects',
-		contents: []
-	},
-	{
-		type: 'folder',
-		name: 'Attainments',
-		contents: []
-	}
-];
-
 export const aboutMe: UIFileOrFolderType[] = [
 	{
 		type: 'file',
@@ -116,5 +93,27 @@ export const attainments: UIFileOrFolderType[] = [
 				name: 'Certified Scrum Master'
 			}
 		]
+	}
+];
+
+export const root: UIFileOrFolderType[] = [
+	{
+		type: 'file',
+		name: 'About Me'
+	},
+	{
+		type: 'folder',
+		name: 'Experiences',
+		contents: experiences
+	},
+	{
+		type: 'folder',
+		name: 'Projects',
+		contents: projects
+	},
+	{
+		type: 'folder',
+		name: 'Attainments',
+		contents: []
 	}
 ];

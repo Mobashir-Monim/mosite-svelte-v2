@@ -10,6 +10,7 @@ class Project implements ProjectType {
 	project_type: 'research' | 'software' | 'module' | 'package';
 	source: 'open' | 'closed';
 	company?: CompanyType;
+	specialization_type: 'project-type';
 
 	constructor(
 		name: string,
@@ -26,6 +27,7 @@ class Project implements ProjectType {
 		this.project_type = project_type;
 		this.source = source;
 		this.type = 'file';
+		this.specialization_type = 'project-type';
 
 		if (url) {
 			this.url = url;

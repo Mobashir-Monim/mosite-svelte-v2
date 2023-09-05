@@ -9,6 +9,7 @@ export interface ProjectType extends UIFileType {
 	project_type: 'research' | 'software' | 'module' | 'package';
 	source: 'open' | 'closed';
 	company?: CompanyType | undefined;
+	specialization_type: 'project-type';
 }
 
 export const grBillingEngine: ProjectType = new Project(

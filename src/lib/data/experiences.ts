@@ -27,6 +27,7 @@ export interface ExperienceType extends UIFolderType {
 	company: CompanyType;
 	description: string | string[];
 	works: ProjectType[];
+    specialization_type: 'experience-type';
 }
 
 export const grExp = new Experience(
