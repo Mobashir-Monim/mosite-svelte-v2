@@ -3,7 +3,7 @@ import Project from '$lib/models/Project';
 import type { UIFileType } from '$lib/types';
 
 export interface ProjectType extends UIFileType {
-	description: string;
+	description: string | string[];
 	features: string[];
 	url?: string | undefined;
 	project_type: 'research' | 'software' | 'module' | 'package';
@@ -304,11 +304,11 @@ export const bracUUserValidator: ProjectType = new Project(
 
 export const bracULMSUsageReportGenerator: ProjectType = new Project(
 	'LMS Usage Report Generator',
-	`Its primary function was to meticulously collect data from Google Analytics, providing valuable insights into the usage patterns of the platform. This data was then translated into detailed and user-friendly reports, specifically designed to cater to non-technical users. 
-
-    These reports offered a comprehensive account of how the OpenEdx LMS platform was utilized, encompassing aspects such as user engagement, content consumption, and navigation behavior. By presenting this information in an accessible format, the report generator enabled non-technical users, including educators and administrators, to gain a deep understanding of the platform's usage dynamics without the need for technical expertise.
-    
-    Furthermore, this data-driven approach contributed to a more cost-effective solution. By having a clear understanding of how the platform was utilized, Brac University could make informed decisions regarding resource allocation, content optimization, and user engagement strategies. Ultimately, the LMS Usage Report Generator played a pivotal role in enhancing the efficiency and effectiveness of the OpenEdx LMS platform while ensuring cost-effectiveness in its operations.`,
+	[
+		'Its primary function was to meticulously collect data from Google Analytics, providing valuable insights into the usage patterns of the platform. This data was then translated into detailed and user-friendly reports, specifically designed to cater to non-technical users.',
+		"These reports offered a comprehensive account of how the OpenEdx LMS platform was utilized, encompassing aspects such as user engagement, content consumption, and navigation behavior. By presenting this information in an accessible format, the report generator enabled non-technical users, including educators and administrators, to gain a deep understanding of the platform's usage dynamics without the need for technical expertise.",
+		'Furthermore, this data-driven approach contributed to a more cost-effective solution. By having a clear understanding of how the platform was utilized, Brac University could make informed decisions regarding resource allocation, content optimization, and user engagement strategies. Ultimately, the LMS Usage Report Generator played a pivotal role in enhancing the efficiency and effectiveness of the OpenEdx LMS platform while ensuring cost-effectiveness in its operations.'
+	],
 	[],
 	'software',
 	'closed',
@@ -318,13 +318,12 @@ export const bracULMSUsageReportGenerator: ProjectType = new Project(
 
 export const bracUAutomatedCourseManagementScripts: ProjectType = new Project(
 	'Automated Course Management Scripts',
-	`The Automated Course Management Scripts provided an invaluable solution to the LMS management team, streamlining the management of courses for each semester within the learning management system (LMS). This sophisticated automation tool significantly expedited critical administrative processes.
-
-    One of its primary functions was to efficiently handle the creation and setup of courses for each academic semester. This encompassed tasks such as course creation, enrollment of students, assignment of course materials, and scheduling. By automating these processes, the management team could swiftly adapt the LMS to new academic terms, ensuring a seamless transition between semesters.
-    
-    Additionally, the scripts facilitated the inclusion of instructors into the system by granting them access and enabling them to manage their course content. This not only saved time but also ensured that faculty members had the necessary tools and resources at their disposal to effectively administer their courses.
-    
-    The implementation of the Automated Course Management Scripts significantly enhanced the overall efficiency of LMS management, allowing the team to focus more on strategic initiatives and less on manual administrative tasks. It played a pivotal role in improving the user experience for both students and instructors while promoting a more agile and responsive LMS environment.`,
+	[
+		'The Automated Course Management Scripts provided an invaluable solution to the LMS management team, streamlining the management of courses for each semester within the learning management system (LMS). This sophisticated automation tool significantly expedited critical administrative processes.',
+		'One of its primary functions was to efficiently handle the creation and setup of courses for each academic semester. This encompassed tasks such as course creation, enrollment of students, assignment of course materials, and scheduling. By automating these processes, the management team could swiftly adapt the LMS to new academic terms, ensuring a seamless transition between semesters.',
+		'Additionally, the scripts facilitated the inclusion of instructors into the system by granting them access and enabling them to manage their course content. This not only saved time but also ensured that faculty members had the necessary tools and resources at their disposal to effectively administer their courses.',
+		'The implementation of the Automated Course Management Scripts significantly enhanced the overall efficiency of LMS management, allowing the team to focus more on strategic initiatives and less on manual administrative tasks. It played a pivotal role in improving the user experience for both students and instructors while promoting a more agile and responsive LMS environment.'
+	],
 	[],
 	'software',
 	'closed',

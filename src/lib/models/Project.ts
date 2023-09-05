@@ -4,7 +4,7 @@ import type { ProjectType } from '$lib/data/projects';
 class Project implements ProjectType {
 	name: string;
 	type: 'file';
-	description: string;
+	description: string | string[];
 	features: string[];
 	url?: string | undefined;
 	project_type: 'research' | 'software' | 'module' | 'package';
@@ -13,7 +13,7 @@ class Project implements ProjectType {
 
 	constructor(
 		name: string,
-		description: string,
+		description: string | string[],
 		features: string[],
 		project_type: 'research' | 'software' | 'module' | 'package',
 		source: 'open' | 'closed',
