@@ -6,7 +6,7 @@ import eveneerLogo from '../../assets/imgs/eveneer.png';
 import type { UIFileType } from '$lib/types';
 
 export interface CompanyType extends UIFileType {
-	description: string;
+	description: string | string[];
 	logo: string;
 }
 
