@@ -2,21 +2,23 @@ import type { AboutMeType, PersonNameType, SkillTagType, SocialItemType } from '
 
 class AboutMe implements AboutMeType {
 	type: 'file';
+	name: string;
 	specialization_type: 'about-me-type';
-	name: PersonNameType;
+	person: PersonNameType;
 	description: string | string[];
 	job_title: string;
 	socials: SocialItemType[];
 	skills: SkillTagType[];
 
 	constructor(
-		name: PersonNameType,
+		person: PersonNameType,
 		description: string | string[],
 		job_title: string,
 		socials: SocialItemType[],
 		skills: SkillTagType[]
 	) {
-		this.name = name;
+		this.name = 'About Me';
+		this.person = person;
 		this.description = description;
 		this.job_title = job_title;
 		this.socials = socials;

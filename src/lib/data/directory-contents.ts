@@ -1,4 +1,5 @@
 import type { UIFileOrFolderType, UIFileType, UIFolderType } from '$lib/types';
+import { aboutMe } from './about-me';
 import { bracUExp, eveneerExp, grExp, techynafExp } from './experiences';
 import {
 	eveneerBlober,
@@ -23,20 +24,20 @@ import {
 	bracUAutomatedCourseManagementScripts
 } from './projects';
 
-export const aboutMe: UIFileOrFolderType[] = [
-	{
-		type: 'file',
-		name: 'Short Intro'
-	},
-	{
-		type: 'file',
-		name: 'Descriptive Intro'
-	},
-	{
-		type: 'file',
-		name: 'Contact & Socials'
-	}
-];
+// export const aboutMe: UIFileOrFolderType[] = [
+// 	{
+// 		type: 'file',
+// 		name: 'Short Intro'
+// 	},
+// 	{
+// 		type: 'file',
+// 		name: 'Descriptive Intro'
+// 	},
+// 	{
+// 		type: 'file',
+// 		name: 'Contact & Socials'
+// 	}
+// ];
 
 export const experiences: UIFileOrFolderType[] = [eveneerExp, grExp, bracUExp, techynafExp];
 
@@ -97,10 +98,7 @@ export const attainments: UIFileOrFolderType[] = [
 ];
 
 export const root: UIFileOrFolderType[] = [
-	{
-		type: 'file',
-		name: 'About Me'
-	},
+	aboutMe,
 	{
 		type: 'folder',
 		name: 'Experiences',
