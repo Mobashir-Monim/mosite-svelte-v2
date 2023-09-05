@@ -1,3 +1,4 @@
+import Folder from '$lib/models/Folder';
 import type { UIFileOrFolderType, UIFileType, UIFolderType } from '$lib/types';
 import { aboutMe } from './about-me';
 import { bracUExp, eveneerExp, grExp, techynafExp } from './experiences';
@@ -39,9 +40,14 @@ import {
 // 	}
 // ];
 
-export const experiences: UIFileOrFolderType[] = [eveneerExp, grExp, bracUExp, techynafExp];
+export const experiences: UIFolderType = new Folder('Experiences', [
+	eveneerExp,
+	grExp,
+	bracUExp,
+	techynafExp
+]);
 
-export const projects: UIFileOrFolderType[] = [
+export const projects: UIFolderType = new Folder('Projects', [
 	grBillingEngine,
 	grInventoryManagement,
 	grPointOfSale,
@@ -62,7 +68,7 @@ export const projects: UIFileOrFolderType[] = [
 	bracUUserValidator,
 	bracULMSUsageReportGenerator,
 	bracUAutomatedCourseManagementScripts
-];
+]);
 
 export const attainments: UIFileOrFolderType[] = [
 	{
@@ -99,16 +105,8 @@ export const attainments: UIFileOrFolderType[] = [
 
 export const root: UIFileOrFolderType[] = [
 	aboutMe,
-	{
-		type: 'folder',
-		name: 'Experiences',
-		contents: experiences
-	},
-	{
-		type: 'folder',
-		name: 'Projects',
-		contents: projects
-	},
+	experiences,
+	projects,
 	{
 		type: 'folder',
 		name: 'Attainments',

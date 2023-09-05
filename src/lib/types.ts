@@ -8,6 +8,7 @@ export interface UIFolderType {
 	type: 'folder';
 	name: string;
 	contents: UIFileOrFolderType[];
+    specialization_type?: string;
 }
 
 export interface DirectoryStateType {
