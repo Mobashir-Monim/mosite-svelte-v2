@@ -1,5 +1,5 @@
 <script lang="ts">
-	import MediaQuery from '../../MediaQuery.svelte';
+	import MediaQuery from '../MediaQuery.svelte';
 
 	export let containerClasses: string = '';
 	export let name: string = '';

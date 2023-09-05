@@ -1,36 +1,14 @@
 <script lang="ts">
-	import type { UIFolderType } from '$lib/types';
 	import { onMount } from 'svelte';
 	import Logo from '../assets/icons/Logo.svelte';
 	import DirectorySystemComponent from '../components/DirectoryComponents/DirectorySystemComponent.svelte';
 	import { openDirectory } from '$lib/store/global-directory-system-store-control';
+	import { rootFolder } from '$lib/data/directory-contents';
+	import { aboutMe } from '$lib/data/about-me';
 
 	const directoryName: string = 'root';
-	const folders: UIFolderType[] = [
-		{
-			type: 'folder',
-			name: 'About Me',
-			contents: []
-		},
-		{
-			type: 'folder',
-			name: 'Experiences',
-			contents: []
-		},
-		{
-			type: 'folder',
-			name: 'Projects',
-			contents: []
-		},
-		{
-			type: 'folder',
-			name: 'Attainments',
-			contents: []
-		}
-	];
-
 	onMount(() => {
-		openDirectory('root', folders, 150);
+		openDirectory('root', rootFolder, 150);
 	});
 </script>
 
@@ -47,7 +25,7 @@
 			<div
 				class="bg-clip-text text-transparent bg-gradient-to-r from-cyan-500 to-violet-400 text-center w-full"
 			>
-				<h1 class="text-[2rem] text-center">Mobashir's Portfolio</h1>
+				<h1 class="text-[2rem] text-center">{aboutMe.person.first}'s Portfolio</h1>
 			</div>
 		</div>
 		<div class="md:w-3/5 flex flex-col justify-center gap-20 px-5 md:pl-0 md:pr-10">

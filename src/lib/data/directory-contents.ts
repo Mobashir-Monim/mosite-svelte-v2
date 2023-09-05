@@ -1,5 +1,5 @@
 import Folder from '$lib/models/Folder';
-import type { UIFileOrFolderType, UIFileType, UIFolderType } from '$lib/types';
+import type { UIFileOrFolderType, UIFolderType } from '$lib/types';
 import { aboutMe } from './about-me';
 import { bracUExp, eveneerExp, grExp, techynafExp } from './experiences';
 import {
@@ -24,21 +24,6 @@ import {
 	bracULMSUsageReportGenerator,
 	bracUAutomatedCourseManagementScripts
 } from './projects';
-
-// export const aboutMe: UIFileOrFolderType[] = [
-// 	{
-// 		type: 'file',
-// 		name: 'Short Intro'
-// 	},
-// 	{
-// 		type: 'file',
-// 		name: 'Descriptive Intro'
-// 	},
-// 	{
-// 		type: 'file',
-// 		name: 'Contact & Socials'
-// 	}
-// ];
 
 export const experiences: UIFolderType = new Folder('Experiences', [
 	eveneerExp,
@@ -103,7 +88,7 @@ export const attainments: UIFileOrFolderType[] = [
 	}
 ];
 
-export const root: UIFileOrFolderType[] = [
+export const rootFolder: UIFileOrFolderType[] = [
 	aboutMe,
 	experiences,
 	projects,
