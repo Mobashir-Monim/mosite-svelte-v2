@@ -3,12 +3,12 @@ import type { CompanyType } from '$lib/data/companies';
 class Company implements CompanyType {
 	name: string;
 	type: 'file';
-	company_info: string;
+	description: string;
 	logo: string;
 
-	constructor(name: string, company_info: string, logo: string) {
+	constructor(name: string, description: string, logo: string) {
 		this.name = name;
-		this.company_info = company_info;
+		this.description = description;
 		this.logo = logo;
 		this.type = 'file';
 	}
