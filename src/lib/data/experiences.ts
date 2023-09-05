@@ -25,7 +25,7 @@ export interface ExperienceType extends UIFolderType {
 	start: RangeTimeType;
 	end?: RangeTimeType;
 	company: CompanyType;
-	description: string;
+	description: string | string[];
 	works: ProjectType[];
 }
 
@@ -36,9 +36,10 @@ export const grExp = new Experience(
 		year: '2022'
 	},
 	gymRevenue,
-	`In my capacity as a valued member of the development team, my focal point resides in steering the evolution of various components within the software framework. Predominantly, I shoulder the responsibility for cultivating the billing engine, distinguished by its proficiency in seamless integration with a spectrum of payment gateways. Moreover, I spearhead the implementation of the in-system Point of Sale (PoS) interface, an inventory management system, and the orchestration of service agreements.
-
-    A significant portion of my contributions has been directed towards reimagining core facets of the software architecture. I took a pivotal role in the redevelopment of the user management module, Customer Relationship Management (CRM) system, as well as the calendar and scheduling module. Furthermore, I innovatively devised and implemented a toolset engineered for expediting code generation. This pioneering toolset has remarkably truncated the time required for integrating new backend features by an impressive 60%.`,
+	[
+		'In my capacity as a valued member of the development team, my focal point resides in steering the evolution of various components within the software framework. Predominantly, I shoulder the responsibility for cultivating the billing engine, distinguished by its proficiency in seamless integration with a spectrum of payment gateways. Moreover, I spearhead the implementation of the in-system Point of Sale (PoS) interface, an inventory management system, and the orchestration of service agreements.',
+		'A significant portion of my contributions has been directed towards reimagining core facets of the software architecture. I took a pivotal role in the redevelopment of the user management module, Customer Relationship Management (CRM) system, as well as the calendar and scheduling module. Furthermore, I innovatively devised and implemented a toolset engineered for expediting code generation. This pioneering toolset has remarkably truncated the time required for integrating new backend features by an impressive 60%.'
+	],
 	[
 		grBillingEngine,
 		grPointOfSale,

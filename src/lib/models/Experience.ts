@@ -10,14 +10,14 @@ class Experience implements ExperienceType {
 	start: RangeTimeType;
 	end?: RangeTimeType;
 	company: CompanyType;
-	description: string;
+	description: string | string[];
 	works: ProjectType[];
 
 	constructor(
 		name: string,
 		start: RangeTimeType,
 		company: CompanyType,
-		description: string,
+		description: string | string[],
 		works: ProjectType[],
 		end?: RangeTimeType
 	) {
