@@ -1,12 +1,9 @@
 <script lang="ts">
 	import '../app.css';
-	import SettingsIcon from '../assets/icons/SettingsIcon.svelte';
-	import OpenDocumentIcon from '../assets/icons/OpenDocumentIcon.svelte';
-	import OpenFolderIcon from '../assets/icons/OpenFolderIcon.svelte';
-	import { autoModeWatcher, setInitialClassState, setModeCurrent } from '@skeletonlabs/skeleton';
+	import { setInitialClassState, setModeCurrent } from '@skeletonlabs/skeleton';
 	import { onMount } from 'svelte';
-	import AppsIcon from '../assets/icons/AppsIcon.svelte';
 	import ToolBar from '../components/ToolBarComponents/ToolBar.svelte';
+	import Window from '../components/WindowComponents/Window.svelte';
 
 	onMount(() => {
 		setModeCurrent(false);
@@ -24,6 +21,7 @@
 	<slot />
 
 	<ToolBar />
+	<Window name="Test" />
 </main>
 
 <style lang="postcss">
