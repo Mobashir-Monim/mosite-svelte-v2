@@ -32,16 +32,19 @@ class Experience implements ExperienceType {
 		this.contents = [
 			{
 				type: 'file',
-				name: `About ${this.company.name}`
+				name: `About ${this.company.name}`,
+				specialization_type: 'company-description'
 			},
 			{
 				type: 'file',
-				name: 'Experience Description'
+				name: 'Experience Description',
+				specialization_type: 'experience-description'
 			},
 			{
 				type: 'folder',
 				name: 'Works',
-				contents: this.works
+				contents: this.works,
+				specialization_type: 'experience-works'
 			}
 		];
 

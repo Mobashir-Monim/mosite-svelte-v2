@@ -30,7 +30,7 @@ export const experiences: UIFolderType = new Folder('Experiences', [
 	grExp,
 	bracUExp,
 	techynafExp
-]);
+], 'experiences');
 
 export const projects: UIFolderType = new Folder('Projects', [
 	grBillingEngine,
@@ -53,7 +53,7 @@ export const projects: UIFolderType = new Folder('Projects', [
 	bracUUserValidator,
 	bracULMSUsageReportGenerator,
 	bracUAutomatedCourseManagementScripts
-]);
+], 'projects');
 
 export const attainments: UIFileOrFolderType[] = [
 	{
