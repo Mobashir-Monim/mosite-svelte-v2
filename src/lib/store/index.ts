@@ -1,5 +1,5 @@
-import type { DirectoryStateType } from '$lib/types';
+import type { WindowStateType } from '$lib/types';
 import type { Writable } from 'svelte/store';
 import { writable } from 'svelte/store';
 
-export const globalDirectorySystemStore: Writable<DirectoryStateType[]> = writable([], );
+export const globalDirectorySystemStore: Writable<WindowStateType[]> = writable([]);

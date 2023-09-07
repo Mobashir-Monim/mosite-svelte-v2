@@ -1,8 +1,8 @@
-import type { DirectoryStateType, UIFileOrFolderType, UIFileType, UIFolderType } from '$lib/types';
+import type { WindowStateType, UIFileOrFolderType } from '$lib/types';
 import { globalDirectorySystemStore } from '.';
 
-export const openDirectory = (name: string, contents: UIFileOrFolderType[], size: number = 100) => {
-	let currentStore: DirectoryStateType[] = [];
+export const openWindow = (name: string, contents: UIFileOrFolderType[], size: number = 100) => {
+	let currentStore: WindowStateType[] = [];
 	globalDirectorySystemStore.subscribe((value) => {
 		currentStore = value;
 	});
@@ -10,20 +10,23 @@ export const openDirectory = (name: string, contents: UIFileOrFolderType[], size
 	if (currentStore.find((dir) => dir.name === name) === undefined) {
 		currentStore.push({
 			name,
+			type: 'folder',
 			contents,
 			size,
-			top: 50,
-			left: 50
+			top: 0,
+			left: 0,
+			expanded: false,
+			minimized: false
 		});
 
 		globalDirectorySystemStore.set(currentStore);
 	} else {
-		focusDirectory(name);
+		focusWindow(name);
 	}
 };
 
-export const closeDirectory = (name: string) => {
-	let currentStore: DirectoryStateType[] = [];
+export const closeWindow = (name: string) => {
+	let currentStore: WindowStateType[] = [];
 	globalDirectorySystemStore.subscribe((value) => {
 		currentStore = value;
 	});
@@ -44,8 +47,8 @@ export const closeDirectory = (name: string) => {
 	}
 };
 
-export const focusDirectory = (name: string) => {
-	let currentStore: DirectoryStateType[] = [];
+export const focusWindow = (name: string) => {
+	let currentStore: WindowStateType[] = [];
 	globalDirectorySystemStore.subscribe((value) => {
 		currentStore = value;
 	});
@@ -67,36 +70,31 @@ export const focusDirectory = (name: string) => {
 	}
 };
 
-export const moveDirectory = (name: string, top: number, left: number) => {
-	let currentStore: DirectoryStateType[] = [];
+export const moveWindow = (name: string, top: number, left: number) => {
+	let currentStore: WindowStateType[] = [];
 	globalDirectorySystemStore.subscribe((value) => {
 		currentStore = value;
 	});
 
-	let target: DirectoryStateType | undefined = currentStore.find((dir) => dir.name === name);
+	let target: WindowStateType | undefined = currentStore.find((dir) => dir.name === name);
 
 	if (target) {
-		// if (
-		//     currentStore[targetIndex].top + top >= 0
-		//     && currentStore[targetIndex].top + top <= 0
-		// ) {
 		target.top += top;
 		target.left += left;
 		globalDirectorySystemStore.set(currentStore);
-		// }
 	}
 };
 
 export const openContent = (name: string, contentName: string) => {
-	let currentStore: DirectoryStateType[] = [];
-	let targetDirectory: DirectoryStateType | undefined;
+	let currentStore: WindowStateType[] = [];
+	let targetDirectory: WindowStateType | undefined;
 	globalDirectorySystemStore.subscribe((value) => {
 		currentStore = value;
 		targetDirectory = currentStore.find((dir) => dir.name === name);
 	});
 
 	if (targetDirectory) {
-		const targetContent = targetDirectory.contents.find((content) => content.name === contentName);
+		const targetContent = targetDirectory.contents?.find((content) => content.name === contentName);
 
 		if (targetContent) {
 		}

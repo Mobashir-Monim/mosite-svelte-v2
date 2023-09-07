@@ -8,6 +8,7 @@
 	export let buttonType: 'close' | 'minimize' | 'full-screen' = 'close';
 	export let isDisabled: boolean = false;
 	export let isExpanded: boolean = false;
+    export let onClick: () => void = () => {};
 
 	const defaultIconClasses: string = 'fill-gray-600 dark:fill-white stroke-2';
 
@@ -35,6 +36,7 @@
 </script>
 
 <button
+    on:click={onClick}
 	class="{getButtonColorClasses()} rounded-full transit cursor-pointer p-[0.5px]"
 	style="width: {buttonDimension}px; height: {buttonDimension}px;"
 >

@@ -4,12 +4,18 @@
 	import { onMount } from 'svelte';
 	import ToolBar from '../components/ToolBarComponents/ToolBar.svelte';
 	import Window from '../components/WindowComponents/Window.svelte';
+	import type { WindowStateType } from '$lib/types';
+	import { globalDirectorySystemStore } from '$lib/store';
 
 	onMount(() => {
 		setModeCurrent(false);
 	});
 
 	const toolBarIconSize: number = 35;
+	let windows: WindowStateType[];
+	globalDirectorySystemStore.subscribe((value) => {
+		windows = value.filter((win) => win.name !== 'root');
+	});
 </script>
 
 <svelte:head>
@@ -21,7 +27,10 @@
 	<slot />
 
 	<ToolBar />
-	<Window name="Test" />
+
+	{#each windows as window (window.name)}
+		<Window windowState={window} />
+	{/each}
 </main>
 
 <style lang="postcss">

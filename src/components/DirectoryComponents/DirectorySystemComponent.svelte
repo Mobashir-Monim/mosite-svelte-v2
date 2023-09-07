@@ -1,23 +1,32 @@
 <script lang="ts">
 	import { globalDirectorySystemStore } from '$lib/store';
-	import type { DirectoryStateType } from '$lib/types';
+	import { openWindow } from '$lib/store/global-directory-system-store-control';
+	import type { UIFileOrFolderType, WindowStateType } from '$lib/types';
 	import DocumentComponent from './DocumentComponent.svelte';
 	import FolderComponent from './FolderComponent.svelte';
 
-	export let directoryName: string;
-	let directoryState: DirectoryStateType;
+	export let windowName: string;
+	let windowState: WindowStateType;
 	export let contentContainerClasses: string = '';
-	let openedFolder: string = '';
 	let selectedContent: string = '';
 	$: isSelected = (name: string) => selectedContent === name;
 
 	globalDirectorySystemStore.subscribe((value) => {
-		const state = value.find((dir) => dir.name === directoryName);
-		if (state) directoryState = state;
+		const state = value.find((dir) => dir.name === windowName);
+		if (state) windowState = state;
 	});
 
 	const onOpen = (folder: string) => {
-		openedFolder = folder;
+		const target: UIFileOrFolderType | undefined = windowState.contents?.find(
+			(dir) => dir.name === folder
+		);
+
+		if (target) {
+			if (target.type === 'folder') {
+				openWindow(target.name, target.contents, 50);
+			}
+		}
+
 		selectedContent = '';
 	};
 
@@ -27,13 +36,13 @@
 </script>
 
 <div class="flex flex-row flex-wrap justify-between w-full">
-	{#if directoryState}
-		{#each directoryState?.contents as content, id}
+	{#if windowState && windowState?.contents?.length}
+		{#each windowState?.contents as content, id}
 			{#if content.type === 'folder'}
 				<slot name="folder">
 					<FolderComponent
 						folder={content}
-						size={directoryState?.size}
+						size={windowState?.size}
 						containerClasses={contentContainerClasses}
 						isSelected={isSelected(content.name)}
 						{onSelect}
@@ -45,7 +54,7 @@
 				<slot name="file">
 					<DocumentComponent
 						file={content}
-						size={directoryState?.size}
+						size={windowState?.size}
 						containerClasses={contentContainerClasses}
 						isSelected={isSelected(content.name)}
 						{onSelect}

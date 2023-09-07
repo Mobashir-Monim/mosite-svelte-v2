@@ -1,22 +1,26 @@
 export interface UIFileType {
 	type: 'file';
 	name: string;
-    specialization_type?: string;
+	specialization_type?: string;
 }
 
 export interface UIFolderType {
 	type: 'folder';
 	name: string;
 	contents: UIFileOrFolderType[];
-    specialization_type?: string;
+	specialization_type?: string;
 }
 
-export interface DirectoryStateType {
+export interface WindowStateType {
 	name: string;
-	contents: UIFileOrFolderType[];
+	contents?: UIFileOrFolderType[];
+	type: 'file' | 'folder';
+	specialization_type?: string;
 	size: number;
 	left: number;
 	top: number;
+    minimized: boolean;
+    expanded: boolean;
 }
 
 export interface IconPropsType {

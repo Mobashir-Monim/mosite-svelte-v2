@@ -2,13 +2,14 @@
 	import { onMount } from 'svelte';
 	import Logo from '../assets/icons/Logo.svelte';
 	import DirectorySystemComponent from '../components/DirectoryComponents/DirectorySystemComponent.svelte';
-	import { openDirectory } from '$lib/store/global-directory-system-store-control';
+	import { openWindow } from '$lib/store/global-directory-system-store-control';
 	import { rootFolder } from '$lib/data/directory-contents';
 	import { aboutMe } from '$lib/data/about-me';
 
-	const directoryName: string = 'root';
+	const windowName: string = 'root';
+
 	onMount(() => {
-		openDirectory('root', rootFolder, 150);
+		openWindow('root', rootFolder, 150);
 	});
 </script>
 
@@ -23,13 +24,13 @@
 				outlineShapeClasses="stroke-gray-600 dark:stroke-gray-200 fill-violet-400 dark:fill-violet-500"
 			/>
 			<div
-				class="bg-clip-text text-transparent bg-gradient-to-r from-cyan-500 to-violet-400 text-center w-full"
+				class="bg-clip-text text-transparent bg-gradient-to-r from-cyan-500 to-violet-400 text-center w-full select-none"
 			>
 				<h1 class="text-[2rem] text-center">{aboutMe.person.first}'s Portfolio</h1>
 			</div>
 		</div>
 		<div class="md:w-3/5 flex flex-col justify-center gap-20 px-5 md:pl-0 md:pr-10">
-			<DirectorySystemComponent {directoryName} />
+			<DirectorySystemComponent {windowName} />
 		</div>
 	</div>
 </div>
