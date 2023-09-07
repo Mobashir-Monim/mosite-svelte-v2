@@ -122,3 +122,27 @@ export const openContent = (name: string, contentName: string) => {
 		}
 	}
 };
+
+export const selectContent = (name: string, contentName: string) => {
+	let currentStore: WindowStateType[] = [];
+	globalDirectorySystemStore.subscribe((value) => {
+		currentStore = value;
+	});
+
+	let targetIndex: number = -1;
+	const target = currentStore.find((dir, index) => {
+		if (dir.name === name) {
+			targetIndex = index;
+			return true;
+		}
+
+		return false;
+	});
+
+	if (target) {
+		currentStore[targetIndex].selected = currentStore[targetIndex].contents?.find(
+			(content) => content.name === contentName
+		);
+		globalDirectorySystemStore.set(currentStore);
+	}
+};

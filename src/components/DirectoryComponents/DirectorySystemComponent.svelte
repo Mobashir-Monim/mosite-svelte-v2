@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { globalDirectorySystemStore } from '$lib/store';
-	import { openWindow } from '$lib/store/global-directory-system-store-control';
+	import { openWindow, selectContent } from '$lib/store/global-directory-system-store-control';
 	import type { UIFileOrFolderType, WindowStateType } from '$lib/types';
 	import DocumentComponent from './DocumentComponent.svelte';
 	import FolderComponent from './FolderComponent.svelte';
@@ -32,6 +32,7 @@
 
 	const onSelect = (content: string) => {
 		selectedContent = content;
+		selectContent(windowName, content);
 	};
 </script>
 

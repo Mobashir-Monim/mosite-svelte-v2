@@ -15,7 +15,7 @@
 <div
 	on:mousedown={onMouseDown}
 	role="button"
-	class="cursor-move w-full h-[30px] bg-white/20 flex flex-row justify-between py-[2.5px] px-[10px]"
+	class="cursor-move w-full h-[30px] bg-surface-500 flex flex-row justify-between py-[2.5px] px-[10px]"
 	tabindex="0"
 >
 	<h3 class="text-[0.6rem] font-normal">{windowName}</h3>

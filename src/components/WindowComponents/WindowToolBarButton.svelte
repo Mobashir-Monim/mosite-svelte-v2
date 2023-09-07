@@ -37,16 +37,16 @@
 
 <button
     on:click={onClick}
-	class="{getButtonColorClasses()} rounded-full transit cursor-pointer p-[0.5px]"
+	class="{getButtonColorClasses()} rounded-full transit cursor-pointer p-[0.5px] group"
 	style="width: {buttonDimension}px; height: {buttonDimension}px;"
 >
 	{#if buttonType === 'close'}
-		<CloseIcon size={14} classes={defaultIconClasses} />
+		<CloseIcon size={14} classes="opacity-0 !duration-200 group-hover:opacity-100 {defaultIconClasses}" />
 	{:else if buttonType === 'minimize'}
-		<MinimizeIcon size={14} classes={defaultIconClasses} />
+		<MinimizeIcon size={14} classes="opacity-0 !duration-200 group-hover:opacity-100 {defaultIconClasses}" />
 	{:else if isExpanded}
-		<CollapseIcon size={14} classes="{defaultIconClasses} rotate-45" />
+		<CollapseIcon size={14} classes="opacity-0 !duration-200 group-hover:opacity-100 {defaultIconClasses} rotate-45" />
 	{:else}
-		<ExpandIcon size={14} classes="{defaultIconClasses} rotate-45" />
+		<ExpandIcon size={14} classes="opacity-0 !duration-200 group-hover:opacity-100 {defaultIconClasses} rotate-45" />
 	{/if}
 </button>
