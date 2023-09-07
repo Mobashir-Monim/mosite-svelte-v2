@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { focusWindow, moveWindow } from '$lib/store/global-directory-system-store-control';
 	import type { WindowStateType } from '$lib/types';
+	import DirectorySystemComponent from '../DirectoryComponents/DirectorySystemComponent.svelte';
 	import MediaQuery from '../MediaQuery.svelte';
 	import WindowSidebar from './WindowSidebar.svelte';
 	import WindowToolBar from './WindowToolBar.svelte';
@@ -68,7 +69,9 @@
 			>
 				<WindowToolBar windowName={windowState.name} {onMouseUp} {onMouseDown} {onMouseMove} />
 				<div class="flex flex-row h-[calc(100%-30px)]">
-					<div class="h-full bg-white/10 w-full p-2.5">{windowState.name}</div>
+					<div class="h-full bg-white/10 w-full p-2.5 overflow-y-auto">
+						<DirectorySystemComponent windowName={windowState.name} />
+					</div>
 					<WindowSidebar />
 				</div>
 			</div>

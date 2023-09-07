@@ -23,7 +23,7 @@
 
 		if (target) {
 			if (target.type === 'folder') {
-				openWindow(target.name, target.contents, 50);
+				openWindow(target.name, target.contents, 100);
 			}
 		}
 
@@ -35,7 +35,7 @@
 	};
 </script>
 
-<div class="flex flex-row flex-wrap justify-between w-full">
+<div class="flex flex-row flex-wrap justify-between gap-5 w-full">
 	{#if windowState && windowState?.contents?.length}
 		{#each windowState?.contents as content, id}
 			{#if content.type === 'folder'}

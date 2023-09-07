@@ -21,7 +21,7 @@
 		</div>
 	{:else}
 		<div
-			class="flex flex-col cursor-pointer gap-2 {containerClasses}"
+			class="flex flex-col cursor-pointer gap-1 {containerClasses}"
 			on:click={() => onSelect(name)}
 			on:keydown={() => onSelect(name)}
 			on:dblclick={() => onOpen(name)}
