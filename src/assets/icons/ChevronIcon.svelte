@@ -1,6 +1,6 @@
 <script lang="ts">
 	export let size: number = 48;
-	export let classes: string = 'fill-white';
+	export let classes: string = 'fill-gray-600 dark:fill-gray-200';
 	export let direction: 'left' | 'right' | 'up' | 'down' = 'right';
 	$: rotate =
 		direction === 'left'
