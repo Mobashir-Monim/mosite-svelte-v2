@@ -18,7 +18,8 @@ import {
 	eveneerLightSaml,
 	bracUUserValidator,
 	bracULMSUsageReportGenerator,
-	eveneerBusso
+	eveneerBusso,
+	bracUAutomatedCourseManagementScripts
 } from './projects';
 
 export interface ExperienceType extends UIFolderType {
@@ -27,7 +28,7 @@ export interface ExperienceType extends UIFolderType {
 	company: CompanyType;
 	description: string | string[];
 	works: ProjectType[];
-    specialization_type: 'experience-type';
+	specialization_type: 'experience-type';
 }
 
 export const grExp = new Experience(
@@ -62,7 +63,7 @@ export const bracUExp = new Experience(
 	},
 	bracU,
 	"In my role as a Lecturer, my principal duty encompassed the instruction of various courses. Given my specialized expertise in software development, I assumed the responsibility of both educating and orchestrating the Software Engineering course. Simultaneously, leveraging my capacity as a seasoned software developer, I not only upheld the integrity of existing systems but also engaged in the creation of new ones in alignment with the department's requisites. This duality of responsibilities enabled me to seamlessly bridge the realms of academia and practical application, contributing holistically to the university's academic and operational pursuits.",
-	[bracUUserValidator, bracULMSUsageReportGenerator, bracULMSUsageReportGenerator],
+	[bracUUserValidator, bracULMSUsageReportGenerator, bracUAutomatedCourseManagementScripts],
 	{
 		month: 'May',
 		year: '2023'
