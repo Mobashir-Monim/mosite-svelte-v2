@@ -4,11 +4,11 @@
 	import ExpandIcon from '../../assets/icons/ExpandIcon.svelte';
 	import MinimizeIcon from '../../assets/icons/MinimizeIcon.svelte';
 
-	export let buttonDimension: number = 15;
+	export let buttonDimension: number = 12;
 	export let buttonType: 'close' | 'minimize' | 'full-screen' = 'close';
 	export let isDisabled: boolean = false;
 	export let isExpanded: boolean = false;
-    export let onClick: () => void = () => {};
+	export let onClick: () => void = () => {};
 
 	const defaultIconClasses: string = 'fill-gray-600 dark:fill-white stroke-2';
 
@@ -36,17 +36,29 @@
 </script>
 
 <button
-    on:click={onClick}
-	class="{getButtonColorClasses()} rounded-full transit cursor-pointer p-[0.5px] group"
+	on:click={onClick}
+	class="{getButtonColorClasses()} rounded-full transit cursor-pointer  group"
 	style="width: {buttonDimension}px; height: {buttonDimension}px;"
 >
 	{#if buttonType === 'close'}
-		<CloseIcon size={14} classes="opacity-0 !duration-200 group-hover:opacity-100 {defaultIconClasses}" />
+		<CloseIcon
+			size={12}
+			classes="opacity-0 !duration-200 group-hover:opacity-100 {defaultIconClasses}"
+		/>
 	{:else if buttonType === 'minimize'}
-		<MinimizeIcon size={14} classes="opacity-0 !duration-200 group-hover:opacity-100 {defaultIconClasses}" />
+		<MinimizeIcon
+			size={12}
+			classes="opacity-0 !duration-200 group-hover:opacity-100 {defaultIconClasses}"
+		/>
 	{:else if isExpanded}
-		<CollapseIcon size={14} classes="opacity-0 !duration-200 group-hover:opacity-100 {defaultIconClasses} rotate-45" />
+		<CollapseIcon
+			size={12}
+			classes="opacity-0 !duration-200 group-hover:opacity-100 {defaultIconClasses} rotate-45"
+		/>
 	{:else}
-		<ExpandIcon size={14} classes="opacity-0 !duration-200 group-hover:opacity-100 {defaultIconClasses} rotate-45" />
+		<ExpandIcon
+			size={12}
+			classes="opacity-0 !duration-200 group-hover:opacity-100 {defaultIconClasses} rotate-45"
+		/>
 	{/if}
 </button>
