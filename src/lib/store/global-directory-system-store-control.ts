@@ -1,22 +1,44 @@
 import type { WindowStateType, UIFileOrFolderType } from '$lib/types';
 import { globalDirectorySystemStore } from '.';
 
-export const openWindow = (name: string, contents: UIFileOrFolderType[], size: number = 100) => {
+export const openWindow = (
+	name: string,
+	contents: UIFileOrFolderType[],
+	size: number = 100,
+	origin: string | undefined = undefined
+) => {
 	let currentStore: WindowStateType[] = [];
 	globalDirectorySystemStore.subscribe((value) => {
 		currentStore = value;
 	});
 
 	if (currentStore.find((dir) => dir.name === name) === undefined) {
+		let originState: WindowStateType | undefined = undefined;
+
+		if (origin && origin !== 'root') {
+			let originIndex: number = -1;
+			originState = currentStore.find((dir, index) => {
+				if (dir.name === origin) {
+					originIndex === index;
+					return true;
+				}
+
+				return false;
+			});
+
+			currentStore.splice(originIndex, 1);
+		}
+
 		currentStore.push({
 			name,
 			type: 'folder',
 			contents,
 			size,
-			top: 0,
-			left: 0,
-			expanded: false,
-			minimized: false
+			top: originState?.top ?? 0,
+			left: originState?.left ?? 0,
+			expanded: originState?.expanded ?? false,
+			minimized: originState?.minimized ?? false,
+			origin: originState
 		});
 
 		globalDirectorySystemStore.set(currentStore);
@@ -79,8 +101,8 @@ export const moveWindow = (name: string, top: number, left: number) => {
 	let target: WindowStateType | undefined = currentStore.find((dir) => dir.name === name);
 
 	if (target) {
-		target.top += top;
-		target.left += left;
+		target.top = top;
+		target.left = left;
 		globalDirectorySystemStore.set(currentStore);
 	}
 };

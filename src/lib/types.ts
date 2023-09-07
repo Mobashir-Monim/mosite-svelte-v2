@@ -19,8 +19,9 @@ export interface WindowStateType {
 	size: number;
 	left: number;
 	top: number;
-    minimized: boolean;
-    expanded: boolean;
+	minimized: boolean;
+	expanded: boolean;
+	origin: WindowStateType | undefined;
 }
 
 export interface IconPropsType {

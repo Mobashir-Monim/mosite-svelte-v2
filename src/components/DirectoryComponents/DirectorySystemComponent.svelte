@@ -23,7 +23,7 @@
 
 		if (target) {
 			if (target.type === 'folder') {
-				openWindow(target.name, target.contents, 100);
+				openWindow(target.name, target.contents, 100, windowName);
 			}
 		}
 
