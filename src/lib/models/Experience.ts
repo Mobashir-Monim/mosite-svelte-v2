@@ -31,6 +31,7 @@ class Experience implements ExperienceType {
 		this.specialization_type = 'experience-type';
 		this.contents = [
 			{
+				...company,
 				type: 'file',
 				name: `About ${this.company.name}`,
 				specialization_type: 'company-type'
