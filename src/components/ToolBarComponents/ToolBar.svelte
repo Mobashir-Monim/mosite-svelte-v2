@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { globalDirectorySystemStore } from '$lib/store';
+	import { unminimizeAll } from '$lib/store/global-directory-system-store-control';
 	import type { WindowStateType } from '$lib/types';
 	import AppsIcon from '../../assets/icons/AppsIcon.svelte';
 	import OpenDocumentIcon from '../../assets/icons/OpenDocumentIcon.svelte';
@@ -18,6 +19,11 @@
 	$: hasOpenFolder =
 		windows.filter((w) => w.type === 'folder' && w.name !== 'root' && w.name !== 'settings')
 			.length > 0;
+
+	$: openFileCount = windows.filter((w) => w.type === 'file').length;
+	$: openFolderCount = windows.filter(
+		(w) => w.type === 'folder' && w.name !== 'root' && w.name !== 'settings'
+	).length;
 </script>
 
 <div class="absolute bottom-0 w-full flex flex-row justify-center">
@@ -28,10 +34,20 @@
 			<ToolBarContentDivider {toolBarIconSize} />
 		{/if}
 		{#if hasOpenFile}
-			<ToolBarContent icon={OpenDocumentIcon} props={{ size: toolBarIconSize }} />
+			<ToolBarContent
+				icon={OpenDocumentIcon}
+				props={{ size: toolBarIconSize }}
+				openCount={openFileCount}
+                onClick={() => unminimizeAll('file')}
+			/>
 		{/if}
 		{#if hasOpenFolder}
-			<ToolBarContent icon={OpenFolderIcon} props={{ size: toolBarIconSize }} />
+			<ToolBarContent
+				icon={OpenFolderIcon}
+				props={{ size: toolBarIconSize }}
+				openCount={openFolderCount}
+                onClick={() => unminimizeAll('folder')}
+			/>
 		{/if}
 	</div>
 </div>

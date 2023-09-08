@@ -186,3 +186,17 @@ export const unminimizeWindow = (name: string) => {
 		globalDirectorySystemStore.set(currentStore);
 	}
 };
+
+export const unminimizeAll = (type?: 'file' | 'folder') => {
+	let currentStore: WindowStateType[] = getGlobalDirectorySystemStore();
+
+	for (let window of currentStore) {
+		if (window.name !== 'root' && window.name !== 'settings') {
+			if ((type && type === window.type) || !type) {
+				window.minimized = false;
+			}
+		}
+	}
+
+	globalDirectorySystemStore.set(currentStore);
+};
