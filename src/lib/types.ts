@@ -2,6 +2,7 @@ export interface UIFileType {
 	type: 'file';
 	name: string;
 	specialization_type?: string;
+	doc?: any;
 }
 
 export interface UIFolderType {

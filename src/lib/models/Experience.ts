@@ -39,7 +39,15 @@ class Experience implements ExperienceType {
 			{
 				type: 'file',
 				name: 'Experience Description',
-				specialization_type: 'experience-type'
+				specialization_type: 'experience-type',
+				doc: {
+					company,
+					description,
+					works,
+					start,
+					position: name,
+					end
+				}
 			},
 			{
 				type: 'folder',

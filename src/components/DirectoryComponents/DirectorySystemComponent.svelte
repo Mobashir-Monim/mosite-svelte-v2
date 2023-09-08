@@ -20,17 +20,15 @@
 		if (state) windowState = state;
 	});
 
-	const onOpen = (folder: string) => {
+	const onOpen = (name: string) => {
 		const target: UIFileOrFolderType | undefined = windowState.contents?.find(
-			(dir) => dir.name === folder
+			(dir) => dir.name === name
 		);
 
 		if (target) {
 			if (target.type === 'folder') {
 				openWindow(target.name, target.contents, 100, windowName);
 			} else {
-				console.log(target);
-
 				openFile(target.name, target);
 			}
 		}
