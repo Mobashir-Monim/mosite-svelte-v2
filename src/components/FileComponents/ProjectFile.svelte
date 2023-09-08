@@ -44,7 +44,7 @@
 </div>
 <div class="flex flex-col gap-3 text-justify text-[0.75rem] leading-4">
 	<h3 class="border-b text-[1rem]">Features</h3>
-	<ul class="ml-3">
+	<ul class="ml-3 list-disc">
 		{#each doc.features as feature}
 			<li class="mb-2">{feature}</li>
 		{/each}
