@@ -14,7 +14,7 @@
 	<h1 class="text-[1.5rem] border-b text-center">{doc.doc.company.name}</h1>
 	<h3 class="text-[1rem] text-center">{doc.doc.position}</h3>
 	<div class="mx-auto text-[0.7rem]">
-		{#if !doc.doc.end}
+		{#if doc.doc.end}
 			{doc.doc.start.month}, {doc.doc.start.year} - {doc.doc.end.month}, {doc.doc.end.year}
 		{:else}
 			{doc.doc.start.month}, {doc.doc.start.year} - Present
