@@ -33,9 +33,11 @@
 	{/each}
 </div>
 <div class="flex flex-col gap-3 text-justify text-[0.75rem] leading-4">
+	<h3 class="border-b text-[1rem]">Description</h3>
 	<DescriptionComponent description={doc.description} />
 </div>
 <div class="flex flex-row flex-wrap justify-center gap-2 text-justify text-[0.7rem] leading-4">
+	<h3 class="border-b text-[1rem] w-full">Skills</h3>
 	{#each doc.skills as skill}
 		<SkillTag {skill} />
 	{/each}

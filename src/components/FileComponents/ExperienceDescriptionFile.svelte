@@ -23,10 +23,12 @@
 </div>
 
 <div class="flex flex-col gap-3 text-justify text-[0.75rem] leading-4">
+    <h3 class="border-b text-[1rem]">Description</h3>
 	<DescriptionComponent description={doc.doc.description} />
 </div>
 
 <div class="flex flex-row flex-wrap justify-center gap-2 text-justify text-[0.7rem] leading-4">
+    <h3 class="border-b text-[1rem] w-full">Works</h3>
 	{#each doc.doc.works as work}
 		<span
 			class="text-[0.65rem] rounded-full cursor-default px-3 py-1.5 bg-gradient-to-tr transition-all duration-200 ease-linear font-mono from-white/50 to-stone-600/80 hover:drop-shadow-[0px_0px_10px_rgba(120,113,108,1)]"
