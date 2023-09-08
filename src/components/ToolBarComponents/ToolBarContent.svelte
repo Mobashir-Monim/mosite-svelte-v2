@@ -12,7 +12,7 @@
 	on:click={onClick}
 >
 	<svelte:component this={icon} {...props} />
-	{#if openCount}
+	{#if openCount > 1}
 		<span
 			class="absolute variant-ghost-primary w-[20px] h-[20px] rounded-full top-[-5px] right-[-5px] flex flex-col justify-center"
 		>
