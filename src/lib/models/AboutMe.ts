@@ -1,4 +1,5 @@
 import type { AboutMeType, PersonNameType, SkillTagType, SocialItemType } from '$lib/data/about-me';
+import type { LocationType } from '$lib/types';
 
 class AboutMe implements AboutMeType {
 	type: 'file';
@@ -9,13 +10,15 @@ class AboutMe implements AboutMeType {
 	job_title: string;
 	socials: SocialItemType[];
 	skills: SkillTagType[];
+	location: LocationType;
 
 	constructor(
 		person: PersonNameType,
 		description: string | string[],
 		job_title: string,
 		socials: SocialItemType[],
-		skills: SkillTagType[]
+		skills: SkillTagType[],
+		location: LocationType
 	) {
 		this.name = 'About Me';
 		this.person = person;
@@ -25,6 +28,7 @@ class AboutMe implements AboutMeType {
 		this.skills = skills;
 		this.type = 'file';
 		this.specialization_type = 'about-me-type';
+		this.location = location;
 	}
 }
 

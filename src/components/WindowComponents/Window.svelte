@@ -6,6 +6,7 @@
 	import MediaQuery from '../MediaQuery.svelte';
 	import WindowSidebar from './WindowSidebar.svelte';
 	import WindowToolBar from './WindowToolBar.svelte';
+	import FileSystemComponent from '../FileComponents/FileSystemComponent.svelte';
 
 	export let windowState: WindowStateType;
 
@@ -64,7 +65,9 @@
 			<div />
 		{:else}
 			<div
-				class="bg-surface-500 absolute rounded-2xl border-[0.5px] bg-opacity-70 backdrop-blur-[8px] border-neutral-500 select-none overflow-hidden drop-shadow-[5px_5px_10px_rgba(0,0,0,0.3)] will-change-transform cursor-default"
+				class="bg-surface-500 absolute rounded-2xl border-[0.5px] {windowState.type === 'folder'
+					? 'bg-opacity-70'
+					: 'bg-opacity-90'} !text-white backdrop-blur-[8px] border-neutral-500 select-none overflow-hidden drop-shadow-[5px_5px_10px_rgba(0,0,0,0.3)] will-change-transform cursor-default"
 				style="width: {width}px; height: {height}px; left: {screenWidth / 2 -
 					width / 2 +
 					leftConst}px; top: {(screenHeight - 63) / 2 - height / 2 + topConst}px"
@@ -75,6 +78,7 @@
 			>
 				<WindowToolBar
 					windowName={windowState.name}
+					isFolder={windowState.type === 'folder'}
 					origin={windowState.origin}
 					tail={windowState.tail}
 					{onMouseUp}
@@ -82,10 +86,18 @@
 					{onMouseMove}
 				/>
 				<div class="flex flex-row h-[calc(100%-30px)]">
-					<div class="h-full bg-white/10 w-full p-2.5 overflow-y-auto">
-						<DirectorySystemComponent windowName={windowState.name} />
-					</div>
-					<WindowSidebar windowName={windowState.name} />
+					{#if windowState.type === 'folder'}
+						<div class="h-full bg-white/10 w-full p-2.5 overflow-y-auto">
+							<DirectorySystemComponent windowName={windowState.name} />
+						</div>
+						<WindowSidebar windowName={windowState.name} />
+					{:else}
+						<div class="h-full bg-white/10 w-full p-5 overflow-y-auto">
+							{#if windowState.doc}
+								<FileSystemComponent doc={windowState.doc} />
+							{/if}
+						</div>
+					{/if}
 				</div>
 			</div>
 		{/if}

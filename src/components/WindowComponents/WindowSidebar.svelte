@@ -7,7 +7,6 @@
 
 	export let windowName: string;
 	let selectedContent: UIFileOrFolderType | undefined = undefined;
-	let path: string;
 	const unitDivisors = [
 		{ unit: 'bit', divisor: 1 },
 		{ unit: 'B', divisor: 8 },
@@ -52,7 +51,7 @@
 				{selectedContent.name}
 			</div>
 			<div class="line-clamp-2 text-[0.7rem] opacity-70 font-normal">
-				MDoc File - {calculateSize(
+				{selectedContent.type === 'folder' ? 'MDir Folder' : 'MDoc File'} - {calculateSize(
 					selectedContent.type === 'folder' ? selectedContent.contents : selectedContent
 				)}
 			</div>

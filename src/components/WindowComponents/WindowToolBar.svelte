@@ -10,6 +10,7 @@
 	import WindowToolBarButton from './WindowToolBarButton.svelte';
 
 	export let windowName: string;
+	export let isFolder: boolean;
 	export let origin: WindowStateType | undefined;
 	export let tail: WindowStateType | undefined;
 	export let onMouseDown: () => void;
@@ -44,26 +45,28 @@
 	tabindex="0"
 >
 	<div class="flex flex-row gap-2">
-		<div class="flex flex-row gap-0">
-			<button class="my-auto inline-block text-xs" on:click={moveUp}>
-				<ChevronIcon
-					size={20}
-					classes={origin
-						? 'fill-gray-600 dark:fill-gray-200 cursor-pointer'
-						: 'fill-gray-600/50 dark:fill-gray-200/50 cursor-not-allowed'}
-					direction="left"
-				/>
-			</button>
-			<button class="my-auto inline-block text-xs" on:click={moveDown}>
-				<ChevronIcon
-					size={20}
-					classes="{tail
-						? 'fill-gray-600 dark:fill-gray-200 cursor-pointer'
-						: 'fill-red-600/50 dark:fill-gray-200/50 cursor-not-allowed'} dark:fill-gray-200"
-					direction="right"
-				/>
-			</button>
-		</div>
+		{#if isFolder}
+			<div class="flex flex-row gap-0">
+				<button class="my-auto inline-block text-xs" on:click={moveUp}>
+					<ChevronIcon
+						size={20}
+						classes={origin
+							? 'fill-gray-600 dark:fill-gray-200 cursor-pointer'
+							: 'fill-gray-600/50 dark:fill-gray-200/50 cursor-not-allowed'}
+						direction="left"
+					/>
+				</button>
+				<button class="my-auto inline-block text-xs" on:click={moveDown}>
+					<ChevronIcon
+						size={20}
+						classes="{tail
+							? 'fill-gray-600 dark:fill-gray-200 cursor-pointer'
+							: 'fill-red-600/50 dark:fill-gray-200/50 cursor-not-allowed'} dark:fill-gray-200"
+						direction="right"
+					/>
+				</button>
+			</div>
+		{/if}
 		<h3 class="text-[0.6rem] font-normal my-auto">{windowName}</h3>
 	</div>
 	<div class="flex flex-row gap-[5px] my-auto">

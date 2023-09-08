@@ -14,16 +14,17 @@ export interface UIFolderType {
 export interface WindowStateType {
 	name: string;
 	contents?: UIFileOrFolderType[];
+	doc?: UIFileType;
 	type: 'file' | 'folder';
 	specialization_type?: string;
-	size: number;
+	size?: number;
 	left: number;
 	top: number;
 	minimized: boolean;
 	expanded: boolean;
 	origin: WindowStateType | undefined;
-    tail: WindowStateType | undefined;
-    selected?: UIFileOrFolderType;
+	tail: WindowStateType | undefined;
+	selected?: UIFileOrFolderType;
 }
 
 export interface IconPropsType {
@@ -36,4 +37,10 @@ export type UIFileOrFolderType = UIFileType | UIFolderType;
 export interface RangeTimeType {
 	month: string;
 	year: string;
+}
+
+export interface LocationType {
+	city: string;
+	state?: string;
+	country: string;
 }

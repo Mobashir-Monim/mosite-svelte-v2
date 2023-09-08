@@ -30,6 +30,7 @@ export interface AboutMeType extends UIFileType {
 	job_title: string;
 	socials: SocialItemType[];
 	skills: SkillTagType[];
+	location: LocationType;
 }
 
 export const aboutMe: AboutMeType = new AboutMe(
@@ -150,5 +151,9 @@ export const aboutMe: AboutMeType = new AboutMe(
 			name: 'Mentoring/Teaching',
 			type: 'general'
 		}
-	]
+	],
+	{
+		city: 'Dhaka',
+		country: 'Bangladesh'
+	}
 );

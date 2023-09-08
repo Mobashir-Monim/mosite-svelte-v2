@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { globalDirectorySystemStore } from '$lib/store';
-	import { openWindow, selectContent } from '$lib/store/global-directory-system-store-control';
+	import { openFile, openWindow, selectContent } from '$lib/store/global-directory-system-store-control';
 	import type { UIFileOrFolderType, WindowStateType } from '$lib/types';
 	import DocumentComponent from './DocumentComponent.svelte';
 	import FolderComponent from './FolderComponent.svelte';
@@ -24,7 +24,9 @@
 		if (target) {
 			if (target.type === 'folder') {
 				openWindow(target.name, target.contents, 100, windowName);
-			}
+			} else {
+                openFile(target.name, target);
+            }
 		}
 
 		selectedContent = '';

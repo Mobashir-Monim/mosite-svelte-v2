@@ -1,4 +1,4 @@
-import type { WindowStateType, UIFileOrFolderType } from '$lib/types';
+import type { WindowStateType, UIFileOrFolderType, UIFileType } from '$lib/types';
 import { globalDirectorySystemStore } from '.';
 
 export const getGlobalDirectorySystemStore = () => {
@@ -199,4 +199,26 @@ export const unminimizeAll = (type?: 'file' | 'folder') => {
 	}
 
 	globalDirectorySystemStore.set(currentStore);
+};
+
+export const openFile = (name: string, doc: UIFileType) => {
+	let currentStore: WindowStateType[] = getGlobalDirectorySystemStore();
+
+	if (currentStore.find((dir) => dir.name === name) === undefined) {
+		currentStore.push({
+			name,
+			type: 'file',
+			doc,
+			top: 0,
+			left: 0,
+			expanded: false,
+			minimized: false,
+			origin: undefined,
+			tail: undefined
+		});
+
+		globalDirectorySystemStore.set(currentStore);
+	} else {
+		focusWindow(name);
+	}
 };

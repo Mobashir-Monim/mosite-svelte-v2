@@ -33,12 +33,12 @@ class Experience implements ExperienceType {
 			{
 				type: 'file',
 				name: `About ${this.company.name}`,
-				specialization_type: 'company-description'
+				specialization_type: 'company-type'
 			},
 			{
 				type: 'file',
 				name: 'Experience Description',
-				specialization_type: 'experience-description'
+				specialization_type: 'experience-type'
 			},
 			{
 				type: 'folder',
