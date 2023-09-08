@@ -32,3 +32,4 @@
 <div class="flex flex-col gap-3 text-justify text-[0.75rem] leading-4">
 	<DescriptionComponent description={doc.description} />
 </div>
+
