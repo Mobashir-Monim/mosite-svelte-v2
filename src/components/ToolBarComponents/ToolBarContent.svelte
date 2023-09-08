@@ -16,7 +16,8 @@
 		<span
 			class="absolute variant-ghost-primary w-[20px] h-[20px] rounded-full top-[-5px] right-[-5px] flex flex-col justify-center"
 		>
-			<span class="mx-auto text-[0.6rem] tracking-tighter font-normal">{openCount}</span>
+			<span class="mx-auto text-[0.6rem] tracking-tighter font-normal select-none">{openCount}</span
+			>
 		</span>
 	{/if}
 </button>
