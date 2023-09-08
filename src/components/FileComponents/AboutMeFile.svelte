@@ -10,13 +10,15 @@
 	export let doc: AboutMeType;
 </script>
 
-<Logo
-	size={250}
-	svgBoxClasses="mx-auto fill-none"
-	containerShape="none"
-	solidShapeClasses="stroke-gray-600 fill-gray-600 dark:stroke-gray-200 dark:fill-gray-200 stroke-2"
-/>
-<h1 class="text-[1.5rem] mx-auto">{doc.person.first} {doc.person.last}</h1>
+<div class="flex flex-col">
+	<Logo
+		size={250}
+		svgBoxClasses="mx-auto fill-none"
+		containerShape="none"
+		solidShapeClasses="stroke-gray-600 fill-gray-600 dark:stroke-gray-200 dark:fill-gray-200 stroke-2"
+	/>
+	<h1 class="text-[1.5rem] mx-auto">{doc.person.first} {doc.person.last}</h1>
+</div>
 <div class="flex flex-col gap-1">
 	<div class="flex flex-row gap-3 mx-auto">
 		<LocationIcon circle={true} size={25} />

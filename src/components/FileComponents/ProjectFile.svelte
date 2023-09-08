@@ -9,7 +9,7 @@
 <div class="flex flex-col gap-2">
 	<h1 class="text-[1.5rem] border-b w-full text-center">{doc.name}</h1>
 	{#if doc.url}
-		<a href="https://{doc.url}" target="_blank" class="flex flex-row gap-3 mx-auto">
+		<a href={doc.url} target="_blank" class="flex flex-row gap-3 mx-auto">
 			<LinkIcon size={25} />
 			<span class="my-auto max-w-[200px] line-clamp-1">Link</span>
 		</a>
@@ -33,7 +33,7 @@
 		<img src={doc.company.logo} alt={doc.company.name} class="w-[15%] rounded-xl" />
 		<div class="flex flex-col justify-center w-full">
 			<h1 class="text-[0.9rem] border-b">{doc.company.name}</h1>
-            <span>{doc.company.industry}</span>
+			<span>{doc.company.industry}</span>
 		</div>
 	</div>
 {/if}
@@ -42,11 +42,13 @@
 	<h3 class="border-b text-[1rem]">Description</h3>
 	<DescriptionComponent description={doc.description} />
 </div>
-<div class="flex flex-col gap-3 text-justify text-[0.75rem] leading-4">
-	<h3 class="border-b text-[1rem]">Features</h3>
-	<ul class="ml-3 list-disc">
-		{#each doc.features as feature}
-			<li class="mb-2">{feature}</li>
-		{/each}
-	</ul>
-</div>
+{#if doc.features.length}
+	<div class="flex flex-col gap-3 text-justify text-[0.75rem] leading-4">
+		<h3 class="border-b text-[1rem]">Features</h3>
+		<ul class="ml-3 list-disc">
+			{#each doc.features as feature}
+				<li class="mb-2">{feature}</li>
+			{/each}
+		</ul>
+	</div>
+{/if}
