@@ -8,10 +8,10 @@
 	export let doc: CompanyType;
 </script>
 
-<img src={doc.logo} class="mx-auto w-[30%] rounded-full" alt={doc.name.replace('About ', '')} />
+<img src={doc.logo} class="mx-auto w-[20%] rounded-full" alt={doc.name.replace('About ', '')} />
 
-<h1 class="text-[1.5rem] mx-auto">{doc.name.replace('About ', '')}</h1>
 <div class="flex flex-col gap-1">
+	<h1 class="text-[1.5rem] border-b w-full text-center">{doc.name.replace('About ', '')}</h1>
 	<div class="flex flex-row gap-3 mx-auto">
 		<IndustryIcon size={25} />
 		<span class="my-auto">{doc.industry}</span>
