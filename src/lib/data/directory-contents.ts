@@ -1,6 +1,7 @@
 import Folder from '$lib/models/Folder';
 import type { UIFileOrFolderType, UIFolderType } from '$lib/types';
 import { aboutMe } from './about-me';
+import { bscDegree, landRegPub, scrumMasterCertification } from './attainments';
 import { bracUExp, eveneerExp, grExp, techynafExp } from './experiences';
 import {
 	eveneerBlober,
@@ -25,35 +26,38 @@ import {
 	bracUAutomatedCourseManagementScripts
 } from './projects';
 
-export const experiences: UIFolderType = new Folder('Experiences', [
-	eveneerExp,
-	grExp,
-	bracUExp,
-	techynafExp
-], 'experiences');
+export const experiences: UIFolderType = new Folder(
+	'Experiences',
+	[eveneerExp, grExp, bracUExp, techynafExp],
+	'experiences'
+);
 
-export const projects: UIFolderType = new Folder('Projects', [
-	grBillingEngine,
-	grInventoryManagement,
-	grPointOfSale,
-	grServiceAgreements,
-	grCalendarAndScheduling,
-	eveneerBout,
-	eveneerBoutV2,
-	eveneerBlober,
-	eveneerBusso,
-	eveneerLightSaml,
-	hobbyBeep,
-	hobbyLandReg,
-	hobbyMongolTori,
-	techynafEcube,
-	techynafConnect,
-	techynafHuddle,
-	techynafAlfred,
-	bracUUserValidator,
-	bracULMSUsageReportGenerator,
-	bracUAutomatedCourseManagementScripts
-], 'projects');
+export const projects: UIFolderType = new Folder(
+	'Projects',
+	[
+		grBillingEngine,
+		grInventoryManagement,
+		grPointOfSale,
+		grServiceAgreements,
+		grCalendarAndScheduling,
+		eveneerBout,
+		eveneerBoutV2,
+		eveneerBlober,
+		eveneerBusso,
+		eveneerLightSaml,
+		hobbyBeep,
+		hobbyLandReg,
+		hobbyMongolTori,
+		techynafEcube,
+		techynafConnect,
+		techynafHuddle,
+		techynafAlfred,
+		bracUUserValidator,
+		bracULMSUsageReportGenerator,
+		bracUAutomatedCourseManagementScripts
+	],
+	'projects'
+);
 
 export const attainments: UIFileOrFolderType[] = [
 	{
@@ -95,6 +99,10 @@ export const rootFolder: UIFileOrFolderType[] = [
 	{
 		type: 'folder',
 		name: 'Attainments',
-		contents: []
+		contents: [
+			new Folder('Degrees', [bscDegree], 'degree-type'),
+			new Folder('Publications', [landRegPub], 'publication-type'),
+			new Folder('Certifications', [scrumMasterCertification], 'certification-type')
+		]
 	}
 ];

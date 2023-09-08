@@ -44,4 +44,5 @@ export interface LocationType {
 	city: string;
 	state?: string;
 	country: string;
+	remote?: boolean;
 }
