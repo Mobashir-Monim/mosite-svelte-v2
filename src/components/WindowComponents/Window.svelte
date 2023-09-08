@@ -73,7 +73,14 @@
 				role="button"
 				tabindex="0"
 			>
-				<WindowToolBar windowName={windowState.name} {onMouseUp} {onMouseDown} {onMouseMove} />
+				<WindowToolBar
+					windowName={windowState.name}
+					origin={windowState.origin}
+					tail={windowState.tail}
+					{onMouseUp}
+					{onMouseDown}
+					{onMouseMove}
+				/>
 				<div class="flex flex-row h-[calc(100%-30px)]">
 					<div class="h-full bg-white/10 w-full p-2.5 overflow-y-auto">
 						<DirectorySystemComponent windowName={windowState.name} />

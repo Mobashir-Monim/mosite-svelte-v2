@@ -1,16 +1,41 @@
 import type { WindowStateType, UIFileOrFolderType } from '$lib/types';
 import { globalDirectorySystemStore } from '.';
 
+export const getGlobalDirectorySystemStore = () => {
+	let currentStore: WindowStateType[] = [];
+	globalDirectorySystemStore.subscribe((value) => {
+		currentStore = value;
+	});
+
+	return currentStore;
+};
+
+export const findWindowWithName = (name: string) => {
+	let currentStore: WindowStateType[] = getGlobalDirectorySystemStore();
+
+	let targetIndex: number = -1;
+	const target = currentStore.find((dir, index) => {
+		if (dir.name === name) {
+			targetIndex = index;
+			return true;
+		}
+
+		return false;
+	});
+
+	return {
+		targetIndex,
+		target
+	};
+};
+
 export const openWindow = (
 	name: string,
 	contents: UIFileOrFolderType[],
 	size: number = 100,
 	origin: string | undefined = undefined
 ) => {
-	let currentStore: WindowStateType[] = [];
-	globalDirectorySystemStore.subscribe((value) => {
-		currentStore = value;
-	});
+	let currentStore: WindowStateType[] = getGlobalDirectorySystemStore();
 
 	if (currentStore.find((dir) => dir.name === name) === undefined) {
 		let originState: WindowStateType | undefined = undefined;
@@ -38,7 +63,8 @@ export const openWindow = (
 			left: originState?.left ?? 0,
 			expanded: originState?.expanded ?? false,
 			minimized: originState?.minimized ?? false,
-			origin: originState
+			origin: originState,
+			tail: undefined
 		});
 
 		globalDirectorySystemStore.set(currentStore);
@@ -48,20 +74,8 @@ export const openWindow = (
 };
 
 export const closeWindow = (name: string) => {
-	let currentStore: WindowStateType[] = [];
-	globalDirectorySystemStore.subscribe((value) => {
-		currentStore = value;
-	});
-
-	let targetIndex: number = -1;
-	const target = currentStore.find((dir, index) => {
-		if (dir.name === name) {
-			targetIndex = index;
-			return true;
-		}
-
-		return false;
-	});
+	let currentStore: WindowStateType[] = getGlobalDirectorySystemStore();
+	const { targetIndex, target } = findWindowWithName(name);
 
 	if (target) {
 		currentStore.splice(targetIndex, 1);
@@ -70,35 +84,20 @@ export const closeWindow = (name: string) => {
 };
 
 export const focusWindow = (name: string) => {
-	let currentStore: WindowStateType[] = [];
-	globalDirectorySystemStore.subscribe((value) => {
-		currentStore = value;
-	});
-
-	let targetIndex: number = -1;
-	const target = currentStore.find((dir, index) => {
-		if (dir.name === name) {
-			targetIndex = index;
-			return true;
-		}
-
-		return false;
-	});
+	let currentStore: WindowStateType[] = getGlobalDirectorySystemStore();
+	const { targetIndex, target } = findWindowWithName(name);
 
 	if (target) {
 		currentStore.splice(targetIndex, 1);
+		target.minimized = false;
 		currentStore.push(target);
 		globalDirectorySystemStore.set(currentStore);
 	}
 };
 
 export const moveWindow = (name: string, top: number, left: number) => {
-	let currentStore: WindowStateType[] = [];
-	globalDirectorySystemStore.subscribe((value) => {
-		currentStore = value;
-	});
-
-	let target: WindowStateType | undefined = currentStore.find((dir) => dir.name === name);
+	let currentStore: WindowStateType[] = getGlobalDirectorySystemStore();
+	const { target } = findWindowWithName(name);
 
 	if (target) {
 		target.top = top;
@@ -124,25 +123,46 @@ export const openContent = (name: string, contentName: string) => {
 };
 
 export const selectContent = (name: string, contentName: string) => {
-	let currentStore: WindowStateType[] = [];
-	globalDirectorySystemStore.subscribe((value) => {
-		currentStore = value;
-	});
-
-	let targetIndex: number = -1;
-	const target = currentStore.find((dir, index) => {
-		if (dir.name === name) {
-			targetIndex = index;
-			return true;
-		}
-
-		return false;
-	});
+	let currentStore: WindowStateType[] = getGlobalDirectorySystemStore();
+	const { targetIndex, target } = findWindowWithName(name);
 
 	if (target) {
 		currentStore[targetIndex].selected = currentStore[targetIndex].contents?.find(
 			(content) => content.name === contentName
 		);
+		globalDirectorySystemStore.set(currentStore);
+	}
+};
+
+export const goToOrigin = (name: string) => {
+	let currentStore: WindowStateType[] = getGlobalDirectorySystemStore();
+	const { targetIndex, target } = findWindowWithName(name);
+
+	if (target && target?.origin) {
+		const origin: WindowStateType = target.origin;
+		origin.tail = target;
+		target.selected = undefined;
+		origin.selected = undefined;
+
+		currentStore.splice(targetIndex, 1);
+		currentStore.push(origin);
+
+		globalDirectorySystemStore.set(currentStore);
+	}
+};
+
+export const goToTail = (name: string) => {
+	let currentStore: WindowStateType[] = getGlobalDirectorySystemStore();
+	const { targetIndex, target } = findWindowWithName(name);
+
+	if (target && target?.tail) {
+		const tail: WindowStateType = target.tail;
+		target.selected = undefined;
+		tail.selected = undefined;
+
+		currentStore.splice(targetIndex, 1);
+		currentStore.push(tail);
+
 		globalDirectorySystemStore.set(currentStore);
 	}
 };
