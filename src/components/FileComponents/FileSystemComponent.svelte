@@ -22,7 +22,7 @@
 </script>
 
 {#if doc.specialization_type}
-	<div class="w-full max-w-[600px] mx-auto flex flex-col gap-12">
+	<div class="w-full max-w-[600px] flex flex-col gap-12 !m-auto min-h-full justify-center">
 		<svelte:component this={fileTypes[doc.specialization_type]} {doc} />
 	</div>
 {/if}

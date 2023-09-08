@@ -92,7 +92,7 @@
 						</div>
 						<WindowSidebar windowName={windowState.name} />
 					{:else}
-						<div class="h-full bg-white/10 w-full p-5 overflow-y-auto">
+						<div class="h-full bg-white/10 w-full p-5 overflow-y-auto baal">
 							{#if windowState.doc}
 								<FileSystemComponent doc={windowState.doc} />
 							{/if}

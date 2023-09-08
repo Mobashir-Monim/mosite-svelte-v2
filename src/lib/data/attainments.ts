@@ -2,6 +2,7 @@ import AttainedCertification from '$lib/models/AttainedCertification';
 import AttainedDegree from '$lib/models/AttainedDegree';
 import AttainedPublication from '$lib/models/AttainedPublication';
 import type { LocationType, RangeTimeType, UIFileType } from '$lib/types';
+import type { PersonNameType } from './about-me';
 
 export interface AttainedDegreeType extends UIFileType {
 	description: string | string[];
@@ -18,6 +19,7 @@ export interface AttainedPublicationType extends UIFileType {
 	entity: string;
 	specialization_type: 'publication-type';
 	doi: string;
+	authors: PersonNameType[];
 }
 
 export interface AttainedCertificationType extends UIFileType {
@@ -54,7 +56,22 @@ export const landRegPub = new AttainedPublication(
 	'Land Registry documents are legally binding documents provided by the government to owners of land as proof of their ownership. In developing countries such as Bangladesh, it is essential to combat the challenges which a traditional Land Registry system faces. To keep a digital ledger of information about land assets in a transparent and secured manner, Blockchain technology can be used to overcome the hurdle. However, any Blockchain based system needs to be integrated in a well thought out manner. We propose a novel approach on enhancing the Delegated Proof of Stake consensus to provide a private ledger based system for transacting land assets which can be easily integrated into the existing traditional Land Registry system for smooth operation.',
 	'2020',
 	'2020 IEEE Region 10 Symposium (TENSYMP)',
-	'https://ieeexplore.ieee.org/document/9230612'
+	'https://ieeexplore.ieee.org/document/9230612',
+	[
+		{
+			first: 'Mahbubul',
+			middle: 'Alam',
+			last: 'Majumdar'
+		},
+		{
+			first: 'Muhtasim',
+			last: 'Shahriyer'
+		},
+		{
+			first: 'Mobashir',
+			last: 'Monim'
+		}
+	]
 );
 
 export const scrumMasterCertification = new AttainedCertification(

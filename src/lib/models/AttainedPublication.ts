@@ -1,3 +1,4 @@
+import type { PersonNameType } from '$lib/data/about-me';
 import type { AttainedPublicationType } from '$lib/data/attainments';
 
 class AttainedPublication implements AttainedPublicationType {
@@ -6,6 +7,7 @@ class AttainedPublication implements AttainedPublicationType {
 	year: string;
 	entity: string;
 	doi: string;
+	authors: PersonNameType[];
 	specialization_type: 'publication-type';
 	type: 'file';
 
@@ -14,13 +16,15 @@ class AttainedPublication implements AttainedPublicationType {
 		description: string | string[],
 		year: string,
 		entity: string,
-		doi: string
+		doi: string,
+		authors: PersonNameType[]
 	) {
 		this.name = name;
 		this.description = description;
 		this.year = year;
 		this.entity = entity;
 		this.doi = doi;
+		this.authors = authors;
 		this.specialization_type = 'publication-type';
 		this.type = 'file';
 	}
