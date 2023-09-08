@@ -1,6 +1,9 @@
 <script lang="ts">
 	import type { UIFileType } from '$lib/types';
 	import AboutMeFile from './AboutMeFile.svelte';
+	import AttainedCertificationFile from './AttainedCertificationFile.svelte';
+	import AttainedDegreeFile from './AttainedDegreeFile.svelte';
+	import AttainedPublicationFile from './AttainedPublicationFile.svelte';
 	import CompanyDescriptionFile from './CompanyDescriptionFile.svelte';
 	import ExperienceDescriptionFile from './ExperienceDescriptionFile.svelte';
 	import ProjectFile from './ProjectFile.svelte';
@@ -11,7 +14,10 @@
 		'about-me-type': AboutMeFile,
 		'company-type': CompanyDescriptionFile,
 		'experience-type': ExperienceDescriptionFile,
-		'project-type': ProjectFile
+		'project-type': ProjectFile,
+		'degree-type': AttainedDegreeFile,
+		'publication-type': AttainedPublicationFile,
+		'certification-type': AttainedCertificationFile
 	};
 </script>
 
