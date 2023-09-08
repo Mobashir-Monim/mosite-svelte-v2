@@ -14,7 +14,7 @@
 	const toolBarIconSize: number = 35;
 	let windows: WindowStateType[];
 	globalDirectorySystemStore.subscribe((value) => {
-		windows = value.filter((win) => win.name !== 'root');
+		windows = value.filter((win) => win.name !== 'root' && !win.minimized);
 	});
 </script>
 

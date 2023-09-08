@@ -2,7 +2,8 @@
 	import {
 		closeWindow,
 		goToOrigin,
-		goToTail
+		goToTail,
+		minimizeWindow
 	} from '$lib/store/global-directory-system-store-control';
 	import type { WindowStateType } from '$lib/types';
 	import ChevronIcon from '../../assets/icons/ChevronIcon.svelte';
@@ -17,6 +18,10 @@
 
 	const close = () => {
 		closeWindow(windowName);
+	};
+
+	const minimize = () => {
+		minimizeWindow(windowName);
 	};
 
 	const moveUp = () => {
@@ -63,7 +68,7 @@
 	</div>
 	<div class="flex flex-row gap-[5px] my-auto">
 		<WindowToolBarButton buttonType="full-screen" />
-		<WindowToolBarButton buttonType="minimize" />
+		<WindowToolBarButton buttonType="minimize" onClick={minimize} />
 		<WindowToolBarButton buttonType="close" onClick={close} />
 	</div>
 </div>

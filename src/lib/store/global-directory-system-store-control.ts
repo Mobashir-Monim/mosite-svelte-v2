@@ -166,3 +166,23 @@ export const goToTail = (name: string) => {
 		globalDirectorySystemStore.set(currentStore);
 	}
 };
+
+export const minimizeWindow = (name: string) => {
+	let currentStore: WindowStateType[] = getGlobalDirectorySystemStore();
+	const { targetIndex, target } = findWindowWithName(name);
+
+	if (target) {
+		currentStore[targetIndex].minimized = true;
+		globalDirectorySystemStore.set(currentStore);
+	}
+};
+
+export const unminimizeWindow = (name: string) => {
+	let currentStore: WindowStateType[] = getGlobalDirectorySystemStore();
+	const { targetIndex, target } = findWindowWithName(name);
+
+	if (target) {
+		currentStore[targetIndex].minimized = false;
+		globalDirectorySystemStore.set(currentStore);
+	}
+};
