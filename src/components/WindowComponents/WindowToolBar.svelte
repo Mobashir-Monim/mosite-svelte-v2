@@ -7,9 +7,10 @@
 	} from '$lib/store/global-directory-system-store-control';
 	import type { WindowStateType } from '$lib/types';
 	import ChevronIcon from '../../assets/icons/ChevronIcon.svelte';
+	import MediaQuery from '../MediaQuery.svelte';
 	import WindowToolBarButton from './WindowToolBarButton.svelte';
 
-	export let windowName: string;
+	export let webWindowName: string;
 	export let isFolder: boolean;
 	export let origin: WindowStateType | undefined;
 	export let tail: WindowStateType | undefined;
@@ -18,22 +19,22 @@
 	export let onMouseMove: (event: MouseEvent) => void;
 
 	const close = () => {
-		closeWindow(windowName);
+		closeWindow(webWindowName);
 	};
 
 	const minimize = () => {
-		minimizeWindow(windowName);
+		minimizeWindow(webWindowName);
 	};
 
 	const moveUp = () => {
 		if (origin) {
-			goToOrigin(windowName);
+			goToOrigin(webWindowName);
 		}
 	};
 
 	const moveDown = () => {
 		if (tail) {
-			goToTail(windowName);
+			goToTail(webWindowName);
 		}
 	};
 </script>
@@ -67,10 +68,14 @@
 				</button>
 			</div>
 		{/if}
-		<h3 class="text-[0.6rem] font-normal my-auto">{windowName}</h3>
+		<h3 class="text-[0.6rem] font-normal my-auto">{webWindowName}</h3>
 	</div>
 	<div class="flex flex-row gap-[5px] my-auto">
-		<WindowToolBarButton buttonType="full-screen" />
+		<MediaQuery query="" let:matches>
+            {#if !matches}
+                <WindowToolBarButton buttonType="full-screen" />
+            {/if}
+        </MediaQuery>
 		<WindowToolBarButton buttonType="minimize" onClick={minimize} />
 		<WindowToolBarButton buttonType="close" onClick={close} />
 	</div>

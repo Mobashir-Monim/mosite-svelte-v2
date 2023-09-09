@@ -12,9 +12,9 @@
 	});
 
 	const toolBarIconSize: number = 35;
-	let windows: WindowStateType[];
+	let webWindows: WindowStateType[];
 	globalDirectorySystemStore.subscribe((value) => {
-		windows = value.filter((win) => win.name !== 'root' && !win.minimized);
+		webWindows = value.filter((win) => win.name !== 'root' && !win.minimized);
 	});
 </script>
 
@@ -28,8 +28,8 @@
 
 	<ToolBar />
 
-	{#each windows as window (window.name)}
-		<Window windowState={window} />
+	{#each webWindows as webWindow (webWindow.name)}
+		<Window webWindowState={webWindow} />
 	{/each}
 </main>
 
