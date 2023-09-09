@@ -62,7 +62,34 @@
 {#if screenHeight}
 	<MediaQuery query="(max-width: 699px)" let:matches>
 		{#if matches}
-			<div />
+			<div
+				class="bg-surface-500 absolute rounded-b-2xl border-[0.5px] {webWindowState.type === 'folder'
+					? 'bg-opacity-70'
+					: 'bg-opacity-90'} !text-white backdrop-blur-[8px] border-neutral-500 select-none overflow-hidden drop-shadow-[5px_5px_10px_rgba(0,0,0,0.3)] will-change-transform cursor-default top-0 left-0 w-[calc(100vw-1px)] h-[calc(100vh-65px)]"
+			>
+				<WindowToolBar
+					webWindowName={webWindowState.name}
+					isFolder={webWindowState.type === 'folder'}
+					origin={webWindowState.origin}
+					tail={webWindowState.tail}
+					{onMouseUp}
+					{onMouseDown}
+					{onMouseMove}
+				/>
+				<div class="flex flex-row h-[calc(100%-30px)]">
+					{#if webWindowState.type === 'folder'}
+						<div class="h-full bg-white/10 w-full p-2.5 overflow-y-auto">
+							<DirectorySystemComponent webWindowName={webWindowState.name} />
+						</div>
+					{:else}
+						<div class="h-full bg-white/10 w-full p-5 overflow-y-auto">
+							{#if webWindowState.doc}
+								<FileSystemComponent doc={webWindowState.doc} />
+							{/if}
+						</div>
+					{/if}
+				</div>
+			</div>
 		{:else}
 			<div
 				class="bg-surface-500 absolute rounded-2xl border-[0.5px] {webWindowState.type === 'folder'
