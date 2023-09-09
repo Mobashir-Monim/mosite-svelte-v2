@@ -5,7 +5,7 @@
 	import DocumentIcon from '../../assets/icons/DocumentIcon.svelte';
 	import FolderIcon from '../../assets/icons/FolderIcon.svelte';
 
-	export let windowName: string;
+	export let webWindowName: string;
 	let selectedContent: UIFileOrFolderType | undefined = undefined;
 	const unitDivisors = [
 		{ unit: 'bit', divisor: 1 },
@@ -16,10 +16,10 @@
 	];
 
 	globalDirectorySystemStore.subscribe((value) => {
-		const window = value.find((window) => window.name === windowName);
+		const webWindow = value.find((webWindow) => webWindow.name === webWindowName);
 
-		if (window && window?.selected) {
-			selectedContent = window.selected;
+		if (webWindow && webWindow?.selected) {
+			selectedContent = webWindow.selected;
 		}
 	});
 

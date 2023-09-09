@@ -6,7 +6,7 @@
 	import { rootFolder } from '$lib/data/directory-contents';
 	import { aboutMe } from '$lib/data/about-me';
 
-	const windowName: string = 'root';
+	const webWindowName: string = 'root';
 
 	onMount(() => {
 		openWindow('root', rootFolder, 150);
@@ -26,11 +26,11 @@
 			<div
 				class="bg-clip-text text-transparent bg-gradient-to-r from-cyan-500 to-violet-400 text-center w-full select-none"
 			>
-				<h1 class="text-[2rem] text-center">{aboutMe.person.first}'s Portfolio</h1>
+				<h1 class="text-[2rem] text-center leading-8">{aboutMe.person.first}'s Portfolio</h1>
 			</div>
 		</div>
 		<div class="md:w-3/5 flex flex-col justify-center gap-20 px-5 md:pl-0 md:pr-10">
-			<DirectorySystemComponent {windowName} />
+			<DirectorySystemComponent {webWindowName} />
 		</div>
 	</div>
 </div>

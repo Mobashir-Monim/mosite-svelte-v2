@@ -10,18 +10,18 @@
 	import ToolBarContentDivider from './ToolBarContentDivider.svelte';
 
 	const toolBarIconSize: number = 35;
-	let windows: WindowStateType[];
+	let webWindows: WindowStateType[];
 	globalDirectorySystemStore.subscribe((value) => {
-		windows = value;
+		webWindows = value;
 	});
 
-	$: hasOpenFile = windows.filter((w) => w.type === 'file').length > 0;
+	$: hasOpenFile = webWindows.filter((w) => w.type === 'file').length > 0;
 	$: hasOpenFolder =
-		windows.filter((w) => w.type === 'folder' && w.name !== 'root' && w.name !== 'settings')
+		webWindows.filter((w) => w.type === 'folder' && w.name !== 'root' && w.name !== 'settings')
 			.length > 0;
 
-	$: openFileCount = windows.filter((w) => w.type === 'file').length;
-	$: openFolderCount = windows.filter(
+	$: openFileCount = webWindows.filter((w) => w.type === 'file').length;
+	$: openFolderCount = webWindows.filter(
 		(w) => w.type === 'folder' && w.name !== 'root' && w.name !== 'settings'
 	).length;
 </script>
@@ -38,7 +38,7 @@
 				icon={OpenDocumentIcon}
 				props={{ size: toolBarIconSize }}
 				openCount={openFileCount}
-                onClick={() => unminimizeAll('file')}
+				onClick={() => unminimizeAll('file')}
 			/>
 		{/if}
 		{#if hasOpenFolder}
@@ -46,7 +46,7 @@
 				icon={OpenFolderIcon}
 				props={{ size: toolBarIconSize }}
 				openCount={openFolderCount}
-                onClick={() => unminimizeAll('folder')}
+				onClick={() => unminimizeAll('folder')}
 			/>
 		{/if}
 	</div>

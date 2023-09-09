@@ -190,10 +190,10 @@ export const unminimizeWindow = (name: string) => {
 export const unminimizeAll = (type?: 'file' | 'folder') => {
 	let currentStore: WindowStateType[] = getGlobalDirectorySystemStore();
 
-	for (let window of currentStore) {
-		if (window.name !== 'root' && window.name !== 'settings') {
-			if ((type && type === window.type) || !type) {
-				window.minimized = false;
+	for (let webWindow of currentStore) {
+		if (webWindow.name !== 'root' && webWindow.name !== 'settings') {
+			if ((type && type === webWindow.type) || !type) {
+				webWindow.minimized = false;
 			}
 		}
 	}

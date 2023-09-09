@@ -9,25 +9,27 @@
 	import DocumentComponent from './DocumentComponent.svelte';
 	import FolderComponent from './FolderComponent.svelte';
 
-	export let windowName: string;
-	let windowState: WindowStateType;
+	export let webWindowName: string;
+	let webWindowState: WindowStateType;
 	export let contentContainerClasses: string = '';
 	let selectedContent: string = '';
 	$: isSelected = (name: string) => selectedContent === name;
 
 	globalDirectorySystemStore.subscribe((value) => {
-		const state = value.find((dir) => dir.name === windowName);
-		if (state) windowState = state;
+		const state = value.find((dir) => dir.name === webWindowName);
+		if (state) webWindowState = state;
 	});
 
 	const onOpen = (name: string) => {
-		const target: UIFileOrFolderType | undefined = windowState.contents?.find(
+		console.log('clicked');
+
+		const target: UIFileOrFolderType | undefined = webWindowState.contents?.find(
 			(dir) => dir.name === name
 		);
 
 		if (target) {
 			if (target.type === 'folder') {
-				openWindow(target.name, target.contents, 100, windowName);
+				openWindow(target.name, target.contents, 100, webWindowName);
 			} else {
 				openFile(target.name, target);
 			}
@@ -38,18 +40,20 @@
 
 	const onSelect = (content: string) => {
 		selectedContent = content;
-		selectContent(windowName, content);
+		selectContent(webWindowName, content);
 	};
 </script>
 
-<div class="flex flex-row flex-wrap {windowName === 'root' ? 'justify-between' : ''} gap-5 w-full">
-	{#if windowState && windowState?.contents?.length}
-		{#each windowState?.contents as content, id}
+<div
+	class="flex flex-row flex-wrap {webWindowName === 'root' ? 'justify-between' : ''} gap-5 w-full"
+>
+	{#if webWindowState && webWindowState?.contents?.length}
+		{#each webWindowState?.contents as content, id}
 			{#if content.type === 'folder'}
 				<slot name="folder">
 					<FolderComponent
 						folder={content}
-						size={windowState?.size}
+						size={webWindowState?.size}
 						containerClasses={contentContainerClasses}
 						isSelected={isSelected(content.name)}
 						{onSelect}
@@ -61,7 +65,7 @@
 				<slot name="file">
 					<DocumentComponent
 						file={content}
-						size={windowState?.size}
+						size={webWindowState?.size}
 						containerClasses={contentContainerClasses}
 						isSelected={isSelected(content.name)}
 						{onSelect}

@@ -8,10 +8,10 @@
 	import WindowToolBar from './WindowToolBar.svelte';
 	import FileSystemComponent from '../FileComponents/FileSystemComponent.svelte';
 
-	export let windowState: WindowStateType;
+	export let webWindowState: WindowStateType;
 
-	let leftConst: number = windowState.left,
-		topConst: number = windowState.top,
+	let leftConst: number = webWindowState.left,
+		topConst: number = webWindowState.top,
 		screenWidth: number = 700,
 		screenHeight: number = 400,
 		moving: boolean = false;
@@ -22,7 +22,7 @@
 
 	onMount(() => {
 		width = Math.min(700, screenWidth);
-		height = Math.min(windowState.type === 'folder' ? 400 : 800, screenHeight - toolBarHeight);
+		height = Math.min(webWindowState.type === 'folder' ? 400 : 800, screenHeight - toolBarHeight);
 	});
 
 	const onMouseMove: (event: MouseEvent) => void = (event: MouseEvent) => {
@@ -46,7 +46,7 @@
 				leftConst = -(screenWidth / 2) + width / 2;
 			}
 
-			moveWindow(windowState.name, topConst, leftConst);
+			moveWindow(webWindowState.name, topConst, leftConst);
 		}
 	};
 
@@ -65,36 +65,36 @@
 			<div />
 		{:else}
 			<div
-				class="bg-surface-500 absolute rounded-2xl border-[0.5px] {windowState.type === 'folder'
+				class="bg-surface-500 absolute rounded-2xl border-[0.5px] {webWindowState.type === 'folder'
 					? 'bg-opacity-70'
 					: 'bg-opacity-90'} !text-white backdrop-blur-[8px] border-neutral-500 select-none overflow-hidden drop-shadow-[5px_5px_10px_rgba(0,0,0,0.3)] will-change-transform cursor-default"
 				style="width: {width}px; height: {height}px; left: {screenWidth / 2 -
 					width / 2 +
 					leftConst}px; top: {(screenHeight - 63) / 2 - height / 2 + topConst}px"
-				on:click={() => focusWindow(windowState.name)}
-				on:keypress={() => focusWindow(windowState.name)}
+				on:click={() => focusWindow(webWindowState.name)}
+				on:keypress={() => focusWindow(webWindowState.name)}
 				role="button"
 				tabindex="0"
 			>
 				<WindowToolBar
-					windowName={windowState.name}
-					isFolder={windowState.type === 'folder'}
-					origin={windowState.origin}
-					tail={windowState.tail}
+					webWindowName={webWindowState.name}
+					isFolder={webWindowState.type === 'folder'}
+					origin={webWindowState.origin}
+					tail={webWindowState.tail}
 					{onMouseUp}
 					{onMouseDown}
 					{onMouseMove}
 				/>
 				<div class="flex flex-row h-[calc(100%-30px)]">
-					{#if windowState.type === 'folder'}
+					{#if webWindowState.type === 'folder'}
 						<div class="h-full bg-white/10 w-full p-2.5 overflow-y-auto">
-							<DirectorySystemComponent windowName={windowState.name} />
+							<DirectorySystemComponent webWindowName={webWindowState.name} />
 						</div>
-						<WindowSidebar windowName={windowState.name} />
+						<WindowSidebar webWindowName={webWindowState.name} />
 					{:else}
 						<div class="h-full bg-white/10 w-full p-5 overflow-y-auto baal">
-							{#if windowState.doc}
-								<FileSystemComponent doc={windowState.doc} />
+							{#if webWindowState.doc}
+								<FileSystemComponent doc={webWindowState.doc} />
 							{/if}
 						</div>
 					{/if}
