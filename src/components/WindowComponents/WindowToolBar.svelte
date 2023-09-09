@@ -42,7 +42,7 @@
 <div
 	on:mousedown={onMouseDown}
 	role="button"
-	class="cursor-move w-full h-[30px] bg-surface-500 flex flex-row justify-between py-[2.5px] px-[10px]"
+	class="cursor-move w-full h-[50px] sm:h-[30px] bg-surface-500 flex flex-row justify-between py-[2.5px] px-[10px]"
 	tabindex="0"
 >
 	<div class="flex flex-row gap-2">
@@ -72,10 +72,10 @@
 	</div>
 	<div class="flex flex-row gap-[5px] my-auto">
 		<MediaQuery query="" let:matches>
-            {#if !matches}
-                <WindowToolBarButton buttonType="full-screen" />
-            {/if}
-        </MediaQuery>
+			{#if !matches}
+				<WindowToolBarButton buttonType="full-screen" />
+			{/if}
+		</MediaQuery>
 		<WindowToolBarButton buttonType="minimize" onClick={minimize} />
 		<WindowToolBarButton buttonType="close" onClick={close} />
 	</div>

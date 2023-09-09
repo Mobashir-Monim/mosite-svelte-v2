@@ -63,7 +63,7 @@
 	<MediaQuery query="(max-width: 699px)" let:matches>
 		{#if matches}
 			<div
-				class="bg-surface-500 absolute rounded-b-2xl border-[0.5px] {webWindowState.type === 'folder'
+				class="bg-surface-500 absolute border-[0.5px] {webWindowState.type === 'folder'
 					? 'bg-opacity-70'
 					: 'bg-opacity-90'} !text-white backdrop-blur-[8px] border-neutral-500 select-none overflow-hidden drop-shadow-[5px_5px_10px_rgba(0,0,0,0.3)] will-change-transform cursor-default top-0 left-0 w-[calc(100vw-1px)] h-[calc(100vh-65px)]"
 			>
