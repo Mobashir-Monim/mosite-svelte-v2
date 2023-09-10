@@ -2,7 +2,7 @@ import Folder from '$lib/models/Folder';
 import type { UIFileOrFolderType, UIFolderType } from '$lib/types';
 import { aboutMe } from './about-me';
 import { bscDegree, landRegPub, scrumMasterCertification } from './attainments';
-import { bracUExp, eveneerExp, grExp, techynafExp } from './experiences';
+import { amlExp, bracUExp, eveneerExp, grExp, techynafExp } from './experiences';
 import {
 	eveneerBlober,
 	eveneerBout,
@@ -28,7 +28,7 @@ import {
 
 export const experiences: UIFolderType = new Folder(
 	'Experiences',
-	[eveneerExp, grExp, bracUExp, techynafExp],
+	[eveneerExp, grExp, bracUExp, techynafExp, amlExp],
 	'experiences'
 );
 

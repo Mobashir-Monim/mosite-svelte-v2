@@ -1,6 +1,6 @@
 import Experience from '$lib/models/Experience';
 import type { RangeTimeType, UIFolderType } from '$lib/types';
-import { gymRevenue, type CompanyType, bracU, techynaf, eveneer } from './companies';
+import { gymRevenue, type CompanyType, bracU, techynaf, eveneer, aml } from './companies';
 import {
 	grBillingEngine,
 	grCalendarAndScheduling,
@@ -94,4 +94,19 @@ export const eveneerExp = new Experience(
 	eveneer,
 	'In the capacity of Eveneer, I have assumed the pivotal role of a technology consultant. This role entailed providing nuanced expertise to the Managing Director of a prominent conglomerate situated in Bangladesh. Simultaneously, my repertoire extends to encompass diverse software development undertakings for a varied spectrum of entities, spanning non-profit organizations, research institutions, and universities. Among the prominent projects are a School Management System, a Faculty Evaluation Collection, Analysis, and Distribution System, a Course Management System, Single Sign-On, a SQL Assessment Platform, an Organizational Voting System, and a Content Management System (CMS), among others. This dynamic and diversified portfolio underscores my steadfast commitment to channeling my expertise for substantial contributions across a range of sectors.',
 	[eveneerBout, eveneerBoutV2, eveneerBlober, eveneerLightSaml, eveneerBusso]
+);
+
+export const amlExp = new Experience(
+	'Technology Advisor',
+	{
+		month: 'Jun',
+		year: '2023'
+	},
+	aml,
+	"In my capacity as the Technology Advisor to the Managing Director of AML, I conducted a comprehensive assessment of the organization's existing technological infrastructure and software ecosystem. This review encompassed an in-depth analysis of the limitations and bottlenecks encountered in the utilization of software and technology across the larger organization. Subsequently, I presented a series of strategic recommendations aimed at addressing these identified bottlenecks while also addressing pertinent security concerns. These suggestions were designed to enhance the overall efficiency and security of AML's technology landscape, aligning it more closely with the organization's overarching objectives and operational excellence.",
+	[],
+	{
+		month: 'Nov',
+		year: '2023'
+	}
 );

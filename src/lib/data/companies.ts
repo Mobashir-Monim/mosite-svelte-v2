@@ -3,6 +3,7 @@ import gymrevenuelogo from '../../assets/imgs/gym-revenue.png';
 import bracUlogo from '../../assets/imgs/bracu.png';
 import techynafLogo from '../../assets/imgs/techynaf-technologies-ltd.png';
 import eveneerLogo from '../../assets/imgs/eveneer.png';
+import amlLogo from '../../assets/imgs/aml.png';
 import type { LocationType, UIFileType } from '$lib/types';
 
 export interface CompanyType extends UIFileType {
@@ -11,7 +12,7 @@ export interface CompanyType extends UIFileType {
 	specialization_type: 'company-type';
 	location: LocationType;
 	website?: string;
-    industry: string,
+	industry: string;
 }
 
 export const gymRevenue: CompanyType = new Company(
@@ -23,8 +24,8 @@ export const gymRevenue: CompanyType = new Company(
 		state: 'TX',
 		country: 'USA'
 	},
-    'Software Development',
-	'gymrevenue.com',
+	'Software Development',
+	'gymrevenue.com'
 );
 
 export const bracU: CompanyType = new Company(
@@ -35,8 +36,8 @@ export const bracU: CompanyType = new Company(
 		city: 'Dhaka',
 		country: 'Bangladesh'
 	},
-    'Higher Education',
-	'bracu.ac.bd',
+	'Higher Education',
+	'bracu.ac.bd'
 );
 
 export const techynaf: CompanyType = new Company(
@@ -47,8 +48,8 @@ export const techynaf: CompanyType = new Company(
 		city: 'Dhaka',
 		country: 'Bangladesh'
 	},
-    'Software Development',
-	'linkedin.com/company/techynaf-technologies/about',
+	'Software Development',
+	'linkedin.com/company/techynaf-technologies/about'
 );
 
 export const eveneer: CompanyType = new Company(
@@ -59,6 +60,18 @@ export const eveneer: CompanyType = new Company(
 		city: 'Dhaka',
 		country: 'Bangladesh'
 	},
-    'Software Development',
-	'eveneer.xyz',
+	'Software Development',
+	'eveneer.xyz'
+);
+
+export const aml: CompanyType = new Company(
+	'Abdul Monem Limited',
+	"Abdul Monem Limited, commonly referred to as AML, is a prominent and diversified conglomerate based in Bangladesh. With a rich history dating back to its establishment in 1956, AML has consistently played a pivotal role in various sectors of the country's economy, including construction, infrastructure development, and manufacturing. Known for its commitment to excellence and innovation, AML has been involved in numerous landmark projects, contributing significantly to Bangladesh's infrastructure growth. The company's multifaceted operations encompass construction and engineering, real estate development, food and beverage, and logistics, making it a dynamic and influential player in the business landscape of Bangladesh. AML's unwavering dedication to quality, sustainability, and social responsibility underscores its enduring legacy in the region.",
+	amlLogo,
+	{
+		city: 'Dhaka',
+		country: 'Bangladesh'
+	},
+	'Conglomerate',
+	'https://amlbd.com/'
 );
