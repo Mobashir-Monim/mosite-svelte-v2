@@ -27,27 +27,27 @@
 </script>
 
 <div class="absolute bottom-0 w-full flex flex-row justify-center">
-	<div class="flex flex-row gap-2 py-2 px-3 bg-gray-400/30 dark:bg-gray-500/30 rounded-2xl">
-		<ToolBarContent icon={AppsIcon} props={{ size: toolBarIconSize }} />
-		<ToolBarContent icon={SettingsIcon} props={{ size: toolBarIconSize }} />
-		{#if hasOpenFolder || hasOpenFile}
-			<ToolBarContentDivider {toolBarIconSize} />
-		{/if}
-		{#if hasOpenFile}
-			<ToolBarContent
-				icon={OpenDocumentIcon}
-				props={{ size: toolBarIconSize }}
-				openCount={openFileCount}
-				onClick={() => unminimizeAll('file')}
-			/>
-		{/if}
-		{#if hasOpenFolder}
-			<ToolBarContent
-				icon={OpenFolderIcon}
-				props={{ size: toolBarIconSize }}
-				openCount={openFolderCount}
-				onClick={() => unminimizeAll('folder')}
-			/>
-		{/if}
+	<div class="flex flex-row py-2 px-2 bg-gray-400/30 dark:bg-gray-500/30 rounded-2xl transit">
+		<ToolBarContent icon={AppsIcon} props={{ size: toolBarIconSize }} showToolBarContent={true} />
+		<ToolBarContent
+			icon={SettingsIcon}
+			props={{ size: toolBarIconSize }}
+			showToolBarContent={true}
+		/>
+		<ToolBarContentDivider {toolBarIconSize} showToolBarDivider={hasOpenFile || hasOpenFolder} />
+		<ToolBarContent
+			icon={OpenDocumentIcon}
+			props={{ size: toolBarIconSize }}
+			openCount={openFileCount}
+			showToolBarContent={hasOpenFile}
+			onClick={() => unminimizeAll('file')}
+		/>
+		<ToolBarContent
+			icon={OpenFolderIcon}
+			props={{ size: toolBarIconSize }}
+			openCount={openFolderCount}
+			showToolBarContent={hasOpenFolder}
+			onClick={() => unminimizeAll('folder')}
+		/>
 	</div>
 </div>
