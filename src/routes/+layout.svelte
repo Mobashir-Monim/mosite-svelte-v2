@@ -7,10 +7,13 @@
 	import type { WindowStateType } from '$lib/types';
 	import { globalDirectorySystemStore } from '$lib/store';
 	import LoadingScreen from '../components/LoadingScreenComponents/LoadingScreen.svelte';
+	import InitialClickSettings from '../components/InitialClickSettings.svelte';
+	import { isMobileOrTabBrowser } from '$lib/utils/device-utils';
+	import { getClickMode, setClickMode } from '$lib/utils/click-utils';
 
-	const toolBarIconSize: number = 35;
 	let webWindows: WindowStateType[];
 	let showLoadingScreen: boolean;
+	let showInitialClickSettings: boolean;
 
 	globalDirectorySystemStore.subscribe((value) => {
 		webWindows = value.filter((win) => win.name !== 'root' && !win.minimized);
@@ -21,9 +24,19 @@
 		window.sessionStorage.setItem('loading-screen-shown', 'true');
 	};
 
+    const removeClickSettings: () => void = () => {
+        showInitialClickSettings = false;
+    }
+
 	onMount(() => {
 		setModeCurrent(false);
 		showLoadingScreen = window.sessionStorage.getItem('loading-screen-shown') === null;
+
+		if (isMobileOrTabBrowser(window)) {
+			setClickMode(window, 'single');
+		} else {
+			showInitialClickSettings = getClickMode(window) === null;
+		}
 	});
 </script>
 
@@ -40,6 +53,10 @@
 	{#each webWindows as webWindow (webWindow.name)}
 		<Window webWindowState={webWindow} />
 	{/each}
+
+	{#if showInitialClickSettings}
+		<InitialClickSettings {removeClickSettings} />
+	{/if}
 
 	{#if showLoadingScreen}
 		<LoadingScreen {removeLoadingScreen} />
