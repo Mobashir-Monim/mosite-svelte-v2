@@ -48,14 +48,17 @@ class Experience implements ExperienceType {
 					position: name,
 					end
 				}
-			},
-			{
+			}
+		];
+
+		if (works.length) {
+			this.contents.push({
 				type: 'folder',
 				name: 'Works',
 				contents: this.works,
 				specialization_type: 'experience-works'
-			}
-		];
+			});
+		}
 
 		if (end) {
 			this.end = end;
