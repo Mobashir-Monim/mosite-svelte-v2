@@ -1,6 +1,10 @@
 import type { CompanyType } from '$lib/data/companies';
 import type { ProjectType } from '$lib/data/projects';
 
+interface ProjectCompanyAndURL {
+	company?: CompanyType;
+	url?: string;
+}
 class Project implements ProjectType {
 	name: string;
 	type: 'file';
@@ -18,8 +22,7 @@ class Project implements ProjectType {
 		features: string[],
 		project_type: 'research' | 'software' | 'module' | 'package',
 		source: 'open' | 'closed',
-		url: string | undefined = undefined,
-		company: CompanyType | undefined = undefined
+		companyAndURL?: ProjectCompanyAndURL
 	) {
 		this.name = name;
 		this.description = description;
@@ -29,12 +32,14 @@ class Project implements ProjectType {
 		this.type = 'file';
 		this.specialization_type = 'project-type';
 
-		if (url) {
-			this.url = url;
-		}
+		if (companyAndURL) {
+			if (companyAndURL.url) {
+				this.url = companyAndURL.url;
+			}
 
-		if (company) {
-			this.company = company;
+			if (companyAndURL.company) {
+				this.company = companyAndURL.company;
+			}
 		}
 	}
 }

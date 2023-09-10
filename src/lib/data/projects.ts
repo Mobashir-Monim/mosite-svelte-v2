@@ -21,8 +21,7 @@ export const grCliDevTool: ProjectType = new Project(
 	['Code generation', 'Customizable Templates', 'Parameterization', 'Consistency'],
 	'module',
 	'closed',
-	undefined,
-	gymRevenue
+	{ company: gymRevenue }
 );
 
 export const grBillingEngine: ProjectType = new Project(
@@ -44,8 +43,7 @@ export const grBillingEngine: ProjectType = new Project(
 	],
 	'module',
 	'closed',
-	undefined,
-	gymRevenue
+	{ company: gymRevenue }
 );
 
 export const grInventoryManagement: ProjectType = new Project(
@@ -59,8 +57,7 @@ export const grInventoryManagement: ProjectType = new Project(
 	],
 	'module',
 	'closed',
-	undefined,
-	gymRevenue
+	{ company: gymRevenue }
 );
 
 export const grPointOfSale: ProjectType = new Project(
@@ -75,8 +72,7 @@ export const grPointOfSale: ProjectType = new Project(
 	],
 	'module',
 	'closed',
-	undefined,
-	gymRevenue
+	{ company: gymRevenue }
 );
 
 export const grServiceAgreements: ProjectType = new Project(
@@ -92,8 +88,7 @@ export const grServiceAgreements: ProjectType = new Project(
 	],
 	'module',
 	'closed',
-	undefined,
-	gymRevenue
+	{ company: gymRevenue }
 );
 
 export const grCalendarAndScheduling: ProjectType = new Project(
@@ -107,8 +102,7 @@ export const grCalendarAndScheduling: ProjectType = new Project(
 	],
 	'module',
 	'closed',
-	undefined,
-	gymRevenue
+	{ company: gymRevenue }
 );
 
 export const eveneerBout: ProjectType = new Project(
@@ -123,8 +117,7 @@ export const eveneerBout: ProjectType = new Project(
 	],
 	'software',
 	'open',
-	'https://github.com/Mobashir-Monim/bout',
-	eveneer
+	{ company: eveneer, url: 'https://github.com/Mobashir-Monim/bout' }
 );
 
 export const eveneerBoutV2: ProjectType = new Project(
@@ -143,8 +136,7 @@ export const eveneerBoutV2: ProjectType = new Project(
 	],
 	'software',
 	'open',
-	'https://github.com/Mobashir-Monim/boutv2-frontend',
-	eveneer
+	{ company: eveneer, url: 'https://github.com/Mobashir-Monim/bout2-frontend' }
 );
 
 export const eveneerBusso: ProjectType = new Project(
@@ -161,8 +153,7 @@ export const eveneerBusso: ProjectType = new Project(
 	],
 	'software',
 	'open',
-	'https://github.com/Mobashir-Monim/bracu-sso',
-	eveneer
+	{ company: eveneer, url: 'https://github.com/Mobashir-Monim/bracu-sso' }
 );
 
 export const eveneerBlober: ProjectType = new Project(
@@ -175,8 +166,7 @@ export const eveneerBlober: ProjectType = new Project(
 	],
 	'software',
 	'open',
-	'https://github.com/Mobashir-Monim/blober',
-	eveneer
+	{ company: eveneer, url: 'https://github.com/Mobashir-Monim/blober' }
 );
 
 export const eveneerLightSaml: ProjectType = new Project(
@@ -190,8 +180,7 @@ export const eveneerLightSaml: ProjectType = new Project(
 	],
 	'package',
 	'open',
-	'https://github.com/Mobashir-Monim/lightsaml',
-	eveneer
+	{ company: eveneer, url: 'https://github.com/Mobashir-Monim/lightsaml' }
 );
 
 export const hobbyBeep: ProjectType = new Project(
@@ -217,8 +206,7 @@ export const hobbyMongolTori: ProjectType = new Project(
 	],
 	'software',
 	'open',
-	'https://github.com/Mobashir-Monim/mongol-tori',
-	undefined
+	{ url: 'https://github.com/Mobashir-Monim/mongol-tori' }
 );
 
 export const hobbyLandReg: ProjectType = new Project(
@@ -233,8 +221,7 @@ export const hobbyLandReg: ProjectType = new Project(
 	],
 	'software',
 	'open',
-	'https://github.com/Mobashir-Monim/land-reg',
-	undefined
+	{ url: 'https://github.com/Mobashir-Monim/land-reg' }
 );
 
 export const techynafEcube: ProjectType = new Project(
@@ -249,8 +236,7 @@ export const techynafEcube: ProjectType = new Project(
 	],
 	'software',
 	'closed',
-	undefined,
-	techynaf
+	{ company: techynaf }
 );
 
 export const techynafConnect: ProjectType = new Project(
@@ -264,8 +250,7 @@ export const techynafConnect: ProjectType = new Project(
 	],
 	'software',
 	'closed',
-	undefined,
-	techynaf
+	{ company: techynaf }
 );
 
 export const techynafHuddle: ProjectType = new Project(
@@ -280,8 +265,7 @@ export const techynafHuddle: ProjectType = new Project(
 	],
 	'software',
 	'closed',
-	undefined,
-	techynaf
+	{ company: techynaf }
 );
 
 export const techynafAlfred: ProjectType = new Project(
@@ -298,8 +282,7 @@ export const techynafAlfred: ProjectType = new Project(
 	],
 	'software',
 	'closed',
-	undefined,
-	techynaf
+	{ company: techynaf }
 );
 
 export const bracUUserValidator: ProjectType = new Project(
@@ -312,8 +295,7 @@ export const bracUUserValidator: ProjectType = new Project(
 	],
 	'software',
 	'closed',
-	undefined,
-	bracU
+	{ company: bracU }
 );
 
 export const bracULMSUsageReportGenerator: ProjectType = new Project(
@@ -326,8 +308,7 @@ export const bracULMSUsageReportGenerator: ProjectType = new Project(
 	[],
 	'software',
 	'closed',
-	undefined,
-	bracU
+	{ company: bracU }
 );
 
 export const bracUAutomatedCourseManagementScripts: ProjectType = new Project(
@@ -341,6 +322,5 @@ export const bracUAutomatedCourseManagementScripts: ProjectType = new Project(
 	[],
 	'software',
 	'closed',
-	undefined,
-	bracU
+	{ company: bracU }
 );
