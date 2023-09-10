@@ -10,6 +10,7 @@
 	import InitialClickSettings from '../components/InitialClickSettings.svelte';
 	import { isMobileOrTabBrowser } from '$lib/utils/device-utils';
 	import { getClickMode, setClickMode } from '$lib/utils/click-utils';
+	import { page } from '$app/stores';
 
 	let webWindows: WindowStateType[];
 	let showLoadingScreen: boolean;
@@ -24,9 +25,9 @@
 		window.sessionStorage.setItem('loading-screen-shown', 'true');
 	};
 
-    const removeClickSettings: () => void = () => {
-        showInitialClickSettings = false;
-    }
+	const removeClickSettings: () => void = () => {
+		showInitialClickSettings = false;
+	};
 
 	onMount(() => {
 		setModeCurrent(false);
@@ -48,18 +49,20 @@
 <main>
 	<slot />
 
-	<ToolBar />
+	{#if !$page.error}
+		<ToolBar />
 
-	{#each webWindows as webWindow (webWindow.name)}
-		<Window webWindowState={webWindow} />
-	{/each}
+		{#each webWindows as webWindow (webWindow.name)}
+			<Window webWindowState={webWindow} />
+		{/each}
 
-	{#if showInitialClickSettings}
-		<InitialClickSettings {removeClickSettings} />
-	{/if}
+		{#if showInitialClickSettings}
+			<InitialClickSettings {removeClickSettings} />
+		{/if}
 
-	{#if showLoadingScreen}
-		<LoadingScreen {removeLoadingScreen} />
+		{#if showLoadingScreen}
+			<LoadingScreen {removeLoadingScreen} />
+		{/if}
 	{/if}
 </main>
 
