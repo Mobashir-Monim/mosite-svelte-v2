@@ -1,5 +1,29 @@
 import AboutMe from '$lib/models/AboutMe';
 import type { UIFileType } from '$lib/types';
+import {
+	phpSkill,
+	pythonSkill,
+	javaScriptSkill,
+	typeScriptSkill,
+	reactJSSkill,
+	vueJSSkill,
+	svelteSkill,
+	graphQLSkill,
+	laravelSkill,
+	htmlSkill,
+	cssSkill,
+	tailwindSkill,
+	capacitorSkill,
+	softwareDevSkill,
+	softwareArcSkill,
+	blockchainSkill,
+	cryptographySkill,
+	awsSkill,
+	firestoreSkill,
+	scrumSkill,
+	mentoringSkill,
+	type SkillTagType
+} from './skills';
 
 export interface PersonNameType {
 	first: string;
@@ -11,11 +35,6 @@ export interface LocationType {
 	city: string;
 	state?: string;
 	country: string;
-}
-
-export interface SkillTagType {
-	type: 'technical' | 'programming-language' | 'general';
-	name: string;
 }
 
 export interface SocialItemType {
@@ -67,90 +86,27 @@ export const aboutMe: AboutMeType = new AboutMe(
 		}
 	],
 	[
-		{
-			name: 'PHP',
-			type: 'programming-language'
-		},
-		{
-			name: 'Python',
-			type: 'programming-language'
-		},
-		{
-			name: 'JavaScript',
-			type: 'programming-language'
-		},
-		{
-			name: 'TypeScript',
-			type: 'programming-language'
-		},
-		{
-			name: 'ReactJS',
-			type: 'technical'
-		},
-		{
-			name: 'VueJS',
-			type: 'technical'
-		},
-		{
-			name: 'Svelte',
-			type: 'technical'
-		},
-		{
-			name: 'GraphQL',
-			type: 'technical'
-		},
-		{
-			name: 'Laravel',
-			type: 'technical'
-		},
-		{
-			name: 'HTML',
-			type: 'technical'
-		},
-		{
-			name: 'CSS',
-			type: 'technical'
-		},
-		{
-			name: 'Tailwind',
-			type: 'technical'
-		},
-		{
-			name: 'Capacitor',
-			type: 'technical'
-		},
-		{
-			name: 'Software Development',
-			type: 'technical'
-		},
-		{
-			name: 'Software Architecture',
-			type: 'technical'
-		},
-		{
-			name: 'Blockchain',
-			type: 'technical'
-		},
-		{
-			name: 'Cryptography',
-			type: 'technical'
-		},
-		{
-			name: 'AWS',
-			type: 'technical'
-		},
-		{
-			name: 'Firestore',
-			type: 'technical'
-		},
-		{
-			name: 'Scrum Master',
-			type: 'general'
-		},
-		{
-			name: 'Mentoring/Teaching',
-			type: 'general'
-		}
+		phpSkill,
+		pythonSkill,
+		javaScriptSkill,
+		typeScriptSkill,
+		reactJSSkill,
+		vueJSSkill,
+		svelteSkill,
+		graphQLSkill,
+		laravelSkill,
+		htmlSkill,
+		cssSkill,
+		tailwindSkill,
+		capacitorSkill,
+		softwareDevSkill,
+		softwareArcSkill,
+		blockchainSkill,
+		cryptographySkill,
+		awsSkill,
+		firestoreSkill,
+		scrumSkill,
+		mentoringSkill
 	],
 	{
 		city: 'Dhaka',
