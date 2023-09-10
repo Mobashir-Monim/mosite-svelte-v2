@@ -46,3 +46,5 @@ export const firestoreSkill = new Skill('Firestore', 'technical');
 export const scrumSkill = new Skill('Scrum Master', 'general');
 
 export const mentoringSkill = new Skill('Mentoring/Teaching', 'general');
+
+export const requirementAnalysisSkill = new Skill('Requirement Analysis', 'general');

@@ -22,7 +22,8 @@ import {
 	firestoreSkill,
 	scrumSkill,
 	mentoringSkill,
-	type SkillTagType
+	type SkillTagType,
+    requirementAnalysisSkill
 } from './skills';
 
 export interface PersonNameType {
@@ -106,7 +107,8 @@ export const aboutMe: AboutMeType = new AboutMe(
 		awsSkill,
 		firestoreSkill,
 		scrumSkill,
-		mentoringSkill
+		mentoringSkill,
+        requirementAnalysisSkill
 	],
 	{
 		city: 'Dhaka',
