@@ -57,22 +57,6 @@
 	const onMouseDown: () => void = () => {
 		moving = true;
 	};
-
-	const getWindowStyling: () => string = () => {
-		if (screenHeight) {
-			if (webWindowState.expanded) {
-				return `width: 100vw; height: 100vh; left: 0px; top: 0px;`;
-			} else {
-				console.log('here');
-
-				return `width: ${width}px; height: ${height}px; left: ${
-					screenWidth / 2 - width / 2 + leftConst
-				}px; top: ${(screenHeight - 63) / 2 - height / 2 + topConst}px`;
-			}
-		}
-
-		return '';
-	};
 </script>
 
 {#if screenHeight}
