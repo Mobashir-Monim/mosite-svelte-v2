@@ -12,6 +12,19 @@ export interface ProjectType extends UIFileType {
 	specialization_type: 'project-type';
 }
 
+export const grCliDevTool: ProjectType = new Project(
+	'CLI Dev Tool',
+	[
+		'The Command Line Interface (CLI) development tool provided developers with the capability to execute a command-line instruction, thereby automating the generation of repetitive code essential for implementing a new domain within the chosen architecture. This innovative tool yielded a remarkable reduction in the time required for developing new features, achieving efficiency gains of nearly 40%.',
+		"It's important to note that the design philosophy of this development tool prioritized security and local environment utilization. As a result, the tool was intentionally configured to execute exclusively within a local environment, precluding its operation in server environments. This approach ensured that the tool's functionality remained secure and aligned with development best practices."
+	],
+	['Code generation', 'Customizable Templates', 'Parameterization', 'Consistency'],
+	'module',
+	'closed',
+	undefined,
+	gymRevenue
+);
+
 export const grBillingEngine: ProjectType = new Project(
 	'Billing Engine',
 	'The Billing Engine module within GymRevenue offers an extensive suite of client-end billing functionalities, catering to the diverse needs and requirements of gym and club members. It encompasses a comprehensive range of services, including but not limited to membership fee calculation, invoice generation, payment processing, and subscription management. This module ensures a seamless and efficient billing experience for members, enhancing their overall satisfaction while facilitating accurate and transparent financial transactions within the gym or club environment.',
