@@ -1,11 +1,9 @@
 <script lang="ts">
 	import {
 		closeWindow,
-		findWindowWithName,
 		goToOrigin,
 		goToTail,
-		minimizeWindow,
-		toggleWindowExpansion
+		minimizeWindow
 	} from '$lib/store/global-directory-system-store-control';
 	import type { WindowStateType } from '$lib/types';
 	import ChevronIcon from '../../assets/icons/ChevronIcon.svelte';
@@ -20,7 +18,6 @@
 	export let onMouseUp: () => void;
 	export let onMouseMove: (event: MouseEvent) => void;
 
-	$: isExpanded = findWindowWithName(webWindowName).target?.expanded;
 	const close = () => {
 		closeWindow(webWindowName);
 	};
@@ -74,15 +71,6 @@
 		<h3 class="text-[0.6rem] font-normal my-auto">{webWindowName}</h3>
 	</div>
 	<div class="flex flex-row gap-[5px] my-auto">
-		<MediaQuery query="(max-width: 699px)" let:matches>
-			{#if !matches}
-				<WindowToolBarButton
-					buttonType="full-screen"
-					onClick={() => toggleWindowExpansion(webWindowName)}
-					{isExpanded}
-				/>
-			{/if}
-		</MediaQuery>
 		<WindowToolBarButton buttonType="minimize" onClick={minimize} />
 		<WindowToolBarButton buttonType="close" onClick={close} />
 	</div>

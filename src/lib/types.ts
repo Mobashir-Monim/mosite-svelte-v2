@@ -22,7 +22,6 @@ export interface WindowStateType {
 	left: number;
 	top: number;
 	minimized: boolean;
-	expanded: boolean;
 	origin: WindowStateType | undefined;
 	tail: WindowStateType | undefined;
 	selected?: UIFileOrFolderType;

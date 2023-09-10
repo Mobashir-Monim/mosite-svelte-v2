@@ -61,7 +61,6 @@ export const openWindow = (
 			size,
 			top: originState?.top ?? 0,
 			left: originState?.left ?? 0,
-			expanded: originState?.expanded ?? false,
 			minimized: originState?.minimized ?? false,
 			origin: originState,
 			tail: undefined
@@ -211,7 +210,6 @@ export const openFile = (name: string, doc: UIFileType) => {
 			doc,
 			top: 0,
 			left: 0,
-			expanded: false,
 			minimized: false,
 			origin: undefined,
 			tail: undefined
@@ -222,13 +220,3 @@ export const openFile = (name: string, doc: UIFileType) => {
 		focusWindow(name);
 	}
 };
-
-export const toggleWindowExpansion = (name: string) => {
-    let currentStore: WindowStateType[] = getGlobalDirectorySystemStore();
-    const { targetIndex, target } = findWindowWithName(name);
-
-    if (target) {
-        currentStore[targetIndex].expanded = !currentStore[targetIndex].expanded;
-        globalDirectorySystemStore.set(currentStore);
-    }
-}
