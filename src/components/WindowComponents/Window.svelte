@@ -57,6 +57,22 @@
 	const onMouseDown: () => void = () => {
 		moving = true;
 	};
+
+	const getWindowStyling: () => string = () => {
+		if (screenHeight) {
+			if (webWindowState.expanded) {
+				return `width: 100vw; height: 100vh; left: 0px; top: 0px;`;
+			} else {
+				console.log('here');
+
+				return `width: ${width}px; height: ${height}px; left: ${
+					screenWidth / 2 - width / 2 + leftConst
+				}px; top: ${(screenHeight - 63) / 2 - height / 2 + topConst}px`;
+			}
+		}
+
+		return '';
+	};
 </script>
 
 {#if screenHeight}
@@ -92,12 +108,15 @@
 			</div>
 		{:else}
 			<div
-				class="bg-surface-500 absolute rounded-2xl border-[0.5px] {webWindowState.type === 'folder'
+				class="bg-surface-500 transition-[height,width] ease-linear duration-300 absolute rounded-2xl border-[0.5px] {webWindowState.type ===
+				'folder'
 					? 'bg-opacity-70'
 					: 'bg-opacity-90'} !text-white backdrop-blur-[8px] border-neutral-500 select-none overflow-hidden drop-shadow-[5px_5px_10px_rgba(0,0,0,0.3)] will-change-transform cursor-default"
-				style="width: {width}px; height: {height}px; left: {screenWidth / 2 -
-					width / 2 +
-					leftConst}px; top: {(screenHeight - 63) / 2 - height / 2 + topConst}px"
+				style={webWindowState.expanded
+					? `width: 100vw; height: calc(100vh - ${toolBarHeight}px - 5px); left: 0px; top: 0px;`
+					: `width: ${width}px; height: ${height}px; left: ${
+							screenWidth / 2 - width / 2 + leftConst
+					  }px; top: ${(screenHeight - 63) / 2 - height / 2 + topConst}px`}
 				on:click={() => focusWindow(webWindowState.name)}
 				on:keypress={() => focusWindow(webWindowState.name)}
 				role="button"
@@ -119,7 +138,7 @@
 						</div>
 						<WindowSidebar webWindowName={webWindowState.name} />
 					{:else}
-						<div class="h-full bg-white/10 w-full p-5 overflow-y-auto baal">
+						<div class="h-full bg-white/10 w-full p-5 overflow-y-auto">
 							{#if webWindowState.doc}
 								<FileSystemComponent doc={webWindowState.doc} />
 							{/if}

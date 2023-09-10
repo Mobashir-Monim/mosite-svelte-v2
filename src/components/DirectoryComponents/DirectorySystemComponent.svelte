@@ -21,8 +21,6 @@
 	});
 
 	const onOpen = (name: string) => {
-		console.log('clicked');
-
 		const target: UIFileOrFolderType | undefined = webWindowState.contents?.find(
 			(dir) => dir.name === name
 		);
