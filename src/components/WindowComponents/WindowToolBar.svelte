@@ -71,7 +71,7 @@
 		<h3 class="text-[0.6rem] font-normal my-auto">{webWindowName}</h3>
 	</div>
 	<div class="flex flex-row gap-[5px] my-auto">
-		<MediaQuery query="" let:matches>
+		<MediaQuery query="(max-width: 699px)" let:matches>
 			{#if !matches}
 				<WindowToolBarButton buttonType="full-screen" />
 			{/if}
