@@ -43,7 +43,9 @@
 		selectedContent = content;
 		selectContent(webWindowName, content);
 
-		if (getClickMode(window) === 'single') onOpen(content, true);
+		setTimeout(() => {
+			if (getClickMode(window) === 'single') onOpen(content, true);
+		}, 100);
 	};
 </script>
 

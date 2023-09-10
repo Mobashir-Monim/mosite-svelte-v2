@@ -27,6 +27,7 @@
 		<p class="text-[0.8rem] text-center">
 			Would you like to open files/folders on single click or double click?
 		</p>
+
 		<div class="flex flex-row justify-between mx-auto max-w-[300px] w-full">
 			<button
 				type="button"
@@ -43,5 +44,6 @@
 				Double Click
 			</button>
 		</div>
+		<p class="text-[0.6rem] text-center">(You can change it from settings later)</p>
 	</div>
 </div>
