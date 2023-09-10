@@ -36,7 +36,7 @@ export interface IconPropsType {
 export type UIFileOrFolderType = UIFileType | UIFolderType;
 
 export interface RangeTimeType {
-	month: string;
+	month: "Jan" | "Feb" | "Mar" | "Apr" | "May" | "Jun" | "Jul" | "Aug" | "Sep" | "Oct" | "Nov" | "Dec";
 	year: string;
 }
 
