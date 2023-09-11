@@ -20,9 +20,7 @@
 	];
 </script>
 
-<div
-	class="w-full h-full flex flex-col gap-5 md:p-2.5 tracking-wider min-h-full justify-center overflow-y-auto"
->
+<div class="w-full h-full flex flex-col gap-5 md:p-2.5 min-h-full justify-center overflow-y-auto">
 	{#each settingsOptions as option}
 		<SettingsRowComponent prompt={option.prompt} component={option.component} />
 	{/each}
