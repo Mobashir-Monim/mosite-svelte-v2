@@ -186,7 +186,7 @@ export const unminimizeWindow = (name: string) => {
 	}
 };
 
-export const unminimizeAll = (type?: 'file' | 'folder') => {
+export const unminimizeAll = (type?: 'file' | 'folder' | 'settings' | 'game') => {
 	let currentStore: WindowStateType[] = getGlobalDirectorySystemStore();
 
 	for (let webWindow of currentStore) {
@@ -208,6 +208,27 @@ export const openFile = (name: string, doc: UIFileType) => {
 			name,
 			type: 'file',
 			doc,
+			top: 0,
+			left: 0,
+			minimized: false,
+			origin: undefined,
+			tail: undefined
+		});
+
+		globalDirectorySystemStore.set(currentStore);
+	} else {
+		focusWindow(name);
+	}
+};
+
+export const openSettings = () => {
+	const name = 'Settings';
+	let currentStore: WindowStateType[] = getGlobalDirectorySystemStore();
+
+	if (currentStore.find((dir) => dir.name === name) === undefined) {
+		currentStore.push({
+			name,
+			type: 'settings',
 			top: 0,
 			left: 0,
 			minimized: false,

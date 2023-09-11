@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { globalDirectorySystemStore } from '$lib/store';
-	import { unminimizeAll } from '$lib/store/global-directory-system-store-control';
+	import { openSettings, unminimizeAll } from '$lib/store/global-directory-system-store-control';
 	import type { WindowStateType } from '$lib/types';
 	import AppsIcon from '../../assets/icons/AppsIcon.svelte';
 	import OpenDocumentIcon from '../../assets/icons/OpenDocumentIcon.svelte';
@@ -33,6 +33,7 @@
 			icon={SettingsIcon}
 			props={{ size: toolBarIconSize }}
 			showToolBarContent={true}
+			onClick={openSettings}
 		/>
 		<ToolBarContentDivider {toolBarIconSize} showToolBarDivider={hasOpenFile || hasOpenFolder} />
 		<ToolBarContent

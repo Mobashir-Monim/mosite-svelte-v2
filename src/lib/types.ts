@@ -16,7 +16,7 @@ export interface WindowStateType {
 	name: string;
 	contents?: UIFileOrFolderType[];
 	doc?: UIFileType;
-	type: 'file' | 'folder';
+	type: 'file' | 'folder' | 'settings' | 'game';
 	specialization_type?: string;
 	size?: number;
 	left: number;
@@ -35,7 +35,19 @@ export interface IconPropsType {
 export type UIFileOrFolderType = UIFileType | UIFolderType;
 
 export interface RangeTimeType {
-	month: "Jan" | "Feb" | "Mar" | "Apr" | "May" | "Jun" | "Jul" | "Aug" | "Sep" | "Oct" | "Nov" | "Dec";
+	month:
+		| 'Jan'
+		| 'Feb'
+		| 'Mar'
+		| 'Apr'
+		| 'May'
+		| 'Jun'
+		| 'Jul'
+		| 'Aug'
+		| 'Sep'
+		| 'Oct'
+		| 'Nov'
+		| 'Dec';
 	year: string;
 }
 
@@ -45,3 +57,6 @@ export interface LocationType {
 	country: string;
 	remote?: boolean;
 }
+
+export type SkeletonThemeType = 'skeleton' | 'crimson' | 'wintry' | 'modern';
+export type ClickType = 'single' | 'double';

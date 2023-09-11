@@ -7,7 +7,6 @@
 	} from '$lib/store/global-directory-system-store-control';
 	import type { WindowStateType } from '$lib/types';
 	import ChevronIcon from '../../assets/icons/ChevronIcon.svelte';
-	import MediaQuery from '../MediaQuery.svelte';
 	import WindowToolBarButton from './WindowToolBarButton.svelte';
 
 	export let webWindowName: string;

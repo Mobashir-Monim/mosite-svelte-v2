@@ -14,7 +14,7 @@ export default {
 	},
 	plugins: [
 		skeleton({
-			themes: { preset: ['skeleton', 'crimson', 'wintry'] }
+			themes: { preset: ['skeleton', 'crimson', 'wintry', 'modern'] }
 		})
 	]
 } satisfies Config;

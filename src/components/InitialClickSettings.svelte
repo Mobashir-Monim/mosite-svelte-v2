@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { setClickMode } from '$lib/utils/click-utils';
+	import { setClickMode } from '$lib/utils/settings-utils';
 
 	export let removeClickSettings: () => void;
 

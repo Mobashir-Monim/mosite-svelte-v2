@@ -6,7 +6,7 @@
 		selectContent
 	} from '$lib/store/global-directory-system-store-control';
 	import type { UIFileOrFolderType, WindowStateType } from '$lib/types';
-	import { getClickMode } from '$lib/utils/click-utils';
+	import { getClickMode } from '$lib/utils/settings-utils';
 	import DocumentComponent from './DocumentComponent.svelte';
 	import FolderComponent from './FolderComponent.svelte';
 
