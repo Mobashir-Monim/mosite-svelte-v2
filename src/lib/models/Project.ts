@@ -1,9 +1,11 @@
 import type { CompanyType } from '$lib/data/companies';
 import type { ProjectType } from '$lib/data/projects';
+import type { SkillTagType } from '$lib/data/skills';
 
-interface ProjectCompanyAndURL {
+interface ProjectMetaType {
 	company?: CompanyType;
 	url?: string;
+	skills?: SkillTagType[];
 }
 class Project implements ProjectType {
 	name: string;
@@ -14,6 +16,7 @@ class Project implements ProjectType {
 	project_type: 'research' | 'software' | 'module' | 'package';
 	source: 'open' | 'closed';
 	company?: CompanyType;
+	skills?: SkillTagType[];
 	specialization_type: 'project-type';
 
 	constructor(
@@ -22,7 +25,7 @@ class Project implements ProjectType {
 		features: string[],
 		project_type: 'research' | 'software' | 'module' | 'package',
 		source: 'open' | 'closed',
-		companyAndURL?: ProjectCompanyAndURL
+		projectMeta?: ProjectMetaType
 	) {
 		this.name = name;
 		this.description = description;
@@ -32,13 +35,17 @@ class Project implements ProjectType {
 		this.type = 'file';
 		this.specialization_type = 'project-type';
 
-		if (companyAndURL) {
-			if (companyAndURL.url) {
-				this.url = companyAndURL.url;
+		if (projectMeta) {
+			if (projectMeta.url) {
+				this.url = projectMeta.url;
 			}
 
-			if (companyAndURL.company) {
-				this.company = companyAndURL.company;
+			if (projectMeta.company) {
+				this.company = projectMeta.company;
+			}
+
+			if (projectMeta.skills) {
+				this.skills = projectMeta.skills;
 			}
 		}
 	}

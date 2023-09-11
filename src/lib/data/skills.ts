@@ -48,3 +48,5 @@ export const scrumSkill = new Skill('Scrum Master', 'general');
 export const mentoringSkill = new Skill('Mentoring/Teaching', 'general');
 
 export const requirementAnalysisSkill = new Skill('Requirement Analysis', 'general');
+
+export const bootstrap5Skill = new Skill('Bootstrap 5', 'technical');

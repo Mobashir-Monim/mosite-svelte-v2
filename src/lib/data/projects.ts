@@ -1,6 +1,27 @@
 import { gymRevenue, type CompanyType, eveneer, techynaf, bracU } from '$lib/data/companies';
 import Project from '$lib/models/Project';
 import type { UIFileType } from '$lib/types';
+import {
+	cssSkill,
+	htmlSkill,
+	laravelSkill,
+	phpSkill,
+	tailwindSkill,
+	type SkillTagType,
+	graphQLSkill,
+	vueJSSkill,
+	softwareArcSkill,
+	softwareDevSkill,
+	requirementAnalysisSkill,
+	scrumSkill,
+	reactJSSkill,
+	awsSkill,
+	firestoreSkill,
+	bootstrap5Skill,
+	javaScriptSkill,
+	blockchainSkill,
+	typeScriptSkill
+} from './skills';
 
 export interface ProjectType extends UIFileType {
 	description: string | string[];
@@ -9,6 +30,7 @@ export interface ProjectType extends UIFileType {
 	project_type: 'research' | 'software' | 'module' | 'package';
 	source: 'open' | 'closed';
 	company?: CompanyType | undefined;
+	skills?: SkillTagType[];
 	specialization_type: 'project-type';
 }
 
@@ -21,7 +43,22 @@ export const grCliDevTool: ProjectType = new Project(
 	['Code generation', 'Customizable Templates', 'Parameterization', 'Consistency'],
 	'module',
 	'closed',
-	{ company: gymRevenue }
+	{
+		company: gymRevenue,
+		skills: [
+			phpSkill,
+			laravelSkill,
+			htmlSkill,
+			cssSkill,
+			tailwindSkill,
+			graphQLSkill,
+			vueJSSkill,
+			softwareArcSkill,
+			softwareDevSkill,
+			requirementAnalysisSkill,
+			scrumSkill
+		]
+	}
 );
 
 export const grBillingEngine: ProjectType = new Project(
@@ -43,7 +80,23 @@ export const grBillingEngine: ProjectType = new Project(
 	],
 	'module',
 	'closed',
-	{ company: gymRevenue }
+	{
+		company: gymRevenue,
+		skills: [
+			phpSkill,
+			laravelSkill,
+			htmlSkill,
+			cssSkill,
+			tailwindSkill,
+			graphQLSkill,
+			vueJSSkill,
+			softwareArcSkill,
+			softwareDevSkill,
+			requirementAnalysisSkill,
+			scrumSkill,
+			typeScriptSkill
+		]
+	}
 );
 
 export const grInventoryManagement: ProjectType = new Project(
@@ -57,7 +110,23 @@ export const grInventoryManagement: ProjectType = new Project(
 	],
 	'module',
 	'closed',
-	{ company: gymRevenue }
+	{
+		company: gymRevenue,
+		skills: [
+			phpSkill,
+			laravelSkill,
+			htmlSkill,
+			cssSkill,
+			tailwindSkill,
+			graphQLSkill,
+			vueJSSkill,
+			softwareArcSkill,
+			softwareDevSkill,
+			requirementAnalysisSkill,
+			scrumSkill,
+			typeScriptSkill
+		]
+	}
 );
 
 export const grPointOfSale: ProjectType = new Project(
@@ -72,7 +141,23 @@ export const grPointOfSale: ProjectType = new Project(
 	],
 	'module',
 	'closed',
-	{ company: gymRevenue }
+	{
+		company: gymRevenue,
+		skills: [
+			phpSkill,
+			laravelSkill,
+			htmlSkill,
+			cssSkill,
+			tailwindSkill,
+			graphQLSkill,
+			vueJSSkill,
+			softwareArcSkill,
+			softwareDevSkill,
+			requirementAnalysisSkill,
+			scrumSkill,
+			typeScriptSkill
+		]
+	}
 );
 
 export const grServiceAgreements: ProjectType = new Project(
@@ -88,7 +173,23 @@ export const grServiceAgreements: ProjectType = new Project(
 	],
 	'module',
 	'closed',
-	{ company: gymRevenue }
+	{
+		company: gymRevenue,
+		skills: [
+			phpSkill,
+			laravelSkill,
+			htmlSkill,
+			cssSkill,
+			tailwindSkill,
+			graphQLSkill,
+			vueJSSkill,
+			softwareArcSkill,
+			softwareDevSkill,
+			requirementAnalysisSkill,
+			scrumSkill,
+			typeScriptSkill
+		]
+	}
 );
 
 export const grCalendarAndScheduling: ProjectType = new Project(
@@ -102,7 +203,23 @@ export const grCalendarAndScheduling: ProjectType = new Project(
 	],
 	'module',
 	'closed',
-	{ company: gymRevenue }
+	{
+		company: gymRevenue,
+		skills: [
+			phpSkill,
+			laravelSkill,
+			htmlSkill,
+			cssSkill,
+			tailwindSkill,
+			graphQLSkill,
+			vueJSSkill,
+			softwareArcSkill,
+			softwareDevSkill,
+			requirementAnalysisSkill,
+			scrumSkill,
+			typeScriptSkill
+		]
+	}
 );
 
 export const eveneerBout: ProjectType = new Project(
@@ -117,7 +234,24 @@ export const eveneerBout: ProjectType = new Project(
 	],
 	'software',
 	'open',
-	{ company: eveneer, url: 'https://github.com/Mobashir-Monim/bout' }
+	{
+		company: eveneer,
+		url: 'https://github.com/Mobashir-Monim/bout',
+		skills: [
+			laravelSkill,
+			reactJSSkill,
+			htmlSkill,
+			cssSkill,
+			bootstrap5Skill,
+			scrumSkill,
+			awsSkill,
+			phpSkill,
+			requirementAnalysisSkill,
+			softwareArcSkill,
+			softwareDevSkill,
+			javaScriptSkill
+		]
+	}
 );
 
 export const eveneerBoutV2: ProjectType = new Project(
@@ -136,7 +270,25 @@ export const eveneerBoutV2: ProjectType = new Project(
 	],
 	'software',
 	'open',
-	{ company: eveneer, url: 'https://github.com/Mobashir-Monim/bout2-frontend' }
+	{
+		company: eveneer,
+		url: 'https://github.com/Mobashir-Monim/bout2-frontend',
+		skills: [
+			laravelSkill,
+			reactJSSkill,
+			htmlSkill,
+			cssSkill,
+			tailwindSkill,
+			scrumSkill,
+			awsSkill,
+			phpSkill,
+			firestoreSkill,
+			requirementAnalysisSkill,
+			softwareArcSkill,
+			softwareDevSkill,
+			javaScriptSkill
+		]
+	}
 );
 
 export const eveneerBusso: ProjectType = new Project(
@@ -153,7 +305,23 @@ export const eveneerBusso: ProjectType = new Project(
 	],
 	'software',
 	'open',
-	{ company: eveneer, url: 'https://github.com/Mobashir-Monim/bracu-sso' }
+	{
+		company: eveneer,
+		url: 'https://github.com/Mobashir-Monim/bracu-sso',
+		skills: [
+			phpSkill,
+			laravelSkill,
+			htmlSkill,
+			cssSkill,
+			bootstrap5Skill,
+			scrumSkill,
+			softwareArcSkill,
+			softwareDevSkill,
+			requirementAnalysisSkill,
+			javaScriptSkill,
+			awsSkill
+		]
+	}
 );
 
 export const eveneerBlober: ProjectType = new Project(
@@ -166,7 +334,24 @@ export const eveneerBlober: ProjectType = new Project(
 	],
 	'software',
 	'open',
-	{ company: eveneer, url: 'https://github.com/Mobashir-Monim/blober' }
+	{
+		company: eveneer,
+		url: 'https://github.com/Mobashir-Monim/blober',
+		skills: [
+			phpSkill,
+			laravelSkill,
+			htmlSkill,
+			cssSkill,
+			bootstrap5Skill,
+			scrumSkill,
+			softwareArcSkill,
+			softwareDevSkill,
+			requirementAnalysisSkill,
+			javaScriptSkill,
+			vueJSSkill,
+			awsSkill
+		]
+	}
 );
 
 export const eveneerLightSaml: ProjectType = new Project(
@@ -180,7 +365,11 @@ export const eveneerLightSaml: ProjectType = new Project(
 	],
 	'package',
 	'open',
-	{ company: eveneer, url: 'https://github.com/Mobashir-Monim/lightsaml' }
+	{
+		company: eveneer,
+		url: 'https://github.com/Mobashir-Monim/lightsaml',
+		skills: [phpSkill, softwareDevSkill, softwareArcSkill]
+	}
 );
 
 export const hobbyBeep: ProjectType = new Project(
@@ -192,7 +381,22 @@ export const hobbyBeep: ProjectType = new Project(
 		'Automated payment for services availed'
 	],
 	'software',
-	'closed'
+	'closed',
+	{
+		skills: [
+			phpSkill,
+			laravelSkill,
+			htmlSkill,
+			cssSkill,
+			bootstrap5Skill,
+			scrumSkill,
+			softwareArcSkill,
+			softwareDevSkill,
+			requirementAnalysisSkill,
+			javaScriptSkill,
+			awsSkill
+		]
+	}
 );
 
 export const hobbyMongolTori: ProjectType = new Project(
@@ -206,7 +410,21 @@ export const hobbyMongolTori: ProjectType = new Project(
 	],
 	'software',
 	'open',
-	{ url: 'https://github.com/Mobashir-Monim/mongol-tori' }
+	{
+		url: 'https://github.com/Mobashir-Monim/mongol-tori',
+		skills: [
+			phpSkill,
+			laravelSkill,
+			htmlSkill,
+			cssSkill,
+			bootstrap5Skill,
+			scrumSkill,
+			softwareArcSkill,
+			softwareDevSkill,
+			requirementAnalysisSkill,
+			javaScriptSkill
+		]
+	}
 );
 
 export const hobbyLandReg: ProjectType = new Project(
@@ -221,7 +439,22 @@ export const hobbyLandReg: ProjectType = new Project(
 	],
 	'software',
 	'open',
-	{ url: 'https://github.com/Mobashir-Monim/land-reg' }
+	{
+		url: 'https://github.com/Mobashir-Monim/land-reg',
+		skills: [
+			phpSkill,
+			laravelSkill,
+			htmlSkill,
+			cssSkill,
+			bootstrap5Skill,
+			scrumSkill,
+			softwareArcSkill,
+			softwareDevSkill,
+			requirementAnalysisSkill,
+			javaScriptSkill,
+			blockchainSkill
+		]
+	}
 );
 
 export const techynafEcube: ProjectType = new Project(
@@ -236,7 +469,21 @@ export const techynafEcube: ProjectType = new Project(
 	],
 	'software',
 	'closed',
-	{ company: techynaf }
+	{
+		company: techynaf,
+		skills: [
+			phpSkill,
+			laravelSkill,
+			htmlSkill,
+			cssSkill,
+			bootstrap5Skill,
+			softwareArcSkill,
+			softwareDevSkill,
+			requirementAnalysisSkill,
+			javaScriptSkill,
+			awsSkill
+		]
+	}
 );
 
 export const techynafConnect: ProjectType = new Project(
@@ -250,7 +497,21 @@ export const techynafConnect: ProjectType = new Project(
 	],
 	'software',
 	'closed',
-	{ company: techynaf }
+	{
+		company: techynaf,
+		skills: [
+			phpSkill,
+			laravelSkill,
+			htmlSkill,
+			cssSkill,
+			bootstrap5Skill,
+			softwareArcSkill,
+			softwareDevSkill,
+			requirementAnalysisSkill,
+			javaScriptSkill,
+			awsSkill
+		]
+	}
 );
 
 export const techynafHuddle: ProjectType = new Project(
@@ -265,7 +526,21 @@ export const techynafHuddle: ProjectType = new Project(
 	],
 	'software',
 	'closed',
-	{ company: techynaf }
+	{
+		company: techynaf,
+		skills: [
+			phpSkill,
+			laravelSkill,
+			htmlSkill,
+			cssSkill,
+			bootstrap5Skill,
+			softwareArcSkill,
+			softwareDevSkill,
+			requirementAnalysisSkill,
+			javaScriptSkill,
+			awsSkill
+		]
+	}
 );
 
 export const techynafAlfred: ProjectType = new Project(
@@ -282,7 +557,21 @@ export const techynafAlfred: ProjectType = new Project(
 	],
 	'software',
 	'closed',
-	{ company: techynaf }
+	{
+		company: techynaf,
+		skills: [
+			phpSkill,
+			laravelSkill,
+			htmlSkill,
+			cssSkill,
+			reactJSSkill,
+			bootstrap5Skill,
+			softwareArcSkill,
+			softwareDevSkill,
+			requirementAnalysisSkill,
+			javaScriptSkill
+		]
+	}
 );
 
 export const bracUUserValidator: ProjectType = new Project(
@@ -295,7 +584,19 @@ export const bracUUserValidator: ProjectType = new Project(
 	],
 	'software',
 	'closed',
-	{ company: bracU }
+	{
+		company: bracU,
+		skills: [
+			javaScriptSkill,
+			softwareArcSkill,
+			softwareDevSkill,
+			scrumSkill,
+			htmlSkill,
+			reactJSSkill,
+			cssSkill,
+			bootstrap5Skill
+		]
+	}
 );
 
 export const bracULMSUsageReportGenerator: ProjectType = new Project(
@@ -308,7 +609,19 @@ export const bracULMSUsageReportGenerator: ProjectType = new Project(
 	[],
 	'software',
 	'closed',
-	{ company: bracU }
+	{
+		company: bracU,
+		skills: [
+			javaScriptSkill,
+			softwareArcSkill,
+			softwareDevSkill,
+			scrumSkill,
+			htmlSkill,
+			reactJSSkill,
+			cssSkill,
+			bootstrap5Skill
+		]
+	}
 );
 
 export const bracUAutomatedCourseManagementScripts: ProjectType = new Project(
@@ -322,5 +635,8 @@ export const bracUAutomatedCourseManagementScripts: ProjectType = new Project(
 	[],
 	'software',
 	'closed',
-	{ company: bracU }
+	{
+		company: bracU,
+		skills: [javaScriptSkill, softwareArcSkill, softwareDevSkill, scrumSkill]
+	}
 );
