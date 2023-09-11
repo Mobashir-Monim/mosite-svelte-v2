@@ -11,7 +11,6 @@
 	import { isMobileOrTabBrowser } from '$lib/utils/device-utils';
 	import { getClickMode, getThemeMode, setClickMode } from '$lib/utils/settings-utils';
 	import { page } from '$app/stores';
-	import { openSettings } from '$lib/store/global-directory-system-store-control';
 
 	let webWindows: WindowStateType[];
 	let showLoadingScreen: boolean;
@@ -36,8 +35,6 @@
 		showLoadingScreen = window.sessionStorage.getItem('loading-screen-shown') === null;
 
 		if (isMobileOrTabBrowser(window)) {
-			console.log('here');
-
 			setClickMode(window, 'single');
 		} else {
 			showInitialClickSettings = getClickMode(window) === null;

@@ -87,6 +87,8 @@
 						<div class="h-full bg-white/10 w-full p-2.5 overflow-y-auto">
 							<DirectorySystemComponent webWindowName={webWindowState.name} />
 						</div>
+					{:else if webWindowState.type === 'settings'}
+						<Settings />
 					{:else}
 						<div class="h-full bg-white/10 w-full p-5 overflow-y-auto">
 							{#if webWindowState.doc}
