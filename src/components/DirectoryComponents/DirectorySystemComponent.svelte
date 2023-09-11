@@ -6,6 +6,7 @@
 		selectContent
 	} from '$lib/store/global-directory-system-store-control';
 	import type { UIFileOrFolderType, WindowStateType } from '$lib/types';
+	import { isMobileOrTabBrowser } from '$lib/utils/device-utils';
 	import { getClickMode } from '$lib/utils/settings-utils';
 	import DocumentComponent from './DocumentComponent.svelte';
 	import FolderComponent from './FolderComponent.svelte';
@@ -22,7 +23,8 @@
 	});
 
 	const onOpen = (name: string, singleClickCall?: boolean) => {
-		if (getClickMode(window) === 'single' && !singleClickCall) return;
+		if (getClickMode(window) === 'single' && !singleClickCall && !isMobileOrTabBrowser(window))
+			return;
 
 		const target: UIFileOrFolderType | undefined = webWindowState.contents?.find(
 			(dir) => dir.name === name
