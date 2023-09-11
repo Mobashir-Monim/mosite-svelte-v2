@@ -2,6 +2,7 @@
 	import type { ProjectType } from '$lib/data/projects';
 	import LinkIcon from '../../assets/icons/LinkIcon.svelte';
 	import DescriptionComponent from './ReuseableComponents/DescriptionComponent.svelte';
+	import SkillTag from './ReuseableComponents/SkillTag.svelte';
 
 	export let doc: ProjectType;
 </script>
@@ -42,6 +43,7 @@
 	<h3 class="border-b text-[1rem]">Description</h3>
 	<DescriptionComponent description={doc.description} />
 </div>
+
 {#if doc.features.length}
 	<div class="flex flex-col gap-3 text-justify text-[0.75rem] leading-4">
 		<h3 class="border-b text-[1rem]">Features</h3>
@@ -50,5 +52,14 @@
 				<li class="mb-2">{feature}</li>
 			{/each}
 		</ul>
+	</div>
+{/if}
+
+{#if doc.skills?.length}
+	<div class="flex flex-row flex-wrap justify-center gap-2 text-justify text-[0.7rem] leading-4">
+		<h3 class="border-b text-[1rem] w-full">Skills Used</h3>
+		{#each doc.skills as skill}
+			<SkillTag {skill} />
+		{/each}
 	</div>
 {/if}
