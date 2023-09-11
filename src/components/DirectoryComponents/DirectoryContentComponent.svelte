@@ -16,7 +16,9 @@
 	</div>
 
 	<div
-		class="line-clamp-2 text-center p-1 {isSelected ? 'bg-white/20' : ''} select-none rounded-xl leading-4"
+		class="line-clamp-2 text-center p-1 tracking font-normal {isSelected
+			? 'bg-white/20'
+			: ''} select-none rounded-xl leading-4"
 		style="width: {size}px; overflow-wrap: break-word; font-size: {size / 10}px"
 	>
 		{name}

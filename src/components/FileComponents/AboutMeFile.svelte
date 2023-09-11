@@ -16,6 +16,7 @@
 		svgBoxClasses="mx-auto fill-none"
 		containerShape="none"
 		solidShapeClasses="stroke-gray-600 fill-gray-600 dark:stroke-gray-200 dark:fill-gray-200 stroke-2"
+		outlineShapeClasses="stroke-gray-600 dark:stroke-gray-200 "
 	/>
 	<h1 class="text-[1.5rem] mx-auto">{doc.person.first} {doc.person.last}</h1>
 </div>

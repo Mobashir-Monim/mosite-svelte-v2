@@ -41,7 +41,7 @@
 <div
 	on:mousedown={onMouseDown}
 	role="button"
-	class="cursor-move w-full h-[50px] sm:h-[30px] bg-surface-500 flex flex-row justify-between py-[2.5px] px-[10px]"
+	class="cursor-move w-full h-[50px] sm:h-[30px] bg-surface-400/70 dark:bg-surface-500 flex flex-row justify-between py-[2.5px] px-[10px]"
 	tabindex="0"
 >
 	<div class="flex flex-row gap-2">
@@ -51,7 +51,7 @@
 					<ChevronIcon
 						size={20}
 						classes={origin
-							? 'fill-gray-600 dark:fill-gray-200 cursor-pointer'
+							? 'fill-gray-700 dark:fill-gray-200 cursor-pointer'
 							: 'fill-gray-600/50 dark:fill-gray-200/50 cursor-not-allowed'}
 						direction="left"
 					/>
@@ -60,14 +60,14 @@
 					<ChevronIcon
 						size={20}
 						classes="{tail
-							? 'fill-gray-600 dark:fill-gray-200 cursor-pointer'
-							: 'fill-red-600/50 dark:fill-gray-200/50 cursor-not-allowed'} dark:fill-gray-200"
+							? 'fill-gray-700 dark:fill-gray-200 cursor-pointer'
+							: 'fill-gray-600/50 dark:fill-gray-200/50 cursor-not-allowed'} dark:fill-gray-200"
 						direction="right"
 					/>
 				</button>
 			</div>
 		{/if}
-		<h3 class="text-[0.6rem] font-normal my-auto">{webWindowName}</h3>
+		<h3 class="text-[0.7rem] font-semibold my-auto max-w-[250px] line-clamp-1">{webWindowName}</h3>
 	</div>
 	<div class="flex flex-row gap-[5px] my-auto">
 		<WindowToolBarButton buttonType="minimize" onClick={minimize} />

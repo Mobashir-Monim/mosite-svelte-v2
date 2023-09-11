@@ -1,4 +1,5 @@
-import type { AboutMeType, PersonNameType, SkillTagType, SocialItemType } from '$lib/data/about-me';
+import type { AboutMeType, PersonNameType, SocialItemType } from '$lib/data/about-me';
+import type { SkillTagType } from '$lib/data/skills';
 import type { LocationType } from '$lib/types';
 
 class AboutMe implements AboutMeType {

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { SkillTagType } from '$lib/data/about-me';
+	import type { SkillTagType } from '$lib/data/skills';
 
 	export let skill: SkillTagType;
 	const skillTagTypes: any = {
@@ -12,7 +12,7 @@
 </script>
 
 <span
-	class="text-[0.65rem] rounded-full cursor-default px-3 py-1.5 bg-gradient-to-tr transition-all duration-200 ease-linear font-mono {skillTagTypes[
+	class="text-[0.65rem] rounded-full cursor-default px-3 py-1.5 bg-gradient-to-tr transition-all duration-200 ease-linear font-mono text-white {skillTagTypes[
 		skill.type
 	]}"
 >

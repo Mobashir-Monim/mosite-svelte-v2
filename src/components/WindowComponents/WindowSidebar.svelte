@@ -37,7 +37,9 @@
 	};
 </script>
 
-<div class="w-[200px] h-full shrink-0 p-2.5 flex flex-col gap-5 text-[0.6rem] bg-surface-700/70">
+<div
+	class="w-[200px] h-full shrink-0 p-2.5 flex flex-col gap-5 text-[0.6rem] bg-surface-300 dark:bg-surface-700/70"
+>
 	{#if selectedContent}
 		<div class="mx-auto">
 			{#if selectedContent.type === 'file'}
@@ -47,7 +49,9 @@
 			{/if}
 		</div>
 		<div class="flex flex-col gap-0 leading-4">
-			<div class="line-clamp-2 text-[0.8rem] font-normal border-b border-white/50">
+			<div
+				class="line-clamp-2 text-[0.8rem] font-normal border-b border-gray-600 dark:border-white/50"
+			>
 				{selectedContent.name}
 			</div>
 			<div class="line-clamp-2 text-[0.7rem] opacity-70 font-normal">
@@ -57,22 +61,34 @@
 			</div>
 		</div>
 		<div class="flex flex-col gap-0 leading-4">
-			<div class="line-clamp-2 text-[0.8rem] font-normal border-b border-white/50">Information</div>
-			<div class="flex flex-row gap-2 border-b border-white/50 justify-between">
+			<div
+				class="line-clamp-2 text-[0.8rem] font-normal border-b border-gray-600 dark:border-white/50"
+			>
+				Information
+			</div>
+			<div
+				class="flex flex-row gap-2 border-b border-gray-600 dark:border-white/50 justify-between"
+			>
 				<div class="w-[50%] shrink-0 line-clamp-1 text-opacity-70">Author</div>
 				<div class="line-clamp-1 font-normal">M. Monim</div>
 			</div>
-			<div class="flex flex-row gap-2 border-b border-white/50 justify-between">
+			<div
+				class="flex flex-row gap-2 border-b border-gray-600 dark:border-white/50 justify-between"
+			>
 				<div class="w-[50%] shrink-0 line-clamp-1 text-opacity-70">Permission</div>
 				<div class="line-clamp-1 font-normal">644</div>
 			</div>
-			<div class="flex flex-row gap-2 border-b border-white/50 justify-between">
+			<div
+				class="flex flex-row gap-2 border-b border-gray-600 dark:border-white/50 justify-between"
+			>
 				<div class="w-[50%] shrink-0 line-clamp-1 text-opacity-70">Type</div>
 				<div class="line-clamp-1 font-normal">
 					{selectedContent.type[0].toUpperCase()}{selectedContent.type.slice(1)}
 				</div>
 			</div>
-			<div class="flex flex-row gap-2 border-b border-white/50 justify-between">
+			<div
+				class="flex flex-row gap-2 border-b border-gray-600 dark:border-white/50 justify-between"
+			>
 				<div class="w-[50%] shrink-0 line-clamp-1 text-opacity-70">Items</div>
 				<div class="line-clamp-1 font-normal">
 					{selectedContent.type === 'file' ? 'N/A' : selectedContent.contents.length}
@@ -80,7 +96,11 @@
 			</div>
 		</div>
 		<div class="flex flex-col gap-0 leading-4">
-			<div class="line-clamp-2 text-[0.8rem] font-normal border-b border-white/50">Tag</div>
+			<div
+				class="line-clamp-2 text-[0.8rem] font-normal border-b border-gray-600 dark:border-white/50"
+			>
+				Tag
+			</div>
 			<div class="line-clamp-2 text-[0.7rem] opacity-70 font-normal break-words">
 				{selectedContent.specialization_type ?? 'N/A'}
 			</div>
