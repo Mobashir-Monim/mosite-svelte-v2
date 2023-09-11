@@ -45,6 +45,9 @@
 <svelte:head>
 	{@html `<script>(${setInitialClassState.toString()})();</script>`}
 	{@html `<script>${autoModeWatcher.toString()} autoModeWatcher();</script>`}
+	{@html `<script async src="https://www.googletagmanager.com/gtag/js?id=G-QHJ645MLY3"></script>`}
+	{@html `<script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-QHJ645MLY3');</script>`}
+
 	<title>Mobashir Monim</title>
 </svelte:head>
 
