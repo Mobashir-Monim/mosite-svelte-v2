@@ -100,13 +100,13 @@ export const amlExp = new Experience(
 	'Technology Advisor',
 	{
 		month: 'Jun',
-		year: '2023'
+		year: '2022'
 	},
 	aml,
 	"In my capacity as the Technology Advisor to the Managing Director of AML, I conducted a comprehensive assessment of the organization's existing technological infrastructure and software ecosystem. This review encompassed an in-depth analysis of the limitations and bottlenecks encountered in the utilization of software and technology across the larger organization. Subsequently, I presented a series of strategic recommendations aimed at addressing these identified bottlenecks while also addressing pertinent security concerns. These suggestions were designed to enhance the overall efficiency and security of AML's technology landscape, aligning it more closely with the organization's overarching objectives and operational excellence.",
 	[],
 	{
 		month: 'Nov',
-		year: '2023'
+		year: '2022'
 	}
 );
