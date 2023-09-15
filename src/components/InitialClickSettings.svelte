@@ -21,7 +21,7 @@
 		: 'opacity-0'}"
 >
 	<div
-		class="mx-auto w-[50%] max-w-[500px] min-h-[40%] rounded-2xl bg-surface-500 m-5 p-5 md:p-10 flex flex-col justify-center gap-10"
+		class="mx-auto w-[50%] max-w-[500px] min-h-[40%] rounded-2xl bg-surface-500 m-5 p-5 md:p-10 flex flex-col justify-center gap-10 select-none"
 	>
 		<h3 class="text-[2rem] text-center">Click settings</h3>
 		<p class="text-[0.8rem] text-center">
