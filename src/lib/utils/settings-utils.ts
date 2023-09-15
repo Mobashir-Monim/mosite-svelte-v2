@@ -1,4 +1,4 @@
-import type { ClickType } from "$lib/types";
+import type { ClickType } from '$lib/types';
 
 const CLICK_SETTINGS_KEY: string = 'click-mode';
 const APPEARANCE_SETTINGS_KEY: string = 'appearance-mode';

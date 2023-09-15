@@ -11,7 +11,7 @@
 	import { isMobileOrTabBrowser } from '$lib/utils/device-utils';
 	import { getClickMode, getThemeMode, setClickMode } from '$lib/utils/settings-utils';
 	import { page } from '$app/stores';
-	import { openSettings } from '$lib/store/global-directory-system-store-control';
+	import AppsMenu from '../components/AppsMenuComponents/AppsMenu.svelte';
 
 	let webWindows: WindowStateType[];
 	let showLoadingScreen: boolean;
@@ -32,7 +32,6 @@
 
 	onMount(() => {
 		document.body.setAttribute('data-theme', getThemeMode(window));
-        openSettings();
 		setModeCurrent(false);
 		showLoadingScreen = window.sessionStorage.getItem('loading-screen-shown') === null;
 
@@ -72,6 +71,8 @@
 		{#if showLoadingScreen}
 			<LoadingScreen {removeLoadingScreen} />
 		{/if}
+
+		<AppsMenu />
 	{/if}
 </main>
 
