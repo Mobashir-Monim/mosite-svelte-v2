@@ -63,7 +63,8 @@ export const openWindow = (
 			left: originState?.left ?? 0,
 			minimized: originState?.minimized ?? false,
 			origin: originState,
-			tail: undefined
+			tail: undefined,
+			justClosed: false
 		});
 
 		globalDirectorySystemStore.set(currentStore);
@@ -77,8 +78,13 @@ export const closeWindow = (name: string) => {
 	const { targetIndex, target } = findWindowWithName(name);
 
 	if (target) {
-		currentStore.splice(targetIndex, 1);
+		currentStore[targetIndex].justClosed = true;
 		globalDirectorySystemStore.set(currentStore);
+
+		setTimeout(() => {
+			currentStore.splice(targetIndex, 1);
+			globalDirectorySystemStore.set(currentStore);
+		}, 500);
 	}
 };
 
@@ -212,7 +218,8 @@ export const openFile = (name: string, doc: UIFileType) => {
 			left: 0,
 			minimized: false,
 			origin: undefined,
-			tail: undefined
+			tail: undefined,
+			justClosed: false
 		});
 
 		globalDirectorySystemStore.set(currentStore);
@@ -233,7 +240,8 @@ export const openSettings = () => {
 			left: 0,
 			minimized: false,
 			origin: undefined,
-			tail: undefined
+			tail: undefined,
+			justClosed: false
 		});
 
 		globalDirectorySystemStore.set(currentStore);

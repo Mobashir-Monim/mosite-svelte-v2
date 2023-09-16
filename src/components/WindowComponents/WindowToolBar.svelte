@@ -41,7 +41,7 @@
 <div
 	on:mousedown={onMouseDown}
 	role="button"
-	class="cursor-move w-full h-[50px] sm:h-[30px] border-b-[0.5px] border-surface-500 dark:border-white/70 bg-surface-400/70 dark:bg-surface-500 flex flex-row justify-between py-[2.5px] px-[10px]"
+	class="cursor-move w-full h-[50px] sm:h-[30px] border-b-[0.5px] border-neutral-500 bg-surface-400/70 dark:bg-surface-500 flex flex-row justify-between py-[2.5px] px-[10px]"
 	tabindex="0"
 >
 	<div class="flex flex-row gap-2">

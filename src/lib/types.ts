@@ -25,6 +25,7 @@ export interface WindowStateType {
 	origin: WindowStateType | undefined;
 	tail: WindowStateType | undefined;
 	selected?: UIFileOrFolderType;
+    justClosed: boolean;
 }
 
 export interface IconPropsType {
