@@ -52,7 +52,9 @@
 </script>
 
 <div
-	class="flex flex-row flex-wrap {webWindowName === 'root' ? 'justify-between' : ''} gap-5 w-full"
+	class="flex flex-row flex-wrap {webWindowName === 'root'
+		? 'justify-between'
+		: 'justify-center'} gap-5 w-full"
 >
 	{#if webWindowState && webWindowState?.contents?.length}
 		{#each webWindowState?.contents as content, id}
