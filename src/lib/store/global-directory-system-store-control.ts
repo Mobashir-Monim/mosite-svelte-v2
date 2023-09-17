@@ -29,6 +29,18 @@ export const findWindowWithName = (name: string) => {
 	};
 };
 
+export const markAsOpened = (name: string) => {
+	setTimeout(() => {
+		let currentStore: WindowStateType[] = getGlobalDirectorySystemStore();
+		const { targetIndex, target } = findWindowWithName(name);
+
+		if (target) {
+			currentStore[targetIndex].justOpened = false;
+			globalDirectorySystemStore.set(currentStore);
+		}
+	}, 500);
+};
+
 export const openWindow = (
 	name: string,
 	contents: UIFileOrFolderType[],
@@ -64,10 +76,12 @@ export const openWindow = (
 			minimized: originState?.minimized ?? false,
 			origin: originState,
 			tail: undefined,
+			justOpened: true,
 			justClosed: false
 		});
 
 		globalDirectorySystemStore.set(currentStore);
+		markAsOpened(name);
 	} else {
 		focusWindow(name);
 	}
@@ -219,10 +233,12 @@ export const openFile = (name: string, doc: UIFileType) => {
 			minimized: false,
 			origin: undefined,
 			tail: undefined,
+			justOpened: true,
 			justClosed: false
 		});
 
 		globalDirectorySystemStore.set(currentStore);
+		markAsOpened(name);
 	} else {
 		focusWindow(name);
 	}
@@ -241,10 +257,12 @@ export const openSettings = () => {
 			minimized: false,
 			origin: undefined,
 			tail: undefined,
+			justOpened: true,
 			justClosed: false
 		});
 
 		globalDirectorySystemStore.set(currentStore);
+		markAsOpened(name);
 	} else {
 		focusWindow(name);
 	}

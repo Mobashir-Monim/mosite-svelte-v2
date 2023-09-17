@@ -65,15 +65,19 @@
 	const onMouseDown: () => void = () => {
 		moving = true;
 	};
+
+	$: webWindowTransition = webWindowState.justOpened
+		? 'openWindow'
+		: webWindowState.justClosed
+		? 'closeWindow'
+		: '';
 </script>
 
 {#if screenHeight}
 	<MediaQuery query="(max-width: 699px)" let:matches>
 		{#if matches}
 			<div
-				class="bg-surface-300 dark:bg-surface-500 absolute border-[0.5px] {webWindowState.justClosed
-					? 'closeWindow'
-					: 'openWindow'} {webWindowBgOpacity} {webWindowClasses} top-0 left-0 w-[calc(100vw-1px)] h-[calc(100vh-65px)]"
+				class="bg-surface-300 dark:bg-surface-500 absolute border-[0.5px] {webWindowTransition} {webWindowBgOpacity} {webWindowClasses} top-0 left-0 w-[calc(100vw-1px)] h-[calc(100vh-65px)]"
 			>
 				<WindowToolBar
 					webWindowName={webWindowState.name}
@@ -102,9 +106,7 @@
 			</div>
 		{:else}
 			<div
-				class="bg-surface-300 dark:bg-surface-500 absolute rounded-2xl border-[0.5px] {webWindowState.justClosed
-					? 'closeWindow'
-					: 'openWindow'} {webWindowBgOpacity} {webWindowClasses}"
+				class="bg-surface-300 dark:bg-surface-500 absolute rounded-2xl border-[0.5px] {webWindowTransition} {webWindowBgOpacity} {webWindowClasses}"
 				style="width: {width}px; height: {height}px; left: {screenWidth / 2 -
 					width / 2 +
 					leftConst}px; top: {(screenHeight - 63) / 2 - height / 2 + topConst}px"
