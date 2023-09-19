@@ -165,7 +165,7 @@ export const grServiceAgreements: ProjectType = new Project(
 	'This module provides a comprehensive framework for the meticulous management of service and subscription terms, both for existing offerings and new additions to the portfolio. It offers businesses the capability to define, configure, and maintain the terms associated with their services and subscriptions, ensuring accuracy and consistency in billing processes. This includes specifying pricing structures, billing cycles, renewal conditions, and any other pertinent terms. By utilizing this module, businesses can enhance billing accuracy, reduce errors, and ensure that their clients receive transparent and well-structured billing statements, thereby fostering client satisfaction and operational efficiency.',
 	[
 		'Agreement Template builder',
-		'Agreement Managment',
+		'Agreement Management',
 		'Contract Template management',
 		'Billing dates management',
 		'Annual dues management',
