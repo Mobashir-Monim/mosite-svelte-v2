@@ -50,6 +50,12 @@
 	{@html `<script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-QHJ645MLY3');</script>`}
 
 	<title>Mobashir Monim</title>
+	<meta name="description" content="Mobashir Monim's Portfolio Website" />
+	<meta
+		name="keywords"
+		content="Mobashir, Monim, Portfolio, Developer, Web Developer, Software Engineer"
+	/>
+	<meta name="author" content="Mobashir Monim" />
 </svelte:head>
 
 <svelte:body data-theme="crimson" />
