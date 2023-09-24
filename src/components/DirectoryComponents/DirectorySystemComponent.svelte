@@ -6,15 +6,19 @@
 		selectContent
 	} from '$lib/store/global-directory-system-store-control';
 	import type { UIFileOrFolderType, WindowStateType } from '$lib/types';
-	import { isMobileOrTabBrowser } from '$lib/utils/device-utils';
+	import { isMobileOrTabBrowser, isMobileBrowser } from '$lib/utils/device-utils';
 	import { getClickMode } from '$lib/utils/settings-utils';
+	import { onMount } from 'svelte';
 	import DocumentComponent from './DocumentComponent.svelte';
 	import FolderComponent from './FolderComponent.svelte';
 
 	export let webWindowName: string;
-	let webWindowState: WindowStateType;
 	export let contentContainerClasses: string = '';
+
+	let webWindowState: WindowStateType;
 	let selectedContent: string = '';
+	let isMobile: boolean = false;
+
 	$: isSelected = (name: string) => selectedContent === name;
 
 	globalDirectorySystemStore.subscribe((value) => {
@@ -49,12 +53,18 @@
 			if (getClickMode(window) === 'single') onOpen(content, true);
 		}, 100);
 	};
+
+	onMount(() => {
+		isMobile = isMobileBrowser(window);
+	});
 </script>
 
 <div
 	class="flex flex-row flex-wrap {webWindowName === 'root'
 		? 'justify-between'
-		: 'justify-center'} gap-5 w-full"
+		: isMobile
+		? 'justify-center'
+		: ''} gap-5 w-full"
 >
 	{#if webWindowState && webWindowState?.contents?.length}
 		{#each webWindowState?.contents as content, id}
