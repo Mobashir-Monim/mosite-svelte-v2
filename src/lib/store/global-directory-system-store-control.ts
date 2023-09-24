@@ -76,7 +76,7 @@ export const openWindow = (
 			minimized: originState?.minimized ?? false,
 			origin: originState,
 			tail: undefined,
-			justOpened: true,
+			justOpened: origin === 'root',
 			justClosed: false
 		});
 
