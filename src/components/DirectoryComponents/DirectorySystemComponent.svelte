@@ -77,7 +77,7 @@
 						isSelected={isSelected(content.name)}
 						{onSelect}
 						{onOpen}
-						tabindex={webWindowState.contents.length - id}
+						tabindex={-id}
 					/>
 				</slot>
 			{:else}
@@ -89,7 +89,7 @@
 						isSelected={isSelected(content.name)}
 						{onSelect}
 						{onOpen}
-						tabindex={webWindowState.contents.length - id}
+						tabindex={-id}
 					/>
 				</slot>
 			{/if}
