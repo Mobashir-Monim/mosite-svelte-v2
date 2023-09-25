@@ -38,11 +38,9 @@
 	};
 </script>
 
-<div
+<button
 	on:mousedown={onMouseDown}
-	role="button"
 	class="cursor-move w-full h-[50px] sm:h-[30px] border-b-[0.5px] border-neutral-500 bg-surface-400/70 dark:bg-surface-500 flex flex-row justify-between py-[2.5px] px-[10px]"
-	tabindex="0"
 >
 	<div class="flex flex-row gap-2">
 		{#if isFolder}
@@ -73,6 +71,6 @@
 		<WindowToolBarButton buttonType="minimize" onClick={minimize} />
 		<WindowToolBarButton buttonType="close" onClick={close} />
 	</div>
-</div>
+</button>
 
 <svelte:window on:mousemove={onMouseMove} on:mouseup={onMouseUp} />

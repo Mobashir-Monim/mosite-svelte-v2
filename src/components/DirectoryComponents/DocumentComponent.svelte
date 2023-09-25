@@ -9,7 +9,6 @@
 	export let isSelected: boolean = false;
 	export let onSelect: (name: string) => void;
 	export let onOpen: (name: string) => void;
-	export let tabindex: number;
 </script>
 
 <DirectoryContentComponent
@@ -19,7 +18,6 @@
 	{isSelected}
 	{onSelect}
 	{onOpen}
-	{tabindex}
 >
 	<DocumentIcon {size} />
 </DirectoryContentComponent>

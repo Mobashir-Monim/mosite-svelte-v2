@@ -105,15 +105,12 @@
 				</div>
 			</div>
 		{:else}
-			<div
+			<button
 				class="bg-surface-300 dark:bg-surface-500 absolute rounded-2xl border-[0.5px] {webWindowTransition} {webWindowBgOpacity} {webWindowClasses}"
 				style="width: {width}px; height: {height}px; left: {screenWidth / 2 -
 					width / 2 +
 					leftConst}px; top: {(screenHeight - 63) / 2 - height / 2 + topConst}px"
 				on:click={() => focusWindow(webWindowState.name)}
-				on:keypress={() => focusWindow(webWindowState.name)}
-				role="button"
-				tabindex="0"
 			>
 				<WindowToolBar
 					webWindowName={webWindowState.name}
@@ -139,7 +136,7 @@
 						<WindowSidebar webWindowName={webWindowState.name} />
 					{/if}
 				</div>
-			</div>
+			</button>
 		{/if}
 	</MediaQuery>
 {/if}

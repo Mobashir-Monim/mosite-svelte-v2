@@ -7,10 +7,9 @@
 	export let isSelected: boolean = false;
 	export let onSelect: (name: string) => void;
 	export let onOpen: (name: string) => void;
-	export let tabindex: number;
 </script>
 
-<DirectoryContentContainerComponent {containerClasses} {name} {onSelect} {onOpen} {tabindex}>
+<DirectoryContentContainerComponent {containerClasses} {name} {onSelect} {onOpen}>
 	<div class="{isSelected ? 'bg-white/20' : ''} rounded-2xl">
 		<slot />
 	</div>

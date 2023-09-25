@@ -38,7 +38,7 @@
 </script>
 
 <div
-	class="w-[200px] h-full shrink-0 p-2.5 flex flex-col gap-5 text-[0.6rem] bg-surface-300 dark:bg-surface-700/70"
+	class="w-[200px] h-full shrink-0 p-2.5 flex flex-col gap-5 text-[0.6rem] bg-surface-300 dark:bg-surface-700/70 text-left"
 >
 	{#if selectedContent}
 		<div class="mx-auto">

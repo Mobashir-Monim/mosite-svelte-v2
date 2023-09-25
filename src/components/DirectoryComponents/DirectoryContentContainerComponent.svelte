@@ -5,30 +5,24 @@
 	export let name: string = '';
 	export let onSelect: (name: string) => void;
 	export let onOpen: (name: string) => void;
-	export let tabindex: number;
 </script>
 
 <MediaQuery query="(max-width: 480px)" let:matches>
 	{#if matches}
-		<div
+		<button
 			class="flex flex-col cursor-pointer gap-2 {containerClasses}"
 			on:click={() => onOpen(name)}
-			on:keydown={() => onOpen(name)}
-			role="button"
-			{tabindex}
 		>
 			<slot />
-		</div>
+		</button>
 	{:else}
-		<div
+		<button
 			class="flex flex-col cursor-pointer gap-1 {containerClasses}"
 			on:click={() => onSelect(name)}
 			on:keydown={() => onSelect(name)}
 			on:dblclick={() => onOpen(name)}
-			role="button"
-			{tabindex}
 		>
 			<slot />
-		</div>
+		</button>
 	{/if}
 </MediaQuery>
