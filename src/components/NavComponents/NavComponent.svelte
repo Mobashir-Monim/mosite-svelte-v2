@@ -44,7 +44,7 @@
 		expanded = !expanded;
 	};
 
-	$: width = `w-full ${expanded ? `md:w-[300px]` : `md:w-[81px]`}`;
+	$: width = `w-full ${expanded ? `md:w-[250px]` : `md:w-[81px]`}`;
 	$: height = `${expanded ? `h-[100vh]` : `h-[80px]`} md:h-full`;
 </script>
 
