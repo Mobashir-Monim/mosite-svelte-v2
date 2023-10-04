@@ -51,31 +51,13 @@
 
 	<InputGroupComponent groupName="Socials">
 		<div class="flex flex-col max-w-[400px] gap-3 justify-between">
-			<InputContainerComponent
-				name="Facebook"
-				value={socials.find((social) => social.label === 'facebook')?.link}
-				type="line"
-			/>
-			<InputContainerComponent
-				name="Twitter"
-				value={socials.find((social) => social.label === 'twitter')?.link}
-				type="line"
-			/>
-			<InputContainerComponent
-				name="Github"
-				value={socials.find((social) => social.label === 'github')?.link}
-				type="line"
-			/>
-			<InputContainerComponent
-				name="Email"
-				value={socials.find((social) => social.label === 'email')?.link}
-				type="line"
-			/>
-			<InputContainerComponent
-				name="LinkedIn"
-				value={socials.find((social) => social.label === 'linkedin')?.link}
-				type="line"
-			/>
+			{#each socials as social}
+				<InputContainerComponent
+					name={`${social.label[0].toUpperCase()}${social.label.slice(1)}`}
+					value={social.link}
+					type="line"
+				/>
+			{/each}
 		</div>
 	</InputGroupComponent>
 
