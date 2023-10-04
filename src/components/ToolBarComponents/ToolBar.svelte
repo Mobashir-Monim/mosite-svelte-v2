@@ -27,7 +27,7 @@
 	).length;
 </script>
 
-<div class="absolute bottom-0 w-full flex flex-row justify-center">
+<div class="fixed bottom-0 w-full flex flex-row justify-center">
 	<div class="flex flex-row py-2 px-2 bg-gray-400/30 dark:bg-gray-500/30 rounded-2xl transit">
 		<ToolBarContent
 			icon={AppsIcon}
