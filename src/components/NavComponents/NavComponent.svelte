@@ -8,7 +8,8 @@
 	import WorkIcon from '../../assets/icons/WorkIcon.svelte';
 	import TrophyIcon from '../../assets/icons/TrophyIcon.svelte';
 	import NavOptionComponent from './NavOptionComponent.svelte';
-	import { collapsedNavWidth, expandedNavWidth } from '$lib/constants';
+
+	export let navExpansionToggle: (expansion: boolean) => void;
 
 	const navOptions: NavOptionType[] = [
 		{
@@ -42,6 +43,7 @@
 
 	const toggleExpansion = () => {
 		expanded = !expanded;
+		navExpansionToggle(expanded);
 	};
 
 	$: width = `w-full ${expanded ? `md:w-[250px]` : `md:w-[81px]`}`;
