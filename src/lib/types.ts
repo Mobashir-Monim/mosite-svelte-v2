@@ -62,3 +62,9 @@ export interface LocationType {
 
 export type SkeletonThemeType = 'skeleton' | 'crimson' | 'wintry' | 'modern';
 export type ClickType = 'single' | 'double';
+
+export interface NavOptionType {
+	name: string;
+	url: string;
+	icon: ConstructorOfATypedSvelteComponent;
+}
