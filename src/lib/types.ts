@@ -68,3 +68,8 @@ export interface NavOptionType {
 	url: string;
 	icon: ConstructorOfATypedSvelteComponent;
 }
+
+export interface SelectOptionsType {
+	name: string;
+	value: string;
+}

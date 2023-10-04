@@ -17,7 +17,7 @@
 			? 'md:w-[calc(100vw-250px)]'
 			: 'md:w-[calc(100vw-81px)]'}"
 	>
-		<div class="w-full md:max-w-[1000px] mx-auto py-10 transit">
+		<div class="w-full md:max-w-[1000px] mx-auto pt-10 pb-[80px] transit">
 			<slot />
 		</div>
 	</div>
