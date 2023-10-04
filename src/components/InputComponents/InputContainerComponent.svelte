@@ -8,7 +8,7 @@
 	export let placeholder: string = name;
 	export let value: string | undefined;
 	export let type: 'line' | 'text' | 'select';
-	export let options: SelectOptionsType[] = [];
+	export let options: SelectOptionsType[] | string[] = [];
 </script>
 
 <div class="flex flex-col w-full">

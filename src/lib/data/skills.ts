@@ -1,7 +1,8 @@
 import Skill from '$lib/models/Skill';
+import type { SkillType } from '$lib/types';
 
 export interface SkillTagType {
-	type: 'technical' | 'programming-language' | 'general';
+	type: SkillType
 	name: string;
 }
 

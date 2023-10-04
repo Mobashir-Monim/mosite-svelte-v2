@@ -73,3 +73,5 @@ export interface SelectOptionsType {
 	name: string;
 	value: string;
 }
+
+export type SkillType = 'technical' | 'programming-language' | 'general';
