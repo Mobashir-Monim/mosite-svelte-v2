@@ -1,5 +1,5 @@
 <script lang="ts">
-    export let id: string = "";
+	export let id: string = '';
 	export let name: string;
 	export let placeholder: string = name;
 	export let value: string | undefined;
@@ -13,10 +13,10 @@
 </script>
 
 <input
-    {id}
+	{id}
 	type="text"
 	{name}
-	class="input p-2 w-full text-[0.8rem]"
+	class="input px-2 py-[4.5px] w-full text-[0.8rem]"
 	{placeholder}
 	bind:value
 	on:change={callback}
