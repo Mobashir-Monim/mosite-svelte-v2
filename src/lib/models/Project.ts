@@ -1,6 +1,7 @@
 import type { CompanyType } from '$lib/data/companies';
 import type { ProjectType } from '$lib/data/projects';
 import type { SkillTagType } from '$lib/data/skills';
+import type { ProjectCategoryType, ProjectSourceType } from '$lib/types';
 
 interface ProjectMetaType {
 	company?: CompanyType;
@@ -13,8 +14,8 @@ class Project implements ProjectType {
 	description: string | string[];
 	features: string[];
 	url?: string | undefined;
-	project_type: 'research' | 'software' | 'module' | 'package';
-	source: 'open' | 'closed';
+	project_type: ProjectCategoryType;
+	source: ProjectSourceType;
 	company?: CompanyType;
 	skills?: SkillTagType[];
 	specialization_type: 'project-type';
@@ -23,8 +24,8 @@ class Project implements ProjectType {
 		name: string,
 		description: string | string[],
 		features: string[],
-		project_type: 'research' | 'software' | 'module' | 'package',
-		source: 'open' | 'closed',
+		project_type: ProjectCategoryType,
+		source: ProjectSourceType,
 		projectMeta?: ProjectMetaType
 	) {
 		this.name = name;

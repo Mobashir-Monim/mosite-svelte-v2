@@ -75,3 +75,5 @@ export interface SelectOptionsType {
 }
 
 export type SkillType = 'technical' | 'programming-language' | 'general';
+export type ProjectCategoryType = 'research' | 'software' | 'module' | 'package';
+export type ProjectSourceType = 'open' | 'closed';

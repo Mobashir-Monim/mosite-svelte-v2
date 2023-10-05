@@ -23,7 +23,8 @@ import {
 	techynafAlfred,
 	bracUUserValidator,
 	bracULMSUsageReportGenerator,
-	bracUAutomatedCourseManagementScripts
+	bracUAutomatedCourseManagementScripts,
+	grCliDevTool
 } from './projects';
 
 export const experiences: UIFolderType = new Folder(
@@ -35,6 +36,7 @@ export const experiences: UIFolderType = new Folder(
 export const projects: UIFolderType = new Folder(
 	'Projects',
 	[
+		grCliDevTool,
 		grBillingEngine,
 		grInventoryManagement,
 		grPointOfSale,

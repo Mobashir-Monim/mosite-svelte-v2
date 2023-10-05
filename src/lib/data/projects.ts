@@ -1,6 +1,6 @@
 import { gymRevenue, type CompanyType, eveneer, techynaf, bracU } from '$lib/data/companies';
 import Project from '$lib/models/Project';
-import type { UIFileType } from '$lib/types';
+import type { ProjectCategoryType, ProjectSourceType, UIFileType } from '$lib/types';
 import {
 	cssSkill,
 	htmlSkill,
@@ -27,8 +27,8 @@ export interface ProjectType extends UIFileType {
 	description: string | string[];
 	features: string[];
 	url?: string | undefined;
-	project_type: 'research' | 'software' | 'module' | 'package';
-	source: 'open' | 'closed';
+	project_type: ProjectCategoryType;
+	source: ProjectSourceType;
 	company?: CompanyType | undefined;
 	skills?: SkillTagType[];
 	specialization_type: 'project-type';
