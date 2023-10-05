@@ -1,17 +1,59 @@
 <script lang="ts">
-	import type { SkillTagType } from '$lib/data/skills';
 	import type { SkillType } from '$lib/types';
 	import CloseIcon from '../../../../assets/icons/CloseIcon.svelte';
 	import InputContainerComponent from '../../../../components/InputComponents/InputContainerComponent.svelte';
 	import InputGroupComponent from '../../../../components/InputComponents/InputGroupComponent.svelte';
+	import {
+		phpSkill,
+		pythonSkill,
+		javaScriptSkill,
+		typeScriptSkill,
+		reactJSSkill,
+		vueJSSkill,
+		svelteSkill,
+		graphQLSkill,
+		laravelSkill,
+		htmlSkill,
+		cssSkill,
+		tailwindSkill,
+		capacitorSkill,
+		softwareDevSkill,
+		softwareArcSkill,
+		blockchainSkill,
+		cryptographySkill,
+		awsSkill,
+		firestoreSkill,
+		scrumSkill,
+		mentoringSkill,
+		requirementAnalysisSkill,
+		type SkillTagType
+	} from '$lib/data/skills';
 
 	const skillTypes: SkillType[] = ['general', 'programming-language', 'technical'];
 
 	let skills: SkillTagType[] = [
-		{
-			type: 'general',
-			name: ''
-		}
+		phpSkill,
+		pythonSkill,
+		javaScriptSkill,
+		typeScriptSkill,
+		reactJSSkill,
+		vueJSSkill,
+		svelteSkill,
+		graphQLSkill,
+		laravelSkill,
+		htmlSkill,
+		cssSkill,
+		tailwindSkill,
+		capacitorSkill,
+		softwareDevSkill,
+		softwareArcSkill,
+		blockchainSkill,
+		cryptographySkill,
+		awsSkill,
+		firestoreSkill,
+		scrumSkill,
+		mentoringSkill,
+		requirementAnalysisSkill
 	];
 
 	const addSkill = () => {
@@ -46,7 +88,7 @@
 						<button
 							type="button"
 							on:click={() => removeSkill(index)}
-							class="btn btn-icon btn-sm variant-filled-error mb-auto p-2 ml-5 md:ml-10"
+							class="btn btn-icon btn-sm variant-outline-error mb-auto p-2 ml-5 md:ml-10"
 						>
 							<CloseIcon size={20} />
 						</button>
