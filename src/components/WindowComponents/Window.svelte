@@ -26,9 +26,9 @@
 		height: number = 400;
 
 	onMount(() => {
-		width = Math.min(webWindowState.type === 'settings' ? 600 : 700, screenWidth);
+		width = Math.min(600, screenWidth);
 		height = Math.min(
-			webWindowState.type === 'folder' || webWindowState.type === 'settings' ? 400 : 800,
+			webWindowState.type === 'folder' || webWindowState.type === 'settings' ? 400 : 700,
 			screenHeight - toolBarHeight
 		);
 	});
@@ -122,7 +122,11 @@
 					{onMouseMove}
 				/>
 				<div class="flex flex-row h-[calc(100%-30px)]">
-					<div class="h-full bg-white/10 w-full p-2.5 overflow-y-auto">
+					<div
+						class="h-full bg-white/10 w-full {webWindowState.type === 'folder'
+							? 'p-2.5'
+							: 'py-10 px-14'} overflow-y-auto"
+					>
 						{#if webWindowState.type === 'folder'}
 							<DirectorySystemComponent webWindowName={webWindowState.name} />
 						{:else if webWindowState.type === 'settings'}
