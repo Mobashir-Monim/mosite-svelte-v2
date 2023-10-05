@@ -16,8 +16,8 @@
 		country: ''
 	};
 
-	let jobTitle: string;
-	let description: string;
+	let jobTitle: string = '';
+	let description: string = '';
 
 	const socials: SocialItemType[] = [
 		{ label: 'facebook', link: '' },
