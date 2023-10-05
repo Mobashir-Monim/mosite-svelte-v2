@@ -4,20 +4,24 @@
 	import TextInputComponent from './TextInputComponent.svelte';
 	import SelectInputComponent from './SelectInputComponent.svelte';
 
+    export let id: string = "";
 	export let name: string;
 	export let placeholder: string = name;
-	export let value: string | undefined;
-	export let type: 'line' | 'text' | 'select';
+	export let value: string | string[] | undefined;
+	export let type: 'line' | 'text' | 'select' | 'custom';
 	export let options: SelectOptionsType[] | string[] = [];
+	export let onChangeCallback: (value: string) => void = (value) => {};
 </script>
 
 <div class="flex flex-col w-full">
-	{#if type === 'line'}
-		<LineInputComponent {name} {placeholder} {value} />
+	{#if type === 'line' && typeof value === 'string'}
+		<LineInputComponent {id} {name} {placeholder} {value} {onChangeCallback} />
 	{:else if type === 'text'}
-		<TextInputComponent {name} {placeholder} {value} />
+		<TextInputComponent {id} {name} {placeholder} {value} {onChangeCallback} />
+	{:else if type === 'select' && typeof value === 'string'}
+		<SelectInputComponent {id} {name} {placeholder} {options} {value} {onChangeCallback} />
 	{:else}
-		<SelectInputComponent {name} {placeholder} {options} {value} />
+		<slot />
 	{/if}
 	<div class="flex flex-row justify-end text-[0.7rem]">
 		{name}
