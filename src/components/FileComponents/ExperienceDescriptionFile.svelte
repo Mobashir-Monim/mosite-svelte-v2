@@ -5,17 +5,20 @@
 	export let doc: UIFileType;
 </script>
 
-<img src={doc.doc.company.logo} class="w-[20%] rounded-full mx-auto" alt={doc.doc.company.name} />
-
-<div class="flex flex-col w-full">
-	<h1 class="text-[1.5rem] border-b text-center">{doc.doc.company.name}</h1>
-	<h3 class="text-[1rem] text-center">{doc.doc.position}</h3>
-	<div class="mx-auto text-[0.7rem]">
-		{#if doc.doc.end}
-			{doc.doc.start.month}, {doc.doc.start.year} - {doc.doc.end.month}, {doc.doc.end.year}
-		{:else}
-			{doc.doc.start.month}, {doc.doc.start.year} - Present
-		{/if}
+<div class="flex flex-col md:flex-row gap-5">
+	<div class="mx-auto md:mx-0 max-w-[120px]">
+		<img src={doc.doc.company.logo} class="w-full rounded-2xl mx-auto" alt={doc.doc.company.name} />
+	</div>
+	<div class="flex flex-col w-full my-auto">
+		<h1 class="text-[1.5rem] border-b text-center md:text-left">{doc.doc.company.name}</h1>
+		<h3 class="text-[1rem] text-center md:text-left">{doc.doc.position}</h3>
+		<div class="text-[0.7rem] text-center md:text-left">
+			{#if doc.doc.end}
+				{doc.doc.start.month}, {doc.doc.start.year} - {doc.doc.end.month}, {doc.doc.end.year}
+			{:else}
+				{doc.doc.start.month}, {doc.doc.start.year} - Present
+			{/if}
+		</div>
 	</div>
 </div>
 

@@ -42,7 +42,7 @@
 	on:mousedown={onMouseDown}
 	class="cursor-move w-full h-[50px] sm:h-[30px] border-b-[0.5px] border-neutral-500 bg-surface-400/70 dark:bg-surface-500 flex flex-row justify-between py-[2.5px] px-[10px]"
 >
-	<div class="flex flex-row gap-2">
+	<div class="flex flex-row gap-2 my-auto">
 		{#if isFolder}
 			<div class="flex flex-row gap-0">
 				<button class="my-auto inline-block text-xs" on:click={moveUp}>

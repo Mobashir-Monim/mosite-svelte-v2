@@ -9,13 +9,19 @@
 
 <div class="flex flex-col gap-2">
 	<h1 class="text-[1.5rem] border-b w-full text-center">{doc.name}</h1>
-	{#if doc.url}
-		<a href={doc.url} target="_blank" class="flex flex-row gap-3 mx-auto">
-			<LinkIcon size={25} />
-			<span class="my-auto max-w-[200px] line-clamp-1">Link</span>
-		</a>
-	{/if}
 	<div class="flex flex-row gap-3 mx-auto">
+		{#if doc.url}
+			<a
+				href={doc.url}
+				target="_blank"
+				class="flex flex-row gap-2 mx-auto text-[0.65rem] rounded-full cursor-pointer px-3 py-1.5 bg-gradient-to-tr transition-all duration-200 ease-linear font-mono from-amber-400/80 to-pink-500/80 hover:drop-shadow-[0px_0px_10px_rgba(239,68,68,1)]"
+			>
+				<span class="my-auto">
+					<LinkIcon size={20} />
+				</span>
+				<span class="my-auto max-w-[200px] line-clamp-1">Link</span>
+			</a>
+		{/if}
 		<span
 			class="text-[0.65rem] rounded-full cursor-default px-3 py-1.5 bg-gradient-to-tr transition-all duration-200 ease-linear font-mono from-teal-400/80 to-violet-500/80 hover:drop-shadow-[0px_0px_10px_rgba(5,150,105,1)]"
 		>

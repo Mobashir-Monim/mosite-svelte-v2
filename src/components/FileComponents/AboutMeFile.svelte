@@ -10,9 +10,9 @@
 	export let doc: AboutMeType;
 </script>
 
-<div class="flex flex-col">
+<div class="flex flex-col gap-5">
 	<Logo
-		size={250}
+		size={160}
 		svgBoxClasses="mx-auto fill-none"
 		containerShape="none"
 		solidShapeClasses="stroke-gray-600 fill-gray-600 dark:stroke-gray-200 dark:fill-gray-200 stroke-2"
