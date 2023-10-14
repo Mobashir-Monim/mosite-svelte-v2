@@ -1,12 +1,20 @@
 import { AUTHORIZED_EDITOR_EMAIL } from '$env/static/private';
-import { redirect, error, type RequestEvent } from '@sveltejs/kit';
+import { error, type RequestEvent } from '@sveltejs/kit';
+import { redirect } from 'sveltekit-flash-message/server';
 import admin from '$lib/server/admin';
 import type { UserType } from '$lib/types';
 
-export const isAuthenticated = (
-	user: UserType | null | undefined,
-	shouldThrow: boolean = true
-): boolean => {
+interface AuthMiddlewareParamType {
+	user: UserType | null | undefined;
+	event: RequestEvent;
+	shouldThrow?: boolean;
+}
+
+export const isAuthenticated = ({
+	user,
+	event,
+	shouldThrow = true
+}: AuthMiddlewareParamType): boolean => {
 	let shouldRedirect = user === undefined || user === null;
 
 	if (user !== undefined && user !== null) {
@@ -22,7 +30,7 @@ export const isAuthenticated = (
 	}
 
 	if (shouldRedirect && shouldThrow) {
-		throw redirect(302, '/login');
+		throw redirect(302, '/login', { type: 'error', message: 'Please login to continue' }, event);
 	}
 
 	return !shouldRedirect;
@@ -36,11 +44,18 @@ export const isUnauthenticated = (user: UserType | null | undefined): boolean =>
 	throw redirect(302, '/');
 };
 
-export const isSiteEditor = (
-	user: UserType | null | undefined,
-	shouldThrow: boolean = true
-): boolean => {
-	if (!(isAuthenticated(user, shouldThrow) && user && user.email === AUTHORIZED_EDITOR_EMAIL)) {
+export const isSiteEditor = ({
+	user,
+	event,
+	shouldThrow = true
+}: AuthMiddlewareParamType): boolean => {
+	if (
+		!(
+			isAuthenticated({ user, event, shouldThrow }) &&
+			user &&
+			user.email === AUTHORIZED_EDITOR_EMAIL
+		)
+	) {
 		if (shouldThrow) {
 			throw error(401, {
 				message: 'Unauthorized user'
@@ -53,5 +68,7 @@ export const isSiteEditor = (
 	return true;
 };
 
-export const authParamExtractor = (event: RequestEvent): UserType | null | undefined =>
-	event.locals.user;
+export const authParamExtractor = (event: RequestEvent): AuthMiddlewareParamType => ({
+	user: event.locals.user,
+	event: event
+});

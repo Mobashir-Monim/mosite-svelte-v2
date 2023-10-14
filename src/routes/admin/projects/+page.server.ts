@@ -1,8 +1,11 @@
 import { isSiteEditor } from '$lib/middlewares/authMiddleware.js';
 
-export const load = async ({ locals, cookies }) => {
-	isSiteEditor(locals.user);
-	const accessToken = cookies.get('accessToken');
+export const load = async (event) => {
+	isSiteEditor({
+		user: event.locals.user,
+		event
+	});
+	const accessToken = event.cookies.get('accessToken');
 
 	return {
 		accessToken

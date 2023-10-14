@@ -11,7 +11,9 @@ declare global {
 			user: UserType | null | undefined;
 			accessToken: string | null;
 		}
-		// interface PageData {}
+		interface PageData {
+			flash?: { type: 'success' | 'error'; message: string };
+		}
 		// interface Platform {}
 	}
 

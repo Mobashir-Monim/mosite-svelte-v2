@@ -13,11 +13,13 @@
 	import { page } from '$app/stores';
 	import AppsMenu from '../components/AppsMenuComponents/AppsMenu.svelte';
 	import firebaseClient from '$lib/client/firebase-client';
+	import { getFlash } from 'sveltekit-flash-message';
 
 	let webWindows: WindowStateType[];
 	let showLoadingScreen: boolean;
 	let showInitialClickSettings: boolean;
 	let isRootPage: boolean = true;
+	const flash = getFlash(page, { clearAfterMs: 5000, clearOnNavigate: true });
 
 	globalDirectorySystemStore.subscribe((value) => {
 		webWindows = value.filter((win) => win.name !== 'root' && !win.minimized);
@@ -66,6 +68,15 @@
 <svelte:body data-theme="crimson" />
 
 <main>
+	{#if $flash}
+		<div
+			style:background-color={$flash.type == 'success' ? '#3D9970' : '#FF4136'}
+			style:z-index="50"
+			class="absolute top-[80px] left-[calc(50%-150px)] text-center p-1 rounded-full w-[300px]"
+		>
+			{$flash.message}
+		</div>
+	{/if}
 	<slot />
 
 	{#if !$page.error}
