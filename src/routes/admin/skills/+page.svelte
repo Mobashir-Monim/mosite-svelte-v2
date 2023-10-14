@@ -1,8 +1,8 @@
 <script lang="ts">
 	import type { SkillType } from '$lib/types';
-	import CloseIcon from '../../../../assets/icons/CloseIcon.svelte';
-	import InputContainerComponent from '../../../../components/InputComponents/InputContainerComponent.svelte';
-	import InputGroupComponent from '../../../../components/InputComponents/InputGroupComponent.svelte';
+	import CloseIcon from '../../../assets/icons/CloseIcon.svelte';
+	import InputContainerComponent from '../../../components/InputComponents/InputContainerComponent.svelte';
+	import InputGroupComponent from '../../../components/InputComponents/InputGroupComponent.svelte';
 	import {
 		phpSkill,
 		pythonSkill,

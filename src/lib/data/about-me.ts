@@ -1,5 +1,5 @@
 import AboutMe from '$lib/models/AboutMe';
-import type { UIFileType } from '$lib/types';
+import type { SocialLabelType, UIFileType } from '$lib/types';
 import {
 	phpSkill,
 	pythonSkill,
@@ -23,7 +23,7 @@ import {
 	scrumSkill,
 	mentoringSkill,
 	type SkillTagType,
-    requirementAnalysisSkill
+	requirementAnalysisSkill
 } from './skills';
 
 export interface PersonNameType {
@@ -39,7 +39,7 @@ export interface LocationType {
 }
 
 export interface SocialItemType {
-	label: 'facebook' | 'twitter' | 'github' | 'linkedin' | 'email';
+	label: SocialLabelType;
 	link: string;
 }
 
@@ -108,7 +108,7 @@ export const aboutMe: AboutMeType = new AboutMe(
 		firestoreSkill,
 		scrumSkill,
 		mentoringSkill,
-        requirementAnalysisSkill
+		requirementAnalysisSkill
 	],
 	{
 		city: 'Dhaka',

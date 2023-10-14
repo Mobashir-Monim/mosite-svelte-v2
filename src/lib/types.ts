@@ -1,3 +1,5 @@
+import type { PersonNameType, SocialItemType } from './data/about-me';
+
 export interface UIFileType {
 	type: 'file';
 	name: string;
@@ -65,8 +67,10 @@ export type ClickType = 'single' | 'double';
 
 export interface NavOptionType {
 	name: string;
-	url: string;
+	url?: string;
 	icon: ConstructorOfATypedSvelteComponent;
+	classes?: string;
+	callback?: () => void;
 }
 
 export interface SelectOptionsType {
@@ -77,3 +81,31 @@ export interface SelectOptionsType {
 export type SkillType = 'technical' | 'programming-language' | 'general';
 export type ProjectCategoryType = 'research' | 'software' | 'module' | 'package';
 export type ProjectSourceType = 'open' | 'closed';
+export type SocialLabelType = 'facebook' | 'twitter' | 'github' | 'linkedin' | 'email';
+
+export interface ProfileType {
+	name: PersonNameType;
+	location: LocationType;
+	description: string | string[];
+	socials: SocialItemType[];
+	title: string;
+}
+
+export type HttpMethodsType = 'GET' | 'POST' | 'PUT' | 'PATCH' | 'DELETE';
+
+export interface HttpRequestOptionsType {
+	method: HttpMethodsType;
+	headers: {
+		'Content-Type'?: 'application/json';
+		Authorization?: string;
+	};
+	body?: string;
+}
+
+export interface UserType {
+	email: string;
+	uid: string;
+	displayName: string;
+	photoURL: string;
+	idToken: string;
+}

@@ -24,9 +24,9 @@
 	} from '$lib/data/projects';
 	import type { ProjectType } from '$lib/data/projects';
 	import type { ProjectCategoryType, ProjectSourceType } from '$lib/types';
-	import CloseIcon from '../../../../assets/icons/CloseIcon.svelte';
-	import InputContainerComponent from '../../../../components/InputComponents/InputContainerComponent.svelte';
-	import InputGroupComponent from '../../../../components/InputComponents/InputGroupComponent.svelte';
+	import CloseIcon from '../../../assets/icons/CloseIcon.svelte';
+	import InputContainerComponent from '../../../components/InputComponents/InputContainerComponent.svelte';
+	import InputGroupComponent from '../../../components/InputComponents/InputGroupComponent.svelte';
 
 	let projects: ProjectType[] = [
 		grCliDevTool,

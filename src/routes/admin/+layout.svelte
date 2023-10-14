@@ -1,11 +1,9 @@
 <script lang="ts">
-	import NavComponent from '../../../components/NavComponents/NavComponent.svelte';
+	import NavComponent from '../../components/NavComponents/NavComponent.svelte';
 
 	let isNavExpanded: boolean = false;
 
 	const navExpansionToggle = (expansion: boolean) => {
-		console.log('called');
-
 		isNavExpanded = expansion;
 	};
 </script>

@@ -12,10 +12,12 @@
 	import { getClickMode, getThemeMode, setClickMode } from '$lib/utils/settings-utils';
 	import { page } from '$app/stores';
 	import AppsMenu from '../components/AppsMenuComponents/AppsMenu.svelte';
+	import firebaseClient from '$lib/client/firebase-client';
 
 	let webWindows: WindowStateType[];
 	let showLoadingScreen: boolean;
 	let showInitialClickSettings: boolean;
+	let isRootPage: boolean = true;
 
 	globalDirectorySystemStore.subscribe((value) => {
 		webWindows = value.filter((win) => win.name !== 'root' && !win.minimized);
@@ -40,6 +42,9 @@
 		} else {
 			showInitialClickSettings = getClickMode(window) === null;
 		}
+
+		firebaseClient;
+		isRootPage = window.location.pathname === '/';
 	});
 </script>
 
@@ -64,7 +69,9 @@
 	<slot />
 
 	{#if !$page.error}
-		<ToolBar />
+		{#if isRootPage}
+			<ToolBar />
+		{/if}
 
 		{#each webWindows as webWindow (webWindow.name)}
 			<Window webWindowState={webWindow} />

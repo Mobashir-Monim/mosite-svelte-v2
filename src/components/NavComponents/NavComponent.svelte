@@ -1,15 +1,21 @@
 <script lang="ts">
 	import type { NavOptionType } from '$lib/types';
 	import Logo from '../../assets/icons/Logo.svelte';
-
 	import ProfileIcon from '../../assets/icons/ProfileIcon.svelte';
 	import SkillIcon from '../../assets/icons/SkillIcon.svelte';
 	import ProjectIcon from '../../assets/icons/ProjectIcon.svelte';
 	import WorkIcon from '../../assets/icons/WorkIcon.svelte';
 	import TrophyIcon from '../../assets/icons/TrophyIcon.svelte';
+	import LogoutIcon from '../../assets/icons/LogoutIcon.svelte';
 	import NavOptionComponent from './NavOptionComponent.svelte';
+	import * as api from '$lib/utils/api';
 
 	export let navExpansionToggle: (expansion: boolean) => void;
+
+	const logout = async () => {
+		await api.post('/logout');
+		window.open('/', '_self');
+	};
 
 	const navOptions: NavOptionType[] = [
 		{
@@ -19,23 +25,29 @@
 		},
 		{
 			name: 'Skills',
-			url: '/admin/dashboard/skills',
+			url: '/admin/skills',
 			icon: SkillIcon
 		},
 		{
 			name: 'Projects',
-			url: '/admin/dashboard/projects',
+			url: '/admin/projects',
 			icon: ProjectIcon
 		},
 		{
 			name: 'Experiences',
-			url: '/admin/dashboard/experiences',
+			url: '/admin/experiences',
 			icon: WorkIcon
 		},
 		{
 			name: 'Attainments',
-			url: '/admin/dashboard/attainments',
+			url: '/admin/attainments',
 			icon: TrophyIcon
+		},
+		{
+			name: 'Logout',
+			icon: LogoutIcon,
+			classes: 'mt-auto',
+			callback: logout
 		}
 	];
 
