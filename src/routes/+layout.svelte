@@ -70,9 +70,11 @@
 <main>
 	{#if $flash}
 		<div
-			style:background-color={$flash.type == 'success' ? '#3D9970' : '#FF4136'}
 			style:z-index="50"
-			class="absolute top-[80px] left-[calc(50%-150px)] text-center p-1 rounded-full w-[300px]"
+			class="absolute top-[80px] left-[calc(50%-150px)] text-center p-1 rounded-full w-[300px] {$flash.type ===
+			'success'
+				? 'bg-success-700'
+				: 'bg-error-700'}"
 		>
 			{$flash.message}
 		</div>
