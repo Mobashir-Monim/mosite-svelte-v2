@@ -2,7 +2,7 @@
 	import { appMenuVisibility } from '$lib/store';
 	import { toggleAppMenuVisibility } from '$lib/store/app-menu-visibility-control';
 	import type { AppMenuItemType } from '$lib/types';
-	import { getAuth, onAuthStateChanged } from 'firebase/auth';
+	import { getAuth } from 'firebase/auth';
 	import CloseIcon from '../../assets/icons/CloseIcon.svelte';
 	import LogoutIcon from '../../assets/icons/LogoutIcon.svelte';
 	import AuthIcon from '../../assets/icons/AuthIcon.svelte';
