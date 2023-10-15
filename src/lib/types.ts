@@ -109,3 +109,9 @@ export interface UserType {
 	photoURL: string;
 	idToken: string;
 }
+
+export interface AppMenuItemType {
+	name: string;
+	icon: ConstructorOfATypedSvelteComponent;
+	onclick: () => void;
+}

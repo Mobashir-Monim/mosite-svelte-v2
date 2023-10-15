@@ -36,7 +36,7 @@ export const isAuthenticated = ({
 	return !shouldRedirect;
 };
 
-export const isUnauthenticated = (user: UserType | null | undefined): boolean => {
+export const isUnauthenticated = ({ user }: AuthMiddlewareParamType): boolean => {
 	if (user === undefined || user === null) {
 		return true;
 	}
