@@ -15,6 +15,8 @@
 	import firebaseClient from '$lib/client/firebase-client';
 	import { getFlash } from 'sveltekit-flash-message';
 
+	export let data;
+
 	let webWindows: WindowStateType[];
 	let showLoadingScreen: boolean;
 	let showInitialClickSettings: boolean;
@@ -98,7 +100,7 @@
 			<LoadingScreen {removeLoadingScreen} />
 		{/if}
 
-		<AppsMenu />
+		<AppsMenu accessToken={data.accessToken} />
 	{/if}
 </main>
 

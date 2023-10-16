@@ -2,43 +2,38 @@
 	import { appMenuVisibility } from '$lib/store';
 	import { toggleAppMenuVisibility } from '$lib/store/app-menu-visibility-control';
 	import type { AppMenuItemType } from '$lib/types';
-	import { getAuth } from 'firebase/auth';
 	import CloseIcon from '../../assets/icons/CloseIcon.svelte';
 	import LogoutIcon from '../../assets/icons/LogoutIcon.svelte';
 	import AuthIcon from '../../assets/icons/AuthIcon.svelte';
-
 	import * as api from '$lib/utils/api';
+
+	export let accessToken: string | null;
 
 	let isVisible: boolean = false;
 	let apps: AppMenuItemType[] = [];
 
 	appMenuVisibility.subscribe((val) => {
 		isVisible = val;
-		const auth = getAuth();
-
-		if (auth.currentUser) {
-			apps.unshift({
-				name: 'Logout',
-				icon: LogoutIcon,
-				onclick: async () => {
-					console.log('called');
-
-					await api.post('/logout');
-					console.log('done');
-
-					// window.open('/', '_self');
-				}
-			});
-		} else {
-			apps.unshift({
-				name: 'Login',
-				icon: AuthIcon,
-				onclick: () => {
-					window.open('/login', '_self');
-				}
-			});
-		}
 	});
+
+	if (accessToken) {
+		apps.unshift({
+			name: 'Logout',
+			icon: LogoutIcon,
+			onclick: async () => {
+				await api.post('/logout');
+				window.open('/', '_self');
+			}
+		});
+	} else {
+		apps.unshift({
+			name: 'Login',
+			icon: AuthIcon,
+			onclick: () => {
+				window.open('/login', '_self');
+			}
+		});
+	}
 </script>
 
 <div
