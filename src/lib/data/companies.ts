@@ -53,15 +53,15 @@ export const techynaf: CompanyType = new Company(
 );
 
 export const eveneer: CompanyType = new Company(
-	'Eveneer',
+	'Eveneer Solutions',
 	'Eveneer, an initiative conceived by myself, functions as a strategic platform for engaging in specialized contractual endeavors aligned with both my research pursuits and personal interests. The operational ethos of Eveneer is distinguished by a meticulous approach to client engagement, deliberately selecting projects based on a discerning criterion.',
 	eveneerLogo,
 	{
-		city: 'Dhaka',
-		country: 'Bangladesh'
+		city: 'Sheridan',
+		country: 'WY, USA'
 	},
 	'Software Development',
-	'eveneer.xyz'
+	'eveneer.dev'
 );
 
 export const aml: CompanyType = new Company(

@@ -111,7 +111,7 @@ export const aboutMe: AboutMeType = new AboutMe(
         requirementAnalysisSkill
 	],
 	{
-		city: 'Dhaka',
-		country: 'Bangladesh'
+		city: 'Remote',
+		country: 'USA'
 	}
 );
